@@ -16,9 +16,9 @@ namespace SCDType6Generator.Tests
             //Arrange
             String Actual = "NotADataType";
             //Act
-
+            SqlServerDataType sqlServerDataType = new SqlServerDataType(Actual);
             //Assert
-            Assert.Throws<System.ArgumentOutOfRangeException>(() => new SqlServerDataType(Actual));
+            Assert.Throws<System.ArgumentOutOfRangeException>(delegate { sqlServerDataType.ParameterValidation(); });
         }
 
         [TestCase]
@@ -27,9 +27,9 @@ namespace SCDType6Generator.Tests
             //Arrange
             String Actual = "sql_variant";
             //Act
-
+            SqlServerDataType sqlServerDataType = new SqlServerDataType(Actual);
             //Assert
-            Assert.Throws<System.ArgumentOutOfRangeException>(() => new SqlServerDataType(Actual));
+            Assert.Throws<System.ArgumentOutOfRangeException>(delegate { sqlServerDataType.ParameterValidation(); });
         }
 
         [TestCase]
@@ -38,9 +38,9 @@ namespace SCDType6Generator.Tests
             //Arrange
             String Actual = "smallmoney";
             //Act
-
+            SqlServerDataType sqlServerDataType = new SqlServerDataType(Actual);
             //Assert
-            Assert.That(() => new SqlServerDataType(Actual), Throws.Nothing);
+            Assert.That(delegate { sqlServerDataType.ParameterValidation(); }, Throws.Nothing);
         }
     }
 }

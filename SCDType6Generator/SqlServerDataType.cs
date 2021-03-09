@@ -13,7 +13,6 @@ namespace SCDType6Generator
         public SqlServerDataType(String DataType)
         {
             this.DataType = DataType;
-            this.ParameterValidation();
         }
 
         public void ParameterValidation ()
