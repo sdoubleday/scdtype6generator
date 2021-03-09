@@ -9,6 +9,12 @@ namespace SCDType6Generator
     public class SqlServerDataType
     {
         String DataTypeName;
+        int CHARACTER_MAXIMUM_LENGTH;// int Maximum length, in characters, for binary data, character data, or text and image data.
+                                     //-1 for xml and large-value type data.Otherwise, NULL is returned.For more information, see Data Types(Transact-SQL).
+        int NUMERIC_PRECISION;// tinyint Precision of approximate numeric data, exact numeric data, integer data, or monetary data.Otherwise, NULL is returned.
+        int NUMERIC_SCALE;//   int Scale of approximate numeric data, exact numeric data, integer data, or monetary data.Otherwise, NULL is returned.
+        int DATETIME_PRECISION;// smallint
+
 
         public SqlServerDataType(String DataTypeName)
         {
