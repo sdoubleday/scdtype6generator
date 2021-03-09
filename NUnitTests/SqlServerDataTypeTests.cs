@@ -18,7 +18,7 @@ namespace SCDType6Generator.Tests
             //Act
             SqlServerDataType sqlServerDataType = new SqlServerDataType(Actual);
             //Assert
-            Assert.Throws<System.ArgumentOutOfRangeException>(delegate { sqlServerDataType.ParameterValidation(); });
+            Assert.Throws<DataTypeNotRecognizedException>(delegate { sqlServerDataType.ParameterValidation(); });
         }
 
         [TestCase]
@@ -29,7 +29,7 @@ namespace SCDType6Generator.Tests
             //Act
             SqlServerDataType sqlServerDataType = new SqlServerDataType(Actual);
             //Assert
-            Assert.Throws<System.ArgumentOutOfRangeException>(delegate { sqlServerDataType.ParameterValidation(); });
+            Assert.Throws<DataTypeNotSupportedException>(delegate { sqlServerDataType.ParameterValidation(); });
         }
 
         [TestCase]

@@ -25,10 +25,10 @@ namespace SCDType6Generator
                 //Do nothing! Yay!
             }
             else if (knownUnsupportedList.Contains(this.DataType)) { 
-                throw new ArgumentOutOfRangeException("DataType","DataType must be a primitive SQL Server Data Type.");
+                throw new DataTypeNotSupportedException("DataType must be a primitive SQL Server Data Type.",this.DataType);
             }
             else {
-                throw new ArgumentOutOfRangeException("DataType","DataType must be a known SQL Server Data Type.");
+                throw new DataTypeNotRecognizedException("DataType must be a known SQL Server Data Type.",this.DataType);
             }
         }
 
