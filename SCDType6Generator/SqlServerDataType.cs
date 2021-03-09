@@ -8,11 +8,11 @@ namespace SCDType6Generator
 {
     public class SqlServerDataType
     {
-        String DataType;
+        String DataTypeName;
 
-        public SqlServerDataType(String DataType)
+        public SqlServerDataType(String DataTypeName)
         {
-            this.DataType = DataType;
+            this.DataTypeName = DataTypeName;
         }
 
         public void ParameterValidation ()
@@ -21,14 +21,14 @@ namespace SCDType6Generator
             List<String> knownUnsupportedList = GetKnownButUnsupportedList();
 
 
-            if (list.Contains(this.DataType)) { 
+            if (list.Contains(this.DataTypeName)) { 
                 //Do nothing! Yay!
             }
-            else if (knownUnsupportedList.Contains(this.DataType)) { 
-                throw new DataTypeNotSupportedException("DataType must be a primitive SQL Server Data Type.",this.DataType);
+            else if (knownUnsupportedList.Contains(this.DataTypeName)) { 
+                throw new DataTypeNotSupportedException("DataType must be a primitive SQL Server Data Type.",this.DataTypeName);
             }
             else {
-                throw new DataTypeNotRecognizedException("DataType must be a known SQL Server Data Type.",this.DataType);
+                throw new DataTypeNotRecognizedException("DataType must be a known SQL Server Data Type.",this.DataTypeName);
             }
         }
 
