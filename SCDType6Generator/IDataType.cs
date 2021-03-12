@@ -4,7 +4,7 @@
     {
         string DataTypeName { get; set; }
 
-        SqlServerDataType Clone();
+        IDataType Clone();
         void ParameterValidation();
         string Script();
     }
