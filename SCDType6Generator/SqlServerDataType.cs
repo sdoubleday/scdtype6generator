@@ -6,14 +6,9 @@ using System.Threading.Tasks;
 
 namespace SCDType6Generator
 {
-    public class SqlServerDataType
+    public class SqlServerDataType : IDataType
     {
         public String DataTypeName { get; set; }
-        int CHARACTER_MAXIMUM_LENGTH;// int Maximum length, in characters, for binary data, character data, or text and image data.
-                                     //-1 for xml and large-value type data.Otherwise, NULL is returned.For more information, see Data Types(Transact-SQL).
-        int NUMERIC_PRECISION;// tinyint Precision of approximate numeric data, exact numeric data, integer data, or monetary data.Otherwise, NULL is returned.
-        int NUMERIC_SCALE;//   int Scale of approximate numeric data, exact numeric data, integer data, or monetary data.Otherwise, NULL is returned.
-        int DATETIME_PRECISION;// smallint
 
         public SqlServerDataType(String DataTypeName)
         {
@@ -21,20 +16,23 @@ namespace SCDType6Generator
             this.ParameterValidation();
         }
 
-        public void ParameterValidation ()
+        public void ParameterValidation()
         {
             List<String> list = GetValidList();
             List<String> knownUnsupportedList = GetKnownButUnsupportedList();
 
 
-            if (list.Contains(this.DataTypeName)) { 
+            if (list.Contains(this.DataTypeName))
+            {
                 //Do nothing! Yay!
             }
-            else if (knownUnsupportedList.Contains(this.DataTypeName)) { 
-                throw new DataTypeNotSupportedException("DataType must be a primitive SQL Server Data Type.",this.DataTypeName);
+            else if (knownUnsupportedList.Contains(this.DataTypeName))
+            {
+                throw new DataTypeNotSupportedException("DataType must be a primitive SQL Server Data Type.", this.DataTypeName);
             }
-            else {
-                throw new DataTypeNotRecognizedException("DataType must be a known SQL Server Data Type.",this.DataTypeName);
+            else
+            {
+                throw new DataTypeNotRecognizedException("DataType must be a known SQL Server Data Type.", this.DataTypeName);
             }
         }
 
