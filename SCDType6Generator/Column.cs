@@ -13,7 +13,7 @@ namespace SCDType6Generator
         int ORDINAL_POSITION;
         String COLUMN_DEFAULT;
         String IS_NULLABLE;
-        SqlServerDataType DATA_TYPE;
+        IDataType DATA_TYPE;
         #endregion Properties
 
 #region Constructors
@@ -22,7 +22,7 @@ namespace SCDType6Generator
             ,int ORDINAL_POSITION
             ,String COLUMN_DEFAULT
             ,String IS_NULLABLE
-            , SqlServerDataType DATA_TYPE
+            ,IDataType DATA_TYPE
         ) {
             this.COLUMN_NAME = COLUMN_NAME;
             this.ORDINAL_POSITION = ORDINAL_POSITION;
