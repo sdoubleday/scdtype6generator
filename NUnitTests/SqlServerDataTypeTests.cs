@@ -16,9 +16,9 @@ namespace SCDType6Generator.Tests
             //Arrange
             String Actual = "NotADataType";
             //Act
-            SqlServerDataType sqlServerDataType = new SqlServerDataType(Actual);
+
             //Assert
-            Assert.Throws<DataTypeNotRecognizedException>(delegate { sqlServerDataType.ParameterValidation(); });
+            Assert.Throws<DataTypeNotRecognizedException>(delegate { new SqlServerDataType(Actual); });
         }
 
         [TestCase]
@@ -27,20 +27,20 @@ namespace SCDType6Generator.Tests
             //Arrange
             String Actual = "sql_variant";
             //Act
-            SqlServerDataType sqlServerDataType = new SqlServerDataType(Actual);
+
             //Assert
-            Assert.Throws<DataTypeNotSupportedException>(delegate { sqlServerDataType.ParameterValidation(); });
+            Assert.Throws<DataTypeNotSupportedException>(delegate { new SqlServerDataType(Actual); });
         }
 
         [TestCase]
         public void ParameterValidation_NothingIfSupported()
         {
             //Arrange
-            String Actual = "smallmoney";
+            String Actual = "int";
             //Act
-            SqlServerDataType sqlServerDataType = new SqlServerDataType(Actual);
+
             //Assert
-            Assert.That(delegate { sqlServerDataType.ParameterValidation(); }, Throws.Nothing);
+            Assert.That(delegate { new SqlServerDataType(Actual); }, Throws.Nothing);
         }
     }
 }
