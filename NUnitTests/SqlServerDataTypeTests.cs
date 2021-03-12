@@ -42,5 +42,35 @@ namespace SCDType6Generator.Tests
             //Assert
             Assert.That(delegate { new SqlServerDataType(Actual); }, Throws.Nothing);
         }
+        
+        [TestCase]
+        public void Script()
+        {
+            //Arrange
+            String Expected = "[int]";
+            //Act
+            String dataType = "int";
+            SqlServerDataType sqlServerDataType = new SqlServerDataType(dataType);
+            String Actual = sqlServerDataType.Script();
+
+            //Assert
+            Assert.AreEqual(Expected, Actual);
+        }
+        
+        [TestCase]
+        public void Clone()
+        {   //Arrange
+            String dataType = "int";
+            SqlServerDataType sqlServerDataTypeDolly = new SqlServerDataType(dataType);
+            String Expected = sqlServerDataTypeDolly.Script();
+         
+            //Act
+            SqlServerDataType sqlServerDataTypeDollyPrime = sqlServerDataTypeDolly.Clone();
+            sqlServerDataTypeDollyPrime.DataTypeName = "bigint";
+            String Actual = sqlServerDataTypeDollyPrime.Script();
+
+            //Assert
+            Assert.AreNotEqual(Expected, Actual);
+        }
     }
 }

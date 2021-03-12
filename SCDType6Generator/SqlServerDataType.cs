@@ -8,13 +8,12 @@ namespace SCDType6Generator
 {
     public class SqlServerDataType
     {
-        String DataTypeName;
+        public String DataTypeName { get; set; }
         int CHARACTER_MAXIMUM_LENGTH;// int Maximum length, in characters, for binary data, character data, or text and image data.
                                      //-1 for xml and large-value type data.Otherwise, NULL is returned.For more information, see Data Types(Transact-SQL).
         int NUMERIC_PRECISION;// tinyint Precision of approximate numeric data, exact numeric data, integer data, or monetary data.Otherwise, NULL is returned.
         int NUMERIC_SCALE;//   int Scale of approximate numeric data, exact numeric data, integer data, or monetary data.Otherwise, NULL is returned.
         int DATETIME_PRECISION;// smallint
-
 
         public SqlServerDataType(String DataTypeName)
         {
@@ -37,6 +36,18 @@ namespace SCDType6Generator
             else {
                 throw new DataTypeNotRecognizedException("DataType must be a known SQL Server Data Type.",this.DataTypeName);
             }
+        }
+
+        public String Script()
+        {
+            String returnable = "[" + this.DataTypeName + "]";
+            return returnable;
+        }
+
+        public SqlServerDataType Clone()
+        {
+            SqlServerDataType returnable = new SqlServerDataType(this.DataTypeName);
+            return returnable;
         }
 
         private static List<string> GetValidList()
