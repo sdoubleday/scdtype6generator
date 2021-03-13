@@ -42,7 +42,7 @@ namespace SCDType6Generator
             return returnable;
         }
 
-        public SqlServerDataType Clone()
+        public IDataType Clone()
         {
             SqlServerDataType returnable = new SqlServerDataType(this.DataTypeName);
             return returnable;

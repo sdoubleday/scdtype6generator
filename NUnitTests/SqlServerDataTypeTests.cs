@@ -63,9 +63,9 @@ namespace SCDType6Generator.Tests
             String dataType = "int";
             SqlServerDataType sqlServerDataTypeDolly = new SqlServerDataType(dataType);
             String Expected = sqlServerDataTypeDolly.Script();
-         
+
             //Act
-            SqlServerDataType sqlServerDataTypeDollyPrime = sqlServerDataTypeDolly.Clone();
+            IDataType sqlServerDataTypeDollyPrime = sqlServerDataTypeDolly.Clone();
             sqlServerDataTypeDollyPrime.DataTypeName = "bigint";
             String Actual = sqlServerDataTypeDollyPrime.Script();
 
