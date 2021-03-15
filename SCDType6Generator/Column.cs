@@ -11,8 +11,8 @@ namespace SCDType6Generator
 #region Properties
         String COLUMN_NAME;
         int ORDINAL_POSITION;
-        String COLUMN_DEFAULT;
-        String IS_NULLABLE;
+        ColumnDefault COLUMN_DEFAULT;
+        Nullability IS_NULLABLE;
         IDataType DATA_TYPE;
         #endregion Properties
 
@@ -20,8 +20,8 @@ namespace SCDType6Generator
         public Column(
              String COLUMN_NAME
             ,int ORDINAL_POSITION
-            ,String COLUMN_DEFAULT
-            ,String IS_NULLABLE
+            ,ColumnDefault COLUMN_DEFAULT
+            ,Nullability IS_NULLABLE
             ,IDataType DATA_TYPE
         ) {
             this.COLUMN_NAME = COLUMN_NAME;
