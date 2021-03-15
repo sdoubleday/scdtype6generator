@@ -51,6 +51,7 @@
     <Compile Include="IDataType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerDataTypeWithLength.cs" />
     <Compile Include="SqlServerDataTypeWithPrecisionAndScale.cs" />
     <Compile Include="SqlServerDataType.cs" />
   </ItemGroup>

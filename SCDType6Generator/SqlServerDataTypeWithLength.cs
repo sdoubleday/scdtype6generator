@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace SCDType6Generator
 {
-    public class SqlServerDataType : IDataType
+    public class SqlServerDataTypeWithLength : IDataType
     {
         public String DataTypeName { get; set; }
+        int Length;
 
-        public SqlServerDataType(String DataTypeName)
+        public SqlServerDataTypeWithLength(String DataTypeName, int Length)
         {
             this.DataTypeName = DataTypeName;
+            this.Length = Length;
             this.ParameterValidation();
         }
 
@@ -32,41 +34,44 @@ namespace SCDType6Generator
             }
             else
             {
-                throw new DataTypeNotRecognizedException("DataType must be a known SQL Server Data Type.", this.DataTypeName);
+                throw new DataTypeNotRecognizedException("DataType must be a known SQL Server Data Type. (Did you specify length when you needed either also scale or nothing?)", this.DataTypeName);
             }
         }
 
         public String Script()
         {
-            String returnable = "[" + this.DataTypeName + "]";
+            String returnable = "";
+            if (this.Length == -1)
+            {
+                returnable = "[" + this.DataTypeName + "](MAX)";
+            }
+            else { 
+                returnable = "[" + this.DataTypeName + "](" + this.Length + ")";
+            }
             return returnable;
         }
 
         public IDataType Clone()
         {
-            SqlServerDataType returnable = new SqlServerDataType(this.DataTypeName);
+            SqlServerDataTypeWithLength returnable = new SqlServerDataTypeWithLength(
+                this.DataTypeName
+                ,this.Length);
             return returnable;
         }
 
         private static List<string> GetValidList()
         {
             List<String> list = new List<string>();
-            list.Add("bigint");
-            list.Add("bit");
-            list.Add("decimal");
-            list.Add("int");
-            list.Add("money");
-            list.Add("numeric");
-            list.Add("smallint");
-            list.Add("smallmoney");
-            list.Add("tinyint");
-            list.Add("float");
-            list.Add("real");
-            list.Add("date");
-            list.Add("datetime");
-            list.Add("smalldatetime");
-            list.Add("text");
-            list.Add("ntext");
+            list.Add("datetime2");
+            list.Add("datetimeoffset");
+            list.Add("time");
+            list.Add("char");
+            list.Add("varchar");
+            list.Add("nchar");
+            list.Add("nvarchar");
+            list.Add("binary");
+            list.Add("varbinary");
+
 
             return list;
         }
