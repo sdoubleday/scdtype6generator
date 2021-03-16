@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColumnTests.cs" />
     <Compile Include="FakeDataType.cs" />
     <Compile Include="FakeColumnDefault.cs" />
     <Compile Include="Program.cs" />
