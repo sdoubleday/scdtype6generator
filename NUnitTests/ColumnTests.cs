@@ -28,5 +28,23 @@ namespace SCDType6Generator.Tests
             Assert.AreEqual(Expected, Actual);
         }
         
+        [TestCase]
+        public void Clone()
+        {   //Arrange
+            String ColumnName = "ColumnName";
+            int OrdinalPosition = 1;
+            IDataType dataType = new FakeDataType();
+            IColumnDefault columnDefault = new FakeColumnDefault();
+            Nullability nullability = new Nullability("NO");
+            String Expected = "ColumnName FakeDataType NOT NULL FakeColumnDefault";
+            //Act
+            Column ColumnDolly = new Column(ColumnName,OrdinalPosition,columnDefault,nullability,dataType);
+            Column ColumnDollyPrime = ColumnDolly.Clone();
+            ColumnDollyPrime.COLUMN_NAME = "NotExpected";
+            String Actual = ColumnDollyPrime.Script();
+
+            //Assert
+            Assert.AreNotEqual(Expected, Actual);
+        }
     }
 }
