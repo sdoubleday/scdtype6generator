@@ -48,6 +48,7 @@
     <Compile Include="Column.cs" />
     <Compile Include="ColumnDefault.cs" />
     <Compile Include="DataTypeNotRecognizedException.cs" />
+    <Compile Include="IColumnDefault.cs" />
     <Compile Include="NullabilityParameterException.cs" />
     <Compile Include="DataTypeNotSupportedException.cs" />
     <Compile Include="IDataType.cs" />

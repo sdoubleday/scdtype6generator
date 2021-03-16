@@ -11,7 +11,7 @@ namespace SCDType6Generator
 #region Properties
         public String COLUMN_NAME { get; set; }
         public int ORDINAL_POSITION { get; set; }
-        public ColumnDefault COLUMN_DEFAULT { get; set; }
+        public IColumnDefault COLUMN_DEFAULT { get; set; }
         public Nullability IS_NULLABLE { get; set; }
         public IDataType DATA_TYPE { get; set; }
         #endregion Properties
@@ -20,7 +20,7 @@ namespace SCDType6Generator
         public Column(
              String COLUMN_NAME
             ,int ORDINAL_POSITION
-            ,ColumnDefault COLUMN_DEFAULT
+            ,IColumnDefault COLUMN_DEFAULT
             ,Nullability IS_NULLABLE
             ,IDataType DATA_TYPE
         ) {

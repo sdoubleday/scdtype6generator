@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace SCDType6Generator
 {
-    public class ColumnDefault
+    public class ColumnDefault : IColumnDefault
     {
         public String columnDefaultString { get; set; }
 
-        public ColumnDefault (String columnDefaultString)
+        public ColumnDefault(String columnDefaultString)
         {
             this.columnDefaultString = columnDefaultString;
         }
 
-        public ColumnDefault Clone ()
+        public IColumnDefault Clone()
         {
-            ColumnDefault returnable = new ColumnDefault(this.columnDefaultString);
+            IColumnDefault returnable = new ColumnDefault(this.columnDefaultString);
             return returnable;
         }
 
