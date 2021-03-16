@@ -9,14 +9,14 @@ namespace SCDType6Generator
     public class Column
     {
 #region Properties
-        String COLUMN_NAME;
-        int ORDINAL_POSITION;
-        ColumnDefault COLUMN_DEFAULT;
-        Nullability IS_NULLABLE;
-        IDataType DATA_TYPE;
+        public String COLUMN_NAME { get; set; }
+        public int ORDINAL_POSITION { get; set; }
+        public ColumnDefault COLUMN_DEFAULT { get; set; }
+        public Nullability IS_NULLABLE { get; set; }
+        public IDataType DATA_TYPE { get; set; }
         #endregion Properties
 
-#region Constructors
+        #region Constructors
         public Column(
              String COLUMN_NAME
             ,int ORDINAL_POSITION
@@ -33,6 +33,28 @@ namespace SCDType6Generator
         #endregion Constructors
 
         #region Methods
+        public Column Clone()
+        {
+            Column returnable = new Column(
+                 this.COLUMN_NAME
+                ,this.ORDINAL_POSITION
+                ,this.COLUMN_DEFAULT.Clone()
+                ,this.IS_NULLABLE.Clone()
+                ,this.DATA_TYPE.Clone()
+                );
+            return returnable;
+        }
+
+        public String Script()
+        {
+            String returnable =
+                COLUMN_NAME + " " +
+                DATA_TYPE.Script() + " " +
+                IS_NULLABLE.Script() + " " +
+                COLUMN_DEFAULT.Script();
+            return returnable;
+
+        }
         #endregion Methods
     }
 }
