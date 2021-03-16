@@ -33,7 +33,7 @@ namespace SCDType6Generator.Tests
             String Expected = columnDefaultDolly.Script();
 
             //Act
-            ColumnDefault columnDefaultDollyPrime = columnDefaultDolly.Clone();
+            IColumnDefault columnDefaultDollyPrime = columnDefaultDolly.Clone();
             columnDefaultDollyPrime.columnDefaultString = "bob()";
             String Actual = columnDefaultDollyPrime.Script();
 
