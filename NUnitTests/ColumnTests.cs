@@ -39,7 +39,7 @@ namespace SCDType6Generator.Tests
             String Expected = "ColumnName FakeDataType NOT NULL FakeColumnDefault";
             //Act
             Column ColumnDolly = new Column(ColumnName,OrdinalPosition,columnDefault,nullability,dataType);
-            Column ColumnDollyPrime = ColumnDolly.Clone();
+            IColumn ColumnDollyPrime = ColumnDolly.Clone();
             ColumnDollyPrime.COLUMN_NAME = "NotExpected";
             String Actual = ColumnDollyPrime.Script();
 

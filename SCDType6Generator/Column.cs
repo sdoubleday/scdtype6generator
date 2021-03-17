@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SCDType6Generator
 {
-    public class Column
+    public class Column : IColumn
     {
-#region Properties
+        #region Properties
         public String COLUMN_NAME { get; set; }
         public int ORDINAL_POSITION { get; set; }
         public IColumnDefault COLUMN_DEFAULT { get; set; }
@@ -19,11 +19,12 @@ namespace SCDType6Generator
         #region Constructors
         public Column(
              String COLUMN_NAME
-            ,int ORDINAL_POSITION
-            ,IColumnDefault COLUMN_DEFAULT
-            ,Nullability IS_NULLABLE
-            ,IDataType DATA_TYPE
-        ) {
+            , int ORDINAL_POSITION
+            , IColumnDefault COLUMN_DEFAULT
+            , Nullability IS_NULLABLE
+            , IDataType DATA_TYPE
+        )
+        {
             this.COLUMN_NAME = COLUMN_NAME;
             this.ORDINAL_POSITION = ORDINAL_POSITION;
             this.COLUMN_DEFAULT = COLUMN_DEFAULT;
@@ -33,14 +34,14 @@ namespace SCDType6Generator
         #endregion Constructors
 
         #region Methods
-        public Column Clone()
+        public IColumn Clone()
         {
-            Column returnable = new Column(
+            IColumn returnable = new Column(
                  this.COLUMN_NAME
-                ,this.ORDINAL_POSITION
-                ,this.COLUMN_DEFAULT.Clone()
-                ,this.IS_NULLABLE.Clone()
-                ,this.DATA_TYPE.Clone()
+                , this.ORDINAL_POSITION
+                , this.COLUMN_DEFAULT.Clone()
+                , this.IS_NULLABLE.Clone()
+                , this.DATA_TYPE.Clone()
                 );
             return returnable;
         }
