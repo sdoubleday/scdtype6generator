@@ -11,26 +11,22 @@ AS
 		,[SCD_Status]
 	)
 	SELECT 
-	 CASE WHEN dim.[SNK_templateDimCoreName] IS NULL
-		THEN GetMaxSNK.[MaxSNK] + (ROW_NUMBER() OVER (ORDER BY COALESCE(dim.[SNK_templateDimCoreName],-1) ASC ) )
-		ELSE dim.[SNK_templateDimCoreName]
+	 CASE WHEN a.[dim__SNK_templateDimCoreName] IS NULL
+		THEN GetMaxSNK.[MaxSNK] + (ROW_NUMBER() OVER (ORDER BY COALESCE(a.[dim__SNK_templateDimCoreName],-1) ASC ) )
+		ELSE a.[dim__SNK_templateDimCoreName]
 	END AS [SNK_templateDimCoreName]
-	,stg.[NK_SourceSystemID1]
-	,stg.[NK_SourceSystemID2]
-	,COALESCE(stg.[SampleColumnOne],'*UNKNOWN') AS [SampleColumnOne]
-	,COALESCE(stg.[SampleColumnTwo],'*UNKNOWN') AS [SampleColumnTwo]
-	,CASE WHEN dim.[SNK_templateDimCoreName] IS NULL
+	,a.[NK_SourceSystemID1]
+	,a.[NK_SourceSystemID2]
+	,COALESCE(a.[SampleColumnOne],'*UNKNOWN') AS [SampleColumnOne]
+	,COALESCE(a.[SampleColumnTwo],'*UNKNOWN') AS [SampleColumnTwo]
+	,CASE WHEN a.[dim__SNK_templateDimCoreName] IS NULL
 		THEN CONVERT(DATETIME2,'1900-01-01',102)
-		ELSE stg.[Ctl_EffectiveDate]
+		ELSE a.[Ctl_EffectiveDate]
 	END AS [Ctl_EffectiveDate]
-	,CASE WHEN dim.[SNK_templateDimCoreName] IS NULL
+	,CASE WHEN a.[dim__SNK_templateDimCoreName] IS NULL
 		THEN 'NEW'
 		ELSE 'PENDING'
 	END AS [SCD_Status]
-	FROM [templateSchema].[templateDimCoreName_dimSrc_stg] stg
-	LEFT OUTER JOIN [templateSchema].[Dim_templateDimCoreName] dim
-	ON dim.Ctl_CurrentFlag = 1
-	AND dim.[NK_SourceSystemID1] = stg.[NK_SourceSystemID1]
-	AND dim.[NK_SourceSystemID2] = stg.[NK_SourceSystemID2]
+	FROM [templateSchema].[templateDimCoreName_predim_Step2_prep_corejoin_vw] as a
 	CROSS JOIN [templateSchema].[templateDimCoreName_predim_GetMaxSNK_vw] AS GetMaxSNK
 ;

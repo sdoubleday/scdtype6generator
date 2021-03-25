@@ -129,6 +129,8 @@
     <Folder Include="TestHelpers\Stored Procedures" />
     <Folder Include="templateSchema__templateDimCoreName_predim_GetMaxSNK_vw\" />
     <Folder Include="templateSchema__templateDimCoreName_predim_GetMaxSNK_vw\Stored Procedures" />
+    <Folder Include="templateSchema__templateDimCoreName_predim_Step2_prep_corejoin_vw\" />
+    <Folder Include="templateSchema__templateDimCoreName_predim_Step2_prep_corejoin_vw\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="tSQLt\Tables\Private_NullCellTable.sql">
@@ -764,6 +766,8 @@
     <Build Include="templateSchema__templateDimCoreName_predim_GetMaxSNK_vw\Stored Procedures\test When Max SNK Is Positive Return It.sql" />
     <Build Include="TestHelpers\Stored Procedures\DataBuilder_templateSchema_templateDimCoreName_predim_GetMaxSNK_vw.sql" />
     <Build Include="TestHelpers\Stored Procedures\DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg.sql" />
+    <Build Include="Security\templateSchema__templateDimCoreName_predim_Step2_prep_corejoin_vw.sql" />
+    <Build Include="templateSchema__templateDimCoreName_predim_Step2_prep_corejoin_vw\Stored Procedures\test Join Filters Correctly.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\tSQLtCLR.dll" />
