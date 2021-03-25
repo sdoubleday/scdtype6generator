@@ -76,6 +76,7 @@
     <Build Include="templateSchema\Views\templateDimCoreName_FindUpdates_vw.sql" />
     <Build Include="templateSchema\Views\templateDimCoreName_predim_GetMaxSNK_vw.sql" />
     <Build Include="templateSchema\Views\templateDimCoreName_predim_Step2_prep_corejoin_vw.sql" />
+    <Build Include="templateSchema\Stored Procedures\templateDimCoreName_predim_Step4_prep_DeleteIgnorable.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SCDType6Template.refactorlog" />

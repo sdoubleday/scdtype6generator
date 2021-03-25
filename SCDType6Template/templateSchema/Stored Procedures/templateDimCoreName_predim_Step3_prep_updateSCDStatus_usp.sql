@@ -12,5 +12,3 @@ AS
 	ON prep.[SNK_templateDimCoreName] = updateable.[SNK_templateDimCoreName]
 	WHERE prep.[SCD_Status] = 'PENDING'
 	;
-	DELETE [templateSchema].[templateDimCoreName_predim_prep]
-	WHERE [SCD_Status] = 'IGNORE';
