@@ -9,6 +9,6 @@ AS
 	,dim.[Ctl_CurrentFlag] = CASE WHEN dim.[Ctl_CurrentFlag] = 1 THEN 0 ELSE dim.[Ctl_CurrentFlag] END
 	
 	FROM [templateSchema].[Dim_templateDimCoreName] dim
-	INNER JOIN [templateSchema].[predim_prep_templateDimCoreName] prep
+	INNER JOIN [templateSchema].[templateDimCoreName_predim_prep] prep
 	ON dim.[SNK_templateDimCoreName] = prep.[SNK_templateDimCoreName]
 ;

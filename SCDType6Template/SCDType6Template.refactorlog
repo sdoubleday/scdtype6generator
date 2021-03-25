@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="228efa3f-9689-4e0d-8fff-81dfc076f673" ChangeDateTime="03/24/2021 16:58:00">
+    <Property Name="ElementName" Value="[templateSchema].[vw_templateDimCoreName_FindUpdates]" />
+    <Property Name="ElementType" Value="SqlView" />
+    <Property Name="ParentElementName" Value="[templateSchema]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[templateDimCoreName_FindUpdates_vw]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="fe204d59-1896-421b-a69c-05a6687c8c8b" ChangeDateTime="03/24/2021 16:59:53">
+    <Property Name="ElementName" Value="[templateSchema].[stg_dimSrc_templateDimCoreName]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[templateSchema]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[templateDimCoreName_dimSrc_stg]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c2f74fc6-32c2-485f-a70f-57aa7010cf99" ChangeDateTime="03/24/2021 17:01:00">
+    <Property Name="ElementName" Value="[templateSchema].[predim_prep_templateDimCoreName]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[templateSchema]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[templateDimCoreName_predim_prep]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2c14cb12-491c-4204-956e-f898bc250d78" ChangeDateTime="03/24/2021 17:02:22">
+    <Property Name="ElementName" Value="[templateSchema].[predim_copycurrent_templateDimCoreName]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[templateSchema]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[templateDimCoreName_predim_copycurrent]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="477a3c45-8c35-4cb0-abc9-ef460acd33cc" ChangeDateTime="03/24/2021 17:04:12">
+    <Property Name="ElementName" Value="[templateSchema].[usp_predim_copycurrent_templateDimCoreName]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[templateSchema]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[templateDimCoreName_predim_copycurrent_usp]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9dd5b832-43c8-4e75-a0d1-75b7fdeba992" ChangeDateTime="03/24/2021 17:05:12">
+    <Property Name="ElementName" Value="[templateSchema].[usp_predim_prep_templateDimCoreName]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[templateSchema]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[templateDimCoreName_predim_Step2_prep_usp]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="747200b0-5429-4720-80ff-29916ef56a1f" ChangeDateTime="03/24/2021 17:05:50">
+    <Property Name="ElementName" Value="[templateSchema].[templateDimCoreName_predim_copycurrent_usp]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[templateSchema]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[templateDimCoreName_predim_Step1_copycurrent_usp]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4fca92fb-2824-44df-80d6-31310f30cc7c" ChangeDateTime="03/24/2021 17:06:47">
+    <Property Name="ElementName" Value="[templateSchema].[usp_templateDimCoreName_predim_prep_updateSCDStatus]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[templateSchema]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[templateDimCoreName_predim_Step3_prep_updateSCDStatus_usp]" />
+  </Operation>
+</Operations>

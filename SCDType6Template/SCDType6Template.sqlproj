@@ -60,19 +60,23 @@
     <Folder Include="Security" />
     <Folder Include="templateSchema\Tables" />
     <Folder Include="templateSchema\Stored Procedures" />
-    <Folder Include="Views" />
+    <Folder Include="templateSchema\Views" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\templateSchema.sql" />
-    <Build Include="templateSchema\Tables\stg_dimSrc_templateDimCoreName.sql" />
+    <Build Include="templateSchema\Tables\templateDimCoreName_dimSrc_stg.sql" />
     <Build Include="templateSchema\Tables\Dim_templateDimCoreName.sql" />
-    <Build Include="templateSchema\Tables\predim_copycurrent_templateDimCoreName.sql" />
-    <Build Include="templateSchema\Tables\predim_prep_templateDimCoreName.sql" />
-    <Build Include="templateSchema\Stored Procedures\usp_predim_copycurrent_templateDimCoreName.sql" />
-    <Build Include="templateSchema\Stored Procedures\usp_predim_prep_templateDimCoreName.sql" />
-    <Build Include="templateSchema\Stored Procedures\usp_templateDimCoreName_predim_prep_updateSCDStatus.sql" />
-    <Build Include="Views\vw_templateDimCoreName_FindUpdates.sql" />
+    <Build Include="templateSchema\Tables\templateDimCoreName_predim_copycurrent.sql" />
+    <Build Include="templateSchema\Tables\templateDimCoreName_predim_prep.sql" />
+    <Build Include="templateSchema\Stored Procedures\templateDimCoreName_predim_Step1_copycurrent_usp.sql" />
+    <Build Include="templateSchema\Stored Procedures\templateDimCoreName_predim_Step2_prep_usp.sql" />
+    <Build Include="templateSchema\Stored Procedures\templateDimCoreName_predim_Step3_prep_updateSCDStatus_usp.sql" />
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_dimUpsert_Step1_Update_usp.sql" />
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_dimUpsert_Step2_Insert_usp.sql" />
+    <Build Include="templateSchema\Views\templateDimCoreName_FindUpdates_vw.sql" />
+    <Build Include="templateSchema\Views\templateDimCoreName_predim_GetMaxSNK_vw.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="SCDType6Template.refactorlog" />
   </ItemGroup>
 </Project>

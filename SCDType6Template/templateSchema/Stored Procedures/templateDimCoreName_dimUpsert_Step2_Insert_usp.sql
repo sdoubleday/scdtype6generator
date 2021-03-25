@@ -25,5 +25,5 @@ SELECT
 ,1 AS [Ctl_CurrentFlag]
 ,prep.[Ctl_EffectiveDate] AS [Ctl_EffectiveDate]
 ,CONVERT(datetime2,'9999-12-31',102) AS [Ctl_EndDate]
-FROM [templateSchema].[predim_prep_templateDimCoreName] AS prep
+FROM [templateSchema].[templateDimCoreName_predim_prep] AS prep
 ;
