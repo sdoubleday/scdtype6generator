@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [templateSchema].[Dim_templateDimCoreName]
 (
-	 [SK_templateDimCoreName] INT IDENTITY (1,1) NOT NULL /*Surrogate Key*/
+	 [SK_templateDimCoreName] INT NOT NULL /*Surrogate Key*/
 	,[SNK_templateDimCoreName] INT NOT NULL /*Supernatural Key*/
 	,[NK_SourceSystemID1] INT NOT NULL /*Natural Key*/
 	,[NK_SourceSystemID2] INT NOT NULL /*Natural Key*/

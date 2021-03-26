@@ -133,6 +133,10 @@
     <Folder Include="templateSchema__templateDimCoreName_predim_Step2_prep_corejoin_vw\Stored Procedures" />
     <Folder Include="templateSchema__templateDimCoreName_predim_Step4_prep_DeleteIgnorable\" />
     <Folder Include="templateSchema__templateDimCoreName_predim_Step4_prep_DeleteIgnorable\Stored Procedures" />
+    <Folder Include="templateSchema__templateDimCoreName_dimUpsert_GetMaxSK_vw\" />
+    <Folder Include="templateSchema__templateDimCoreName_dimUpsert_GetMaxSK_vw\Stored Procedures" />
+    <Folder Include="templateSchema__templateDimCoreName_dimUpsert_Step2_Insert_SelectClause_vw\" />
+    <Folder Include="templateSchema__templateDimCoreName_dimUpsert_Step2_Insert_SelectClause_vw\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="tSQLt\Tables\Private_NullCellTable.sql">
@@ -773,6 +777,12 @@
     <Build Include="TestHelpers\Stored Procedures\DataBuilder_templateSchema_templateDimCoreName_predim_prep.sql" />
     <Build Include="Security\templateSchema__templateDimCoreName_predim_Step4_prep_DeleteIgnorable.sql" />
     <Build Include="templateSchema__templateDimCoreName_predim_Step4_prep_DeleteIgnorable\Stored Procedures\test Where Clause.sql" />
+    <Build Include="Security\templateSchema__templateDimCoreName_dimUpsert_GetMaxSK_vw.sql" />
+    <Build Include="templateSchema__templateDimCoreName_dimUpsert_GetMaxSK_vw\Stored Procedures\test When Max SK Is Negative Return 1.sql" />
+    <Build Include="templateSchema__templateDimCoreName_dimUpsert_GetMaxSK_vw\Stored Procedures\test When Max SK Is Positive Return It.sql" />
+    <Build Include="templateSchema__templateDimCoreName_dimUpsert_GetMaxSK_vw\Stored Procedures\test When No Rows Return 1.sql" />
+    <Build Include="Security\templateSchema__templateDimCoreName_dimUpsert_Step2_Insert_SelectClause_vw.sql" />
+    <Build Include="templateSchema__templateDimCoreName_dimUpsert_Step2_Insert_SelectClause_vw\Stored Procedures\test SK Increments Correctly.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\tSQLtCLR.dll" />
