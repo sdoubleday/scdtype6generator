@@ -1,6 +1,5 @@
 ﻿CREATE PROCEDURE [TestHelpers].[DataBuilder_templateSchema_templateDimCoreName_predim_prep]
- @SNK_templateDimCoreName int = NULL
-,@NK_SourceSystemID1 int = NULL
+ @NK_SourceSystemID1 int = NULL
 ,@NK_SourceSystemID2 int = NULL
 ,@SampleColumnOne varchar(500) = NULL
 ,@SampleColumnTwo varchar(500) = NULL
@@ -15,16 +14,14 @@ END
 SELECT TOP 0 * INTO [#DataBuilder_templateSchema_templateDimCoreName_predim_prep] FROM [templateSchema].[templateDimCoreName_predim_prep];
 
 INSERT INTO [#DataBuilder_templateSchema_templateDimCoreName_predim_prep](
- [SNK_templateDimCoreName]
-,[NK_SourceSystemID1]
+ [NK_SourceSystemID1]
 ,[NK_SourceSystemID2]
 ,[SampleColumnOne]
 ,[SampleColumnTwo]
 ,[Ctl_EffectiveDate]
 ,[SCD_Status]
 ) SELECT
- @SNK_templateDimCoreName
-,@NK_SourceSystemID1
+ @NK_SourceSystemID1
 ,@NK_SourceSystemID2
 ,@SampleColumnOne
 ,@SampleColumnTwo

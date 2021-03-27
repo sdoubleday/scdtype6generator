@@ -1,6 +1,5 @@
 ﻿CREATE PROCEDURE [TestHelpers].[DataBuilder_templateSchema_Dim_templateDimCoreName]
  @SK_templateDimCoreName int = NULL
-,@SNK_templateDimCoreName int = NULL
 ,@NK_SourceSystemID1 int = NULL
 ,@NK_SourceSystemID2 int = NULL
 ,@SampleColumnOne_Cur varchar(500) = NULL
@@ -20,7 +19,6 @@ SELECT TOP 0 * INTO [#DataBuilder_templateSchema_Dim_templateDimCoreName] FROM [
 
 INSERT INTO [#DataBuilder_templateSchema_Dim_templateDimCoreName](
  [SK_templateDimCoreName]
-,[SNK_templateDimCoreName]
 ,[NK_SourceSystemID1]
 ,[NK_SourceSystemID2]
 ,[SampleColumnOne_Cur]
@@ -32,7 +30,6 @@ INSERT INTO [#DataBuilder_templateSchema_Dim_templateDimCoreName](
 ,[Ctl_EndDate]
 ) SELECT
  @SK_templateDimCoreName
-,@SNK_templateDimCoreName
 ,@NK_SourceSystemID1
 ,@NK_SourceSystemID2
 ,@SampleColumnOne_Cur

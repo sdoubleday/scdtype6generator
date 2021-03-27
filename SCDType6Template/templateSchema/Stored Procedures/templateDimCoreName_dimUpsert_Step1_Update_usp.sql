@@ -10,5 +10,6 @@ AS
 	
 	FROM [templateSchema].[Dim_templateDimCoreName] dim
 	INNER JOIN [templateSchema].[templateDimCoreName_predim_prep] prep
-	ON dim.[SNK_templateDimCoreName] = prep.[SNK_templateDimCoreName]
+	ON dim.[NK_SourceSystemID1] = prep.[NK_SourceSystemID1]
+	AND dim.[NK_SourceSystemID2] = prep.[NK_SourceSystemID2]
 ;

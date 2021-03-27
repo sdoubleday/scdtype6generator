@@ -4,7 +4,6 @@ AS
 INSERT INTO [templateSchema].[Dim_templateDimCoreName]
 (
  [SK_templateDimCoreName]
-,[SNK_templateDimCoreName]
 ,[NK_SourceSystemID1]
 ,[NK_SourceSystemID2]
 ,[SampleColumnOne_Cur]
@@ -17,7 +16,6 @@ INSERT INTO [templateSchema].[Dim_templateDimCoreName]
 )
 SELECT
  [SK_templateDimCoreName]
-,[SNK_templateDimCoreName]
 ,[NK_SourceSystemID1]
 ,[NK_SourceSystemID2]
 ,[SampleColumnOne_Cur]

@@ -56,4 +56,18 @@
     <Property Name="ParentElementType" Value="SqlSchema" />
     <Property Name="NewName" Value="[templateDimCoreName_predim_Step3_prep_updateSCDStatus_usp]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="57ba19b8-c79b-4d06-8d7f-39aac2ccbc82" ChangeDateTime="03/26/2021 14:43:05">
+    <Property Name="ElementName" Value="[templateSchema].[templateDimCoreName_predim_Step2_prep_corejoin_vw]" />
+    <Property Name="ElementType" Value="SqlView" />
+    <Property Name="ParentElementName" Value="[templateSchema]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[templateDimCoreName_predim_Step2_prep_columnTranformations_vw]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8573e123-1da4-4dc3-bd52-34c6767a5508" ChangeDateTime="03/26/2021 15:43:17">
+    <Property Name="ElementName" Value="[templateSchema].[templateDimCoreName_predim_Step2_prep_columnTranformations_vw]" />
+    <Property Name="ElementType" Value="SqlView" />
+    <Property Name="ParentElementName" Value="[templateSchema]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[templateDimCoreName_predim_Step2_prep_columnTransformations_vw]" />
+  </Operation>
 </Operations>

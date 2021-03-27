@@ -3,12 +3,13 @@ AS
 	UPDATE prep
 	SET [SCD_Status] = 
 		CASE
-			WHEN updateable.[SNK_templateDimCoreName] IS NULL
+			WHEN dim.[NK_SourceSystemID1] IS NULL
 			THEN 'IGNORE'
 			ELSE 'UPDATE'
 		END
 	FROM [templateSchema].[templateDimCoreName_predim_prep] prep
-	LEFT OUTER JOIN [templateSchema].[templateDimCoreName_FindUpdates_vw] as updateable
-	ON prep.[SNK_templateDimCoreName] = updateable.[SNK_templateDimCoreName]
+	LEFT OUTER JOIN [templateSchema].[templateDimCoreName_FindUpdates_vw] as dim
+	ON prep.[NK_SourceSystemID1] = dim.[NK_SourceSystemID1]
+	AND prep.[NK_SourceSystemID2] = dim.[NK_SourceSystemID2]
 	WHERE prep.[SCD_Status] = 'PENDING'
 	;
