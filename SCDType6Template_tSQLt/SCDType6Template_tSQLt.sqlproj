@@ -135,6 +135,8 @@
     <Folder Include="templateSchema__templateDimCoreName_dimUpsert_GetMaxSK_vw\Stored Procedures" />
     <Folder Include="templateSchema__templateDimCoreName_dimUpsert_Step2_Insert_SelectClause_vw\" />
     <Folder Include="templateSchema__templateDimCoreName_dimUpsert_Step2_Insert_SelectClause_vw\Stored Procedures" />
+    <Folder Include="templateSchema__templateDimCoreName_predim_orchestration_usp\" />
+    <Folder Include="templateSchema__templateDimCoreName_predim_orchestration_usp\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="tSQLt\Tables\Private_NullCellTable.sql">
@@ -776,6 +778,8 @@
     <Build Include="templateSchema__templateDimCoreName_dimUpsert_Step2_Insert_SelectClause_vw\Stored Procedures\test SK Increments Correctly.sql" />
     <Build Include="TestHelpers\Stored Procedures\DataBuilder_templateSchema_templateDimCoreName_predim_prep.sql" />
     <Build Include="TestHelpers\Stored Procedures\DataBuilder_templateSchema_Dim_templateDimCoreName.sql" />
+    <Build Include="Security\templateSchema__templateDimCoreName_predim_orchestration_usp.sql" />
+    <Build Include="templateSchema__templateDimCoreName_predim_orchestration_usp\Stored Procedures\test No PENDING rows after execution.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\tSQLtCLR.dll" />

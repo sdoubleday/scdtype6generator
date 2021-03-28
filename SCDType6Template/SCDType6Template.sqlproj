@@ -79,6 +79,7 @@
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_predim_setup_clearTables_usp.sql" />
     <Build Include="templateSchema\Views\templateDimCoreName_dimUpsert_GetMaxSK_vw.sql" />
     <Build Include="templateSchema\Views\templateDimCoreName_dimUpsert_Step2_Insert_SelectClause_vw.sql" />
+    <Build Include="templateSchema\Stored Procedures\templateDimCoreName_predim_orchestration_usp.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SCDType6Template.refactorlog" />
