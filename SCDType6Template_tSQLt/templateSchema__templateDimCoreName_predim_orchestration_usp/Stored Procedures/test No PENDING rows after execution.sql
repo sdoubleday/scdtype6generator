@@ -5,9 +5,6 @@ BEGIN
 	IF OBJECT_ID('[templateSchema__templateDimCoreName_predim_orchestration_usp].ACTUAL') IS NOT NULL DROP TABLE [templateSchema__templateDimCoreName_predim_orchestration_usp].ACTUAL;
 	IF OBJECT_ID('[templateSchema__templateDimCoreName_predim_orchestration_usp].EXPECTED') IS NOT NULL DROP TABLE [templateSchema__templateDimCoreName_predim_orchestration_usp].EXPECTED;
 
-	/*Deactivate the clear-table sproc*/
-	EXECUTE tSQLt.SpyProcedure @ProcedureName = '[templateSchema].[templateDimCoreName_predim_setup_clearTables_usp]', @CommandToExecute = 'SELECT 1'
-
 	EXECUTE tSQLt.FakeTable @TableName = '[templateSchema].[Dim_templateDimCoreName]';
 
 	EXECUTE TestHelpers.DataBuilder_templateSchema_Dim_templateDimCoreName @SK_templateDimCoreName = 1, @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 1, @SampleColumnOne_Cur = '2', @SampleColumnTwo_Cur = '1', @Ctl_CurrentFlag = 0;
