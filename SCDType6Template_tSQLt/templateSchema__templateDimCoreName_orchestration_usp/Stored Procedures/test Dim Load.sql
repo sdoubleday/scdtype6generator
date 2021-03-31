@@ -34,8 +34,8 @@ BEGIN
 
 	EXECUTE [templateSchema].[templateDimCoreName_dimSrc_clearTables_usp];
 	/*Updates*/
-	EXECUTE TestHelpers.DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 11, @SampleColumnOne = 'FredPrime', @SampleColumnTwo = '10', @Ctl_EffectiveDate = @Date2;
-	EXECUTE TestHelpers.DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg @NK_SourceSystemID1 = 3, @NK_SourceSystemID2 = 33, @SampleColumnOne = 'Fred', @SampleColumnTwo = '20', @Ctl_EffectiveDate = @Date2;
+	EXECUTE TestHelpers.DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 11, @SampleColumnOne = 'FredPrime', @SampleColumnTwo = '10', @Ctl_EffectiveDate = @Date3;
+	EXECUTE TestHelpers.DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg @NK_SourceSystemID1 = 3, @NK_SourceSystemID2 = 33, @SampleColumnOne = 'Fred', @SampleColumnTwo = '20', @Ctl_EffectiveDate = @Date3;
 
 	--ACT
 	EXECUTE [templateSchema].[templateDimCoreName_orchestration_usp];
@@ -49,7 +49,7 @@ BEGIN
 	,[SampleColumnTwo_Hist]
 	,[Ctl_CurrentFlag]
 	,[Ctl_EffectiveDate]
-	,[Ctl_EndDate]
+	,[Ctl_EndDate_Excl]
 	INTO [templateSchema__templateDimCoreName_orchestration_usp].ACTUAL
 	FROM [templateSchema].[Dim_templateDimCoreName];
 
@@ -63,7 +63,7 @@ BEGIN
 		,[SampleColumnTwo_Hist] VARCHAR(500) NOT NULL
 		,[Ctl_CurrentFlag] BIT NOT NULL
 		,[Ctl_EffectiveDate] DATETIME2(7) NOT NULL
-		,[Ctl_EndDate] DATETIME2(7) NOT NULL
+		,[Ctl_EndDate_Excl] DATETIME2(7) NOT NULL
 	);
 	INSERT INTO [templateSchema__templateDimCoreName_orchestration_usp].EXPECTED (
 		 [NK_SourceSystemID1]
@@ -74,7 +74,7 @@ BEGIN
 		,[SampleColumnTwo_Hist]
 		,[Ctl_CurrentFlag]
 		,[Ctl_EffectiveDate]
-		,[Ctl_EndDate]
+		,[Ctl_EndDate_Excl]
 	)
 	SELECT
 		 [NK_SourceSystemID1]
@@ -85,7 +85,7 @@ BEGIN
 		,[SampleColumnTwo_Hist]
 		,[Ctl_CurrentFlag]
 		,[Ctl_EffectiveDate]
-		,[Ctl_EndDate]
+		,[Ctl_EndDate_Excl]
 	FROM (VALUES (
 		 1		--[NK_SourceSystemID1]
 		,11		--[NK_SourceSystemID2]
@@ -95,7 +95,7 @@ BEGIN
 		,'1'		--[SampleColumnTwo_Hist]
 		,0		--[Ctl_CurrentFlag]
 		,'1900-01-01'		--[Ctl_EffectiveDate]
-		,'2000-01-01'		--[Ctl_EndDate]
+		,'2000-01-01'		--[Ctl_EndDate_Excl]
 	),(
 		 1		--[NK_SourceSystemID1]
 		,11		--[NK_SourceSystemID2]
@@ -105,7 +105,7 @@ BEGIN
 		,'1'		--[SampleColumnTwo_Hist]
 		,0		--[Ctl_CurrentFlag]
 		,'2000-01-01'		--[Ctl_EffectiveDate]
-		,'2000-01-02'		--[Ctl_EndDate]
+		,'2000-01-02'		--[Ctl_EndDate_Excl]
 	),(
 		 1		--[NK_SourceSystemID1]
 		,11		--[NK_SourceSystemID2]
@@ -115,7 +115,7 @@ BEGIN
 		,'10'		--[SampleColumnTwo_Hist]
 		,1		--[Ctl_CurrentFlag]
 		,'2000-01-02'		--[Ctl_EffectiveDate]
-		,'9999-12-31'		--[Ctl_EndDate]
+		,'9999-12-31'		--[Ctl_EndDate_Excl]
 	),(
 		 2		--[NK_SourceSystemID1]
 		,22		--[NK_SourceSystemID2]
@@ -125,7 +125,7 @@ BEGIN
 		,'2'		--[SampleColumnTwo_Hist]
 		,1		--[Ctl_CurrentFlag]
 		,'1900-01-01'		--[Ctl_EffectiveDate]
-		,'9999-12-31'		--[Ctl_EndDate]
+		,'9999-12-31'		--[Ctl_EndDate_Excl]
 	),(
 		 3		--[NK_SourceSystemID1]
 		,33		--[NK_SourceSystemID2]
@@ -135,7 +135,7 @@ BEGIN
 		,'2'		--[SampleColumnTwo_Hist]
 		,0		--[Ctl_CurrentFlag]
 		,'1900-01-01'		--[Ctl_EffectiveDate]
-		,'2000-01-02'		--[Ctl_EndDate]
+		,'2000-01-02'		--[Ctl_EndDate_Excl]
 	),(
 		 3		--[NK_SourceSystemID1]
 		,33		--[NK_SourceSystemID2]
@@ -145,7 +145,7 @@ BEGIN
 		,'20'		--[SampleColumnTwo_Hist]
 		,1		--[Ctl_CurrentFlag]
 		,'2000-01-02'		--[Ctl_EffectiveDate]
-		,'9999-12-31'		--[Ctl_EndDate]
+		,'9999-12-31'		--[Ctl_EndDate_Excl]
 	) ) AS a (
 		 [NK_SourceSystemID1]
 		,[NK_SourceSystemID2]
@@ -155,7 +155,7 @@ BEGIN
 		,[SampleColumnTwo_Hist]
 		,[Ctl_CurrentFlag]
 		,[Ctl_EffectiveDate]
-		,[Ctl_EndDate]
+		,[Ctl_EndDate_Excl]
 	)
 	;
 
