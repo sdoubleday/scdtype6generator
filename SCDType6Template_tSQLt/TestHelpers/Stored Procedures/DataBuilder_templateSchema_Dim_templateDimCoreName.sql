@@ -8,7 +8,7 @@
 ,@SampleColumnTwo_Hist varchar(500) = NULL
 ,@Ctl_CurrentFlag bit = NULL
 ,@Ctl_EffectiveDate datetime2 = NULL
-,@Ctl_EndDate datetime2 = NULL
+,@Ctl_EndDate_Excl datetime2 = NULL
 AS 
 
 IF OBJECT_ID('tempdb..[#DataBuilder_templateSchema_Dim_templateDimCoreName]') IS NOT NULL
@@ -27,7 +27,7 @@ INSERT INTO [#DataBuilder_templateSchema_Dim_templateDimCoreName](
 ,[SampleColumnTwo_Hist]
 ,[Ctl_CurrentFlag]
 ,[Ctl_EffectiveDate]
-,[Ctl_EndDate]
+,[Ctl_EndDate_Excl]
 ) SELECT
  @SK_templateDimCoreName
 ,@NK_SourceSystemID1
@@ -38,7 +38,7 @@ INSERT INTO [#DataBuilder_templateSchema_Dim_templateDimCoreName](
 ,@SampleColumnTwo_Hist
 ,@Ctl_CurrentFlag
 ,@Ctl_EffectiveDate
-,@Ctl_EndDate
+,@Ctl_EndDate_Excl
 ;
 DECLARE @sql NVARCHAR(MAX) = N'INSERT INTO [templateSchema].[Dim_templateDimCoreName] SELECT * FROM [#DataBuilder_templateSchema_Dim_templateDimCoreName];';
 EXECUTE sp_executesql @sql;

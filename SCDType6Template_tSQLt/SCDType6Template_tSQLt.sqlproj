@@ -137,6 +137,8 @@
     <Folder Include="templateSchema__templateDimCoreName_dimUpsert_Step2_Insert_SelectClause_vw\Stored Procedures" />
     <Folder Include="templateSchema__templateDimCoreName_predim_orchestration_usp\" />
     <Folder Include="templateSchema__templateDimCoreName_predim_orchestration_usp\Stored Procedures" />
+    <Folder Include="templateSchema__templateDimCoreName_dimUpsert_Step1_Update_usp\" />
+    <Folder Include="templateSchema__templateDimCoreName_dimUpsert_Step1_Update_usp\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="tSQLt\Tables\Private_NullCellTable.sql">
@@ -780,6 +782,8 @@
     <Build Include="TestHelpers\Stored Procedures\DataBuilder_templateSchema_Dim_templateDimCoreName.sql" />
     <Build Include="Security\templateSchema__templateDimCoreName_predim_orchestration_usp.sql" />
     <Build Include="templateSchema__templateDimCoreName_predim_orchestration_usp\Stored Procedures\test No PENDING rows after execution.sql" />
+    <Build Include="Security\templateSchema__templateDimCoreName_dimUpsert_Step1_Update_usp.sql" />
+    <Build Include="templateSchema__templateDimCoreName_dimUpsert_Step1_Update_usp\Stored Procedures\test Ctl_EndDate_Excl updates correctly.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\tSQLtCLR.dll" />

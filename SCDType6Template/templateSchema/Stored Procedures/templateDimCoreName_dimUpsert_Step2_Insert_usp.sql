@@ -12,7 +12,7 @@ INSERT INTO [templateSchema].[Dim_templateDimCoreName]
 ,[SampleColumnTwo_Hist]
 ,[Ctl_CurrentFlag]
 ,[Ctl_EffectiveDate]
-,[Ctl_EndDate]
+,[Ctl_EndDate_Excl]
 )
 SELECT
  [SK_templateDimCoreName]
@@ -24,6 +24,6 @@ SELECT
 ,[SampleColumnTwo_Hist]
 ,[Ctl_CurrentFlag]
 ,[Ctl_EffectiveDate]
-,[Ctl_EndDate]
+,[Ctl_EndDate_Excl]
 FROM [templateSchema].[templateDimCoreName_dimUpsert_Step2_Insert_SelectClause_vw]
 ;

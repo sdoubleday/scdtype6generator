@@ -10,7 +10,7 @@ SELECT
 ,prep.[SampleColumnTwo] AS [SampleColumnTwo_Hist]
 ,1 AS [Ctl_CurrentFlag]
 ,prep.[Ctl_EffectiveDate] AS [Ctl_EffectiveDate]
-,CONVERT(datetime2,'9999-12-31',102) AS [Ctl_EndDate]
+,CONVERT(datetime2,'9999-12-31',102) AS [Ctl_EndDate_Excl]
 FROM [templateSchema].[templateDimCoreName_predim_prep] AS prep
 INNER JOIN [templateSchema].[templateDimCoreName_dimUpsert_GetMaxSK_vw] AS GetMaxSK ON 1=1
 ;
