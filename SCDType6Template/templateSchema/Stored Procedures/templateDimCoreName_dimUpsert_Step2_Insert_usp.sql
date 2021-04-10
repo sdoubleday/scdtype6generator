@@ -4,24 +4,24 @@ AS
 INSERT INTO [templateSchema].[Dim_templateDimCoreName]
 (
  [SK_templateDimCoreName]
-,[NK_SourceSystemID1]
-,[NK_SourceSystemID2]
-,[SampleColumnOne_Cur]
-,[SampleColumnOne_Hist]
-,[SampleColumnTwo_Cur]
-,[SampleColumnTwo_Hist]
+,[NK_SourceSystemID1]			/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
+,[NK_SourceSystemID2]			/*Sample*/
+,[SampleColumnOne_Cur]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne|,*/
+,[SampleColumnOne_Hist]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne|,*/
+,[SampleColumnTwo_Cur]			/*Sample*/
+,[SampleColumnTwo_Hist]			/*Sample*/
 ,[Ctl_CurrentFlag]
 ,[Ctl_EffectiveDate]
 ,[Ctl_EndDate_Excl]
 )
 SELECT
  [SK_templateDimCoreName]
-,[NK_SourceSystemID1]
-,[NK_SourceSystemID2]
-,[SampleColumnOne_Cur]
-,[SampleColumnOne_Hist]
-,[SampleColumnTwo_Cur]
-,[SampleColumnTwo_Hist]
+,[NK_SourceSystemID1]			/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
+,[NK_SourceSystemID2]			/*Sample*/
+,[SampleColumnOne_Cur]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne|,*/
+,[SampleColumnOne_Hist]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne|,*/
+,[SampleColumnTwo_Cur]			/*Sample*/
+,[SampleColumnTwo_Hist]			/*Sample*/
 ,[Ctl_CurrentFlag]
 ,[Ctl_EffectiveDate]
 ,[Ctl_EndDate_Excl]
