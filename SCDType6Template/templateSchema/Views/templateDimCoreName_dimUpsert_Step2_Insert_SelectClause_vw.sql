@@ -1,7 +1,7 @@
 ﻿CREATE VIEW [templateSchema].[templateDimCoreName_dimUpsert_Step2_Insert_SelectClause_vw]
 AS
 SELECT
- ROW_NUMBER() OVER (ORDER BY GetMaxSK.MaxSK) + GetMaxSK.MaxSK AS [SK_templateDimCoreName]
+ ROW_NUMBER() OVER (ORDER BY GetMaxSK.[MaxSK]) + GetMaxSK.[MaxSK] AS [SK_templateDimCoreName]
 ,prep.[NK_SourceSystemID1] AS [NK_SourceSystemID1]
 ,prep.[NK_SourceSystemID2] AS [NK_SourceSystemID2]
 ,prep.[SampleColumnOne] AS [SampleColumnOne_Cur]

@@ -6,7 +6,7 @@ SELECT
 ,[SampleColumnOne]
 ,[SampleColumnTwo]
 FROM [templateSchema].[templateDimCoreName_predim_prep]
-WHERE SCD_Status = 'PENDING'
+WHERE [SCD_Status] = 'PENDING'
 EXCEPT
 SELECT
  [NK_SourceSystemID1]

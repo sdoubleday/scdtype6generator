@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [templateSchema].[templateDimCoreName_predim_Step2_prep_usp]
 AS
-	INSERT INTO templateSchema.[templateDimCoreName_predim_prep]
+	INSERT INTO [templateSchema].[templateDimCoreName_predim_prep]
 	(
 		 [NK_SourceSystemID1]
 		,[NK_SourceSystemID2]

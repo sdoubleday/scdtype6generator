@@ -15,7 +15,7 @@ END AS [Ctl_EffectiveDate]
 END AS [SCD_Status]
 FROM [templateSchema].[templateDimCoreName_dimSrc_stg] stg
 LEFT OUTER JOIN [templateSchema].[Dim_templateDimCoreName] dim
-ON dim.Ctl_CurrentFlag = 1
+ON dim.[Ctl_CurrentFlag] = 1
 AND dim.[NK_SourceSystemID1] = stg.[NK_SourceSystemID1]
 AND dim.[NK_SourceSystemID2] = stg.[NK_SourceSystemID2]
 ;
