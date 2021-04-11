@@ -66,5 +66,48 @@ namespace SCDType6Generator.Tests
             Assert.AreEqual(Expected, Actual);
         }
 
+        [TestCase]
+        public void CheckCommentBlockIsPipeDelimited_FalseIfNot()
+        {
+            //Arrange
+            Boolean Expected = false;
+            CommentTagProcessor commentTagProcessor = new CommentTagProcessor();
+            //Act
+            String Input = "aaaaaaa";
+            Boolean Actual = commentTagProcessor.CheckCommentBlockIsPipeDelimited(Input);
+
+            //Assert
+            Assert.AreEqual(Expected, Actual);
+        }
+
+        [TestCase]
+        public void CheckCommentBlockIsPipeDelimited_TrueIfSo()
+        {
+            //Arrange
+            Boolean Expected = true;
+            CommentTagProcessor commentTagProcessor = new CommentTagProcessor();
+            //Act
+            String Input = "aaa|asf|adfasdf|aaaa";
+            Boolean Actual = commentTagProcessor.CheckCommentBlockIsPipeDelimited(Input);
+
+            //Assert
+            Assert.AreEqual(Expected, Actual);
+        }
+
+        [TestCase]
+        public void Constructor_WithInputNoComment_SetsFlagToFalse()
+        {
+            //Arrange
+            String Input = "blah";
+            Boolean Expected = false;
+
+            //Act
+            CommentTagProcessor commentTagProcessor = new CommentTagProcessor(Input);
+            Boolean Actual = commentTagProcessor.IsColumnListReplacementPoint;
+
+            //Assert
+            Assert.AreEqual(Expected, Actual);
+        }
+
     }
 }

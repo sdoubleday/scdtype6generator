@@ -17,6 +17,11 @@ namespace SCDType6Generator
 
         public CommentTagProcessor(String Input)
         {
+            this.OriginalInput = Input;
+            if (! this.HasCommentBlock(this.OriginalInput))
+            {
+                this.IsColumnListReplacementPoint = false;
+            }
 
         }
 
@@ -60,18 +65,16 @@ namespace SCDType6Generator
             String returnable = regex.Match(Input, 0).Value;
             return returnable;
         }
-        public Boolean CheckCommentBlockFormattedAsExpected(String Input)
+        public Boolean CheckCommentBlockIsPipeDelimited(String Input)
         {
-            //Put a bunch of logic and exceptions in here
-            //if (this.HasCommentBlock(OriginalInput))
-            //{
-            //    String CommentBlock = this.GetCommentBlock(OriginalInput);
-            //    if (this)
-            //}
-
-            Boolean returnable = false;
+            String CommentBlock = this.GetCommentBlock(Input);
+            Regex regex = new Regex(".*\\|.*\\|.*\\|.*");
+            Boolean returnable = regex.Match(Input,0).Success;
             return returnable;
         }
+        //check for first thing says "ReplacementPoint"
+        //Then check for second element is in the ENUM
+
 
         public String GetPattern()
         {
