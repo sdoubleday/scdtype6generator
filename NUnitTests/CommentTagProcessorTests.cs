@@ -109,5 +109,19 @@ namespace SCDType6Generator.Tests
             Assert.AreEqual(Expected, Actual);
         }
 
+        [TestCase]
+        public void GetListFromPipeDelimitedCommentBlock_ReturnsListSplitOnPipe()
+        {
+            //Arrange
+            List<String> Expected = new List<String> { "a", "bbb", "cccc" };
+            String Input = "a|bbb|cccc";
+            CommentTagProcessor sut = new CommentTagProcessor();
+
+            //Act
+            List<String> Actual = sut.GetListFromPipeDelimitedCommentBlock(Input);
+
+            //Assert
+            Assert.AreEqual(Expected, Actual);
+        }
     }
 }

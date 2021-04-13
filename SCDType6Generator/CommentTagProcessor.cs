@@ -72,6 +72,11 @@ namespace SCDType6Generator
             Boolean returnable = regex.Match(Input,0).Success;
             return returnable;
         }
+        public List<String> GetListFromPipeDelimitedCommentBlock (String Input)
+        {
+            List<String> returnable = Input.Split('|').ToList<String>();
+            return returnable;
+        }
         //check for first thing says "ReplacementPoint"
         //Then check for second element is in the ENUM
 
