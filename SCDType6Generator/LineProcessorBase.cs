@@ -10,16 +10,13 @@ namespace SCDType6Generator
     public class LineProcessorBase
     {
         #region Properties
-        public char splitChar;
         public String Input { get; set; }
         public ColumnListManager columnListManager { get; set; }
         #endregion Properties
 
         #region Constructors
-        public LineProcessorBase () {
-            this.splitChar = this.GetSplitterChar();
-        }
-        public LineProcessorBase (String Input) : this()
+        public LineProcessorBase () {}
+        public LineProcessorBase (String Input)
         {
             this.Input = Input;
         }
@@ -54,9 +51,9 @@ namespace SCDType6Generator
             return returnable;
         }
 
-        public List<String> SplitToList()
+        public List<String> SplitToList(char splitter)
         {
-            List<String> returnable = Input.Split(this.splitChar).ToList<String>();
+            List<String> returnable = Input.Split(splitter).ToList<String>();
             return returnable;
         }
         

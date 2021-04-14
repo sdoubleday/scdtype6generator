@@ -8,14 +8,8 @@ using NUnit.Framework;
 namespace SCDType6Generator.Tests
 {
     public class FakeLineProcessorBase : LineProcessorBase { 
-        public FakeLineProcessorBase ()
-        {
-            this.splitChar = this.GetSplitterChar();
-        }
-        public FakeLineProcessorBase (String Input) : this()
-        {
-            this.Input = Input;
-        }
+        public FakeLineProcessorBase (String Input) : base(Input)
+        { }
         public new char GetSplitterChar()
         {
             char returnable = ',';
@@ -89,7 +83,7 @@ namespace SCDType6Generator.Tests
             LineProcessorBase lineProcessorBase = new LineProcessorBase(Input);
 
             //Act
-            List<String> Actual = lineProcessorBase.SplitToList();
+            List<String> Actual = lineProcessorBase.SplitToList(lineProcessorBase.GetSplitterChar());
 
             //Assert
             Assert.AreEqual(Expected, Actual);
@@ -104,7 +98,7 @@ namespace SCDType6Generator.Tests
             FakeLineProcessorBase lineProcessorBase = new FakeLineProcessorBase(Input);
 
             //Act
-            List<String> Actual = lineProcessorBase.SplitToList();
+            List<String> Actual = lineProcessorBase.SplitToList(lineProcessorBase.GetSplitterChar());
 
             //Assert
             Assert.AreEqual(Expected, Actual);
