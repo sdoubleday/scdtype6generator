@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LineProcessorBaseTests.cs" />
     <Compile Include="CommentTagProcessorTests.cs" />
     <Compile Include="ColumnTests.cs" />
     <Compile Include="FakeColumn.cs" />
