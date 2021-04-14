@@ -30,16 +30,6 @@ namespace SCDType6Generator
 
         }
 
-        public void Set_ColumnListType()
-        {
-
-        }
-
-        public void Set_CommentTag()
-        {
-
-        }
-
         public CommentTagElements SplitTagToElements()
         {
             //use CheckCommentBlockFormattedAsExpected
@@ -77,8 +67,18 @@ namespace SCDType6Generator
             List<String> returnable = Input.Split('|').ToList<String>();
             return returnable;
         }
-        //check for first thing says "ReplacementPoint"
-        //Then check for second element is in the ENUM
+        public Boolean CheckFirstElementIsCommentTypeEnum(List<String> list)
+        {
+            CommentTypeEnum output;
+            Boolean returnable = Enum.TryParse<CommentTypeEnum>(list[0],out output);
+            return returnable;
+        }
+        public Boolean CheckSecondElementIsColumnListTypeEnum(List<String> list)
+        {
+            ColumnListTypeEnum output;
+            Boolean returnable = Enum.TryParse<ColumnListTypeEnum>(list[1], out output);
+            return returnable;
+        }
 
 
         public String GetPattern()

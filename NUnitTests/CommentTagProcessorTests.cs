@@ -123,5 +123,65 @@ namespace SCDType6Generator.Tests
             //Assert
             Assert.AreEqual(Expected, Actual);
         }
+
+        [TestCase]
+        public void CheckFirstElementIsCommentTypeEnum_FalseIfBlah()
+        {
+            //Arrange
+            List<String> Input = new List<String> { "Blah", "Irrelevant" };
+            Boolean Expected = false;
+            CommentTagProcessor sut = new CommentTagProcessor();
+
+            //Act
+            Boolean Actual = sut.CheckFirstElementIsCommentTypeEnum(Input);
+
+            //Assert
+            Assert.AreEqual(Expected, Actual);
+        }
+
+        [TestCase]
+        public void CheckFirstElementIsCommentTypeEnum_TrueIfReplacementPoint()
+        {
+            //Arrange
+            List<String> Input = new List<String> { "ReplacementPoint", "Irrelevant" };
+            Boolean Expected = true;
+            CommentTagProcessor sut = new CommentTagProcessor();
+
+            //Act
+            Boolean Actual = sut.CheckFirstElementIsCommentTypeEnum(Input);
+
+            //Assert
+            Assert.AreEqual(Expected, Actual);
+        }
+
+        [TestCase]
+        public void CheckSecondElementIsColumnListTypeEnum_FalseIfBlah()
+        {
+            //Arrange
+            List<String> Input = new List<String> { "Irrelevant", "Blah" };
+            Boolean Expected = false;
+            CommentTagProcessor sut = new CommentTagProcessor();
+
+            //Act
+            Boolean Actual = sut.CheckFirstElementIsCommentTypeEnum(Input);
+
+            //Assert
+            Assert.AreEqual(Expected, Actual);
+        }
+
+        [TestCase]
+        public void CheckSecondElementIsColumnListTypeEnum_TrueIfNaturalKey()
+        {
+            //Arrange
+            List<String> Input = new List<String> { "Irrelevant", "NaturalKey" };
+            Boolean Expected = true;
+            CommentTagProcessor sut = new CommentTagProcessor();
+
+            //Act
+            Boolean Actual = sut.CheckSecondElementIsColumnListTypeEnum(Input);
+
+            //Assert
+            Assert.AreEqual(Expected, Actual);
+        }
     }
 }
