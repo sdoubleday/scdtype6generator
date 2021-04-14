@@ -57,7 +57,7 @@ namespace SCDType6Generator
             return returnable;
         }
         
-        public void ValidateSplitList()
+        public void ValidateSplitList(int ExpectedElementCount)
         {
             throw new NotImplementedException();
         }
