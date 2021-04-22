@@ -45,21 +45,32 @@ namespace SCDType6Generator
             return returnable;
         }
 
-        public char GetSplitterChar()
+        public virtual char GetSplitterChar()
         {
             char returnable = '|';
             return returnable;
         }
 
-        public List<String> SplitToList(char splitter)
+        public List<String> SplitToList()
         {
-            List<String> returnable = Input.Split(splitter).ToList<String>();
+            List<String> returnable = Input.Split(this.GetSplitterChar()).ToList<String>();
             return returnable;
         }
         
-        public void ValidateSplitList(int ExpectedElementCount)
+        public virtual int GetExpectedElementCount()
         {
-            throw new NotImplementedException();
+            int returnable = 2;
+            return returnable;
+        }
+
+        public void ValidateSplitList()
+        {
+            List<String> list = this.SplitToList();
+            int ExpectedElementCount = this.GetExpectedElementCount();
+            if (list.Count != ExpectedElementCount)
+            {
+                throw new ExpectedNumberOfElementsNotFoundException("Input", ExpectedElementCount);
+            }
         }
 
         public String GetLine()

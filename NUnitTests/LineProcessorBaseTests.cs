@@ -10,9 +10,14 @@ namespace SCDType6Generator.Tests
     public class FakeLineProcessorBase : LineProcessorBase { 
         public FakeLineProcessorBase (String Input) : base(Input)
         { }
-        public new char GetSplitterChar()
+        public override char GetSplitterChar()
         {
             char returnable = ',';
+            return returnable;
+        }
+        public override int GetExpectedElementCount()
+        {
+            int returnable = 3;
             return returnable;
         }
 
@@ -83,7 +88,7 @@ namespace SCDType6Generator.Tests
             LineProcessorBase lineProcessorBase = new LineProcessorBase(Input);
 
             //Act
-            List<String> Actual = lineProcessorBase.SplitToList(lineProcessorBase.GetSplitterChar());
+            List<String> Actual = lineProcessorBase.SplitToList();
 
             //Assert
             Assert.AreEqual(Expected, Actual);
@@ -98,11 +103,49 @@ namespace SCDType6Generator.Tests
             FakeLineProcessorBase lineProcessorBase = new FakeLineProcessorBase(Input);
 
             //Act
-            List<String> Actual = lineProcessorBase.SplitToList(lineProcessorBase.GetSplitterChar());
+            List<String> Actual = lineProcessorBase.SplitToList();
 
             //Assert
             Assert.AreEqual(Expected, Actual);
         }
 
+        [TestCase]
+        public void ValidateSplitList_NothingIfValid()
+        {
+            //Arrange
+            String Input = "a|bbb";
+            LineProcessorBase lineProcessorBase = new LineProcessorBase(Input);
+            //Act
+
+            //Assert
+            Assert.That(delegate { lineProcessorBase.ValidateSplitList(); }, Throws.Nothing);
+        }
+
+        [TestCase]
+        public void ValidateSplitList_ExceptionIfNotValid()
+        {
+            //Arrange
+            String Input = "a|bbb|ccc";
+            LineProcessorBase lineProcessorBase = new LineProcessorBase(Input);
+            //Act
+
+            //Assert
+            Assert.Throws<ExpectedNumberOfElementsNotFoundException>(delegate { lineProcessorBase.ValidateSplitList(); });
+        }
+
+        [TestCase]
+        public void ValidateSplitList_Uses_GetExpectedElementCount()
+        {
+            //Arrange
+            String Input = "a|bbb";
+            FakeLineProcessorBase lineProcessorBase = new FakeLineProcessorBase(Input);
+            int Expected = 3;
+            //Act
+
+            //Assert
+            ExpectedNumberOfElementsNotFoundException ex = Assert.Throws<ExpectedNumberOfElementsNotFoundException>(delegate { lineProcessorBase.ValidateSplitList(); });
+            int Actual = ex.ExpectedElementCount;
+            Assert.AreEqual(Expected, Actual);
+        }
     }
 }

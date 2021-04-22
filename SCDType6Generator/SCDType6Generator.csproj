@@ -54,6 +54,7 @@
     <Compile Include="CommentTagElements.cs" />
     <Compile Include="CommentTagProcessor.cs" />
     <Compile Include="DataTypeNotRecognizedException.cs" />
+    <Compile Include="ExpectedNumberOfElementsNotFoundException.cs" />
     <Compile Include="IColumn.cs" />
     <Compile Include="IColumnDefault.cs" />
     <Compile Include="LineProcessorBase.cs" />
