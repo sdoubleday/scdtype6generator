@@ -80,30 +80,30 @@ namespace SCDType6Generator.Tests
         }
 
         [TestCase]
-        public void SplitToList_ReturnsListSplitOnPipe()
+        public void SplitCommentToList_ReturnsListSplitOnPipe()
         {
             //Arrange
             List<String> Expected = new List<String> { "a", "bbb", "cccc" };
-            String Input = "a|bbb|cccc";
+            String Input = "A String /*a|bbb|cccc*/";
             LineProcessorBase lineProcessorBase = new LineProcessorBase(Input);
 
             //Act
-            List<String> Actual = lineProcessorBase.SplitToList();
+            List<String> Actual = lineProcessorBase.SplitCommentToList();
 
             //Assert
             Assert.AreEqual(Expected, Actual);
         }
 
         [TestCase]
-        public void SplitToList_Uses_GetSplitterChar()
+        public void SplitCommentToList_Uses_GetSplitterChar()
         {
             //Arrange
             List<String> Expected = new List<String> { "a", "bbb", "cccc" };
-            String Input = "a,bbb,cccc";
+            String Input = "/*a,bbb,cccc*/";
             FakeLineProcessorBase lineProcessorBase = new FakeLineProcessorBase(Input);
 
             //Act
-            List<String> Actual = lineProcessorBase.SplitToList();
+            List<String> Actual = lineProcessorBase.SplitCommentToList();
 
             //Assert
             Assert.AreEqual(Expected, Actual);
@@ -113,7 +113,7 @@ namespace SCDType6Generator.Tests
         public void ValidateSplitList_NothingIfValid()
         {
             //Arrange
-            String Input = "a|bbb";
+            String Input = "/*a|bbb*/";
             LineProcessorBase lineProcessorBase = new LineProcessorBase(Input);
             //Act
 
@@ -125,7 +125,7 @@ namespace SCDType6Generator.Tests
         public void ValidateSplitList_ExceptionIfNotValid()
         {
             //Arrange
-            String Input = "a|bbb|ccc";
+            String Input = "/*a|bbb|ccc*/";
             LineProcessorBase lineProcessorBase = new LineProcessorBase(Input);
             //Act
 
@@ -137,7 +137,7 @@ namespace SCDType6Generator.Tests
         public void ValidateSplitList_Uses_GetExpectedElementCount()
         {
             //Arrange
-            String Input = "a|bbb";
+            String Input = "/*a|bbb*/";
             FakeLineProcessorBase lineProcessorBase = new FakeLineProcessorBase(Input);
             int Expected = 3;
             //Act

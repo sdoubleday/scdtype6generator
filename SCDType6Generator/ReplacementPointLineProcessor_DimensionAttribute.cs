@@ -20,7 +20,7 @@ namespace SCDType6Generator
             //This should PROBABLY get picked apart into more methods and stuff...
 
             this.ValidateSplitList();
-            List<String> list = this.SplitToList();
+            List<String> list = this.SplitCommentToList();
             StringBuilder stringBuilder = new StringBuilder();
             Regex regex = new Regex(list[0]);
             int i = 0;
