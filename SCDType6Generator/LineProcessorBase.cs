@@ -73,7 +73,7 @@ namespace SCDType6Generator
             }
         }
 
-        public String GetLine()
+        public virtual String GetLine()
         {
             throw new NotImplementedException();
         }
