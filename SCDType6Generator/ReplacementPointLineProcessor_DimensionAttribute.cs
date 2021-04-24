@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.RegularExpressions;
 
 namespace SCDType6Generator
 {
@@ -22,15 +21,19 @@ namespace SCDType6Generator
             this.ValidateSplitList();
             List<String> list = this.SplitCommentToList();
             StringBuilder stringBuilder = new StringBuilder();
-            Regex regex = new Regex(list[0]);
+
             int i = 0;
             foreach (IColumn column in this.columnListManager.dimensionalAttributeColumnList.columns)
             {
                 if(i > 0)
                 {
                     stringBuilder.Append(list[1]);
+                    stringBuilder.Append(" ");
                 }
-                stringBuilder.AppendLine( regex.Replace(this.Input, column.COLUMN_NAME) );
+                String intermediate = this.Input.Replace(this.GetComment(), "");
+                intermediate = intermediate.Replace("/**/", "");
+                intermediate = intermediate.Replace(list[0], column.COLUMN_NAME);
+                stringBuilder.AppendLine( intermediate.Trim() );
                 i++;
             }
 

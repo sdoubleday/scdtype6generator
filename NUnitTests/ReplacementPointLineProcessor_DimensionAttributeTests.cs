@@ -42,7 +42,8 @@ namespace SCDType6Generator.Tests
 
             String Expected = "a.DimFake1 = b.DimFake1" +
                 "\r\nAND a.DimFake2 = b.DimFake2" +
-                "\r\nAND a.DimFake3 = b.DimFake3";
+                "\r\nAND a.DimFake3 = b.DimFake3" +
+                "\r\n";
 
             //Act
             String Actual = rplp_DimensionAttribute.GetLine();
