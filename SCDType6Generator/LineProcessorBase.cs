@@ -51,9 +51,9 @@ namespace SCDType6Generator
             return returnable;
         }
 
-        public List<String> SplitToList()
+        public List<String> SplitCommentToList()
         {
-            List<String> returnable = Input.Split(this.GetSplitterChar()).ToList<String>();
+            List<String> returnable = this.GetComment().Split(this.GetSplitterChar()).ToList<String>();
             return returnable;
         }
         
@@ -65,7 +65,7 @@ namespace SCDType6Generator
 
         public void ValidateSplitList()
         {
-            List<String> list = this.SplitToList();
+            List<String> list = this.SplitCommentToList();
             int ExpectedElementCount = this.GetExpectedElementCount();
             if (list.Count != ExpectedElementCount)
             {
@@ -73,7 +73,7 @@ namespace SCDType6Generator
             }
         }
 
-        public String GetLine()
+        public virtual String GetLine()
         {
             throw new NotImplementedException();
         }

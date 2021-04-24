@@ -8,7 +8,7 @@ namespace SCDType6Generator
 {
     public class ColumnListManager
     {
-        ColumnList naturalKeyColumnList { get; set; }
-        ColumnList dimensionalAttributeColumnList { get; set; }
+        public ColumnList naturalKeyColumnList { get; set; }
+        public ColumnList dimensionalAttributeColumnList { get; set; }
     }
 }

@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReplacementPointLineProcessor_DimensionAttributeTests.cs" />
     <Compile Include="LineProcessorBaseTests.cs" />
     <Compile Include="CommentTagProcessorTests.cs" />
     <Compile Include="ColumnTests.cs" />

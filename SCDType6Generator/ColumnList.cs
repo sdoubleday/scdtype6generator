@@ -8,7 +8,7 @@ namespace SCDType6Generator
 {
     public class ColumnList
     {
-        List<IColumn> columns;
+        public List<IColumn> columns;
         String separator;
 
         #region Constructors
