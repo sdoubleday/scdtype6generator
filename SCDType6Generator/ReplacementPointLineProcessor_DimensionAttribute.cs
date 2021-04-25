@@ -16,29 +16,41 @@ namespace SCDType6Generator
 
         public override string GetLine()
         {
-            //This should PROBABLY get picked apart into more methods and stuff...
+            StringBuilder stringBuilder = new StringBuilder();
+            Boolean isFirst = true;
 
             this.ValidateSplitList();
+            
             List<String> list = this.SplitCommentToList();
-            StringBuilder stringBuilder = new StringBuilder();
+            String templateReplacementString = list[0];
+            String joinString = list[1];
 
-            int i = 0;
             foreach (IColumn column in this.columnListManager.dimensionalAttributeColumnList.columns)
             {
-                if(i > 0)
-                {
-                    stringBuilder.Append(list[1]);
-                    stringBuilder.Append(" ");
-                }
-                String intermediate = this.Input.Replace(this.GetComment(), "");
-                intermediate = intermediate.Replace("/**/", "");
-                intermediate = intermediate.Replace(list[0], column.COLUMN_NAME);
-                stringBuilder.AppendLine( intermediate.Trim() );
-                i++;
+                string intermediate = this.GetInputWithoutComment();
+                intermediate = intermediate.Replace(templateReplacementString, column.COLUMN_NAME);
+                
+                stringBuilder.Append(this.FormatJoinString(joinString, isFirst));
+                stringBuilder.AppendLine(intermediate);
+                
+                isFirst = false;
             }
 
             return stringBuilder.ToString();
         }
 
+        public string FormatJoinString(String joinString, bool isFirst)
+        {
+            string prependable = null;
+            if (isFirst)
+            {
+                prependable = "";
+            }
+            else
+            {
+                prependable = joinString + " ";
+            }
+            return prependable;
+        }
     }
 }

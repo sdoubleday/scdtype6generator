@@ -77,6 +77,13 @@ namespace SCDType6Generator
         {
             throw new NotImplementedException();
         }
+
+        public string GetInputWithoutComment()
+        {
+            String returnable = this.Input.Replace(this.GetComment(), "");
+            returnable = returnable.Replace("/**/", "").Trim();
+            return returnable;
+        }
         #endregion Methods
 
     }

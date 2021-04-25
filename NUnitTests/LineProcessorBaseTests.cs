@@ -95,6 +95,21 @@ namespace SCDType6Generator.Tests
         }
 
         [TestCase]
+        public void GetInputWithoutComment_RemovesCommentAndTrims()
+        {
+            //Arrange
+            String Expected = "A String";
+            String Input = "A String /*a|bbb|cccc*/";
+            LineProcessorBase lineProcessorBase = new LineProcessorBase(Input);
+
+            //Act
+            String Actual = lineProcessorBase.GetInputWithoutComment();
+
+            //Assert
+            Assert.AreEqual(Expected, Actual);
+        }
+
+        [TestCase]
         public void SplitCommentToList_Uses_GetSplitterChar()
         {
             //Arrange

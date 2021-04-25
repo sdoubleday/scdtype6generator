@@ -51,5 +51,37 @@ namespace SCDType6Generator.Tests
             //Assert
             Assert.AreEqual(Expected, Actual);
         }
+
+        [TestCase]
+        public void FormatJoinString_First()
+        {
+            //Arrange
+            ReplacementPointLineProcessor_DimensionAttribute rplp_dim = new ReplacementPointLineProcessor_DimensionAttribute();
+            Boolean isFirst = true;
+            String joinString = ",";
+            String Expected = "";
+
+            //Act
+            String Actual = rplp_dim.FormatJoinString(joinString, isFirst);
+
+            //Assert
+            Assert.AreEqual(Expected, Actual);
+        }
+
+        [TestCase]
+        public void FormatJoinString_NotFirst()
+        {
+            //Arrange
+            ReplacementPointLineProcessor_DimensionAttribute rplp_dim = new ReplacementPointLineProcessor_DimensionAttribute();
+            Boolean isFirst = false;
+            String joinString = ",";
+            String Expected = ", ";
+
+            //Act
+            String Actual = rplp_dim.FormatJoinString(joinString, isFirst);
+
+            //Assert
+            Assert.AreEqual(Expected, Actual);
+        }
     }
 }
