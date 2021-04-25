@@ -27,14 +27,10 @@ namespace SCDType6Generator
         #endregion Constructors
 
         #region Methods
-        public Boolean ConfirmHasComment()
+        public Boolean CheckHasComment()
         {
             Regex regex = new Regex("/\\*.*\\*/");
             Boolean returnable = regex.Match(Input, 0).Success;
-            if(! returnable)
-            {
-                throw new ExpectedSqlCommentNotFoundException();
-            }
             return returnable;
         }
 

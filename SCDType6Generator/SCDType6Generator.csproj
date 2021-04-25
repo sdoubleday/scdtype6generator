@@ -57,6 +57,7 @@
     <Compile Include="ExpectedNumberOfElementsNotFoundException.cs" />
     <Compile Include="IColumn.cs" />
     <Compile Include="IColumnDefault.cs" />
+    <Compile Include="LineParser.cs" />
     <Compile Include="LineProcessorBase.cs" />
     <Compile Include="ExpectedSqlCommentNotFoundException.cs" />
     <Compile Include="NullabilityParameterException.cs" />

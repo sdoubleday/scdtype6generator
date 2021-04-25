@@ -35,34 +35,24 @@ namespace SCDType6Generator.Tests
             LineProcessorBase lineProcessorBase = new LineProcessorBase(Input);
             
             //Act
-            Boolean Actual = lineProcessorBase.ConfirmHasComment();
+            Boolean Actual = lineProcessorBase.CheckHasComment();
 
             //Assert
             Assert.AreEqual(Expected, Actual);
         }
 
         [TestCase]
-        public void ConfirmHasComment_ExceptionIfHasSQLLineComment()
+        public void ConfirmHasComment_FalseIfNoSQLBlockComment()
         {
             //Arrange
-            String Input = "A String --SqlComment asdf";
-            LineProcessorBase lineProcessorBase = new LineProcessorBase(Input);
-            //Act
-
-            //Assert
-            Assert.Throws<ExpectedSqlCommentNotFoundException>(delegate { lineProcessorBase.ConfirmHasComment(); });
-        }
-
-        [TestCase]
-        public void ConfirmHasComment_ExceptionIfNoSQLComment()
-        {
-            //Arrange
+            Boolean Expected = false;
             String Input = "A String //NotASqlComment";
             LineProcessorBase lineProcessorBase = new LineProcessorBase(Input);
             //Act
+            Boolean Actual = lineProcessorBase.CheckHasComment();
 
             //Assert
-            Assert.Throws<ExpectedSqlCommentNotFoundException>(delegate { lineProcessorBase.ConfirmHasComment(); });
+            Assert.AreEqual(Expected, Actual);
         }
 
         [TestCase]
