@@ -39,7 +39,12 @@ namespace SCDType6Generator
 
         public override String GetLine()
         {
-            throw new NotImplementedException();
+            String returnable = "";
+            if (this.DetermineControlFlow_JustReturnLine())
+            {
+                returnable = this.Input;
+            }
+            return returnable;
         }
         #endregion Methods
     }

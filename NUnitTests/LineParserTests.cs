@@ -52,7 +52,6 @@ namespace SCDType6Generator.Tests
         }
 
         [TestCase]
-        [TestCase]
         public void GetSplitterChar()
         {
             //Arrange
@@ -64,5 +63,20 @@ namespace SCDType6Generator.Tests
             //Assert
             Assert.AreEqual(Expected, Actual);
         }
+
+        [TestCase]
+        public void GetLine_Default()
+        {
+            //Arrange
+            String Input = "A String asdf";
+            String Expected = Input;
+            LineParser lineParser = new LineParser(Input);
+            //Act
+            String Actual = lineParser.GetLine();
+
+            //Assert
+            Assert.AreEqual(Expected, Actual);
+        }
+
     }
 }
