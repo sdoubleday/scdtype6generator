@@ -44,6 +44,30 @@ namespace SCDType6Generator
             {
                 returnable = this.Input;
             }
+            else
+            {
+                List<String> list = this.SplitCommentToList();
+                String lineProcessorTypeString = list[0];
+                String inputMinus_lineProcessorTypeString = this.Input.Replace(lineProcessorTypeString, "").Replace("^", "");
+                LineProcessorTypeEnum lineProcessorTypeEnum;
+                Boolean parseSuccess = Enum.TryParse<LineProcessorTypeEnum>(list[0], out lineProcessorTypeEnum);
+
+                if(lineProcessorTypeEnum == LineProcessorTypeEnum.ReplacementPointLineProcessor_DimensionAttribute)
+                {
+                    ReplacementPointLineProcessor_DimensionAttribute rplp_DimensionAttribute = new ReplacementPointLineProcessor_DimensionAttribute(inputMinus_lineProcessorTypeString, columnListManager);
+                    returnable = rplp_DimensionAttribute.GetLine();
+                }
+                else if (lineProcessorTypeEnum == LineProcessorTypeEnum.FakeLineProcessor)
+                {
+                    FakeLineProcessor fakeLineProcessor = new FakeLineProcessor(inputMinus_lineProcessorTypeString);
+                    returnable = fakeLineProcessor.GetLine();
+                }
+                else
+                {
+                    throw new NotImplementedException(); //This should probably be a specific control flow error.
+                }
+
+            }
             return returnable;
         }
         #endregion Methods

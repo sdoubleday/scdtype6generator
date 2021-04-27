@@ -77,6 +77,23 @@ namespace SCDType6Generator.Tests
             //Assert
             Assert.AreEqual(Expected, Actual);
         }
+        
+        [TestCase]
+        public void GetLine_ReplaceWithMultipleLines()
+        {
+            //Arrange
+            String Input = "a.SampleString = b.SampleString /*FakeLineProcessor^SampleString|AND*/";
+            String Expected = 
+                "a.Test1 = b.Test1" +
+                "\r\nAND a.Test2 = b.Test2" +
+                "\r\nAND a.Test3 = b.Test3" +
+                "\r\n";
+            LineParser lineParser = new LineParser(Input);
+            //Act
+            String Actual = lineParser.GetLine();
 
+            //Assert
+            Assert.AreEqual(Expected, Actual);
+        }
     }
 }
