@@ -57,6 +57,11 @@ namespace SCDType6Generator
                     ReplacementPointLineProcessor_DimensionAttribute rplp_DimensionAttribute = new ReplacementPointLineProcessor_DimensionAttribute(inputMinus_lineProcessorTypeString, columnListManager);
                     returnable = rplp_DimensionAttribute.GetLine();
                 }
+                else if (lineProcessorTypeEnum == LineProcessorTypeEnum.ReplacementPointLineProcessor_NaturalKey)
+                {
+                    ReplacementPointLineProcessor_NaturalKey rplp_NaturalKey = new ReplacementPointLineProcessor_NaturalKey(inputMinus_lineProcessorTypeString, columnListManager);
+                    returnable = rplp_NaturalKey.GetLine();
+                }
                 else if (lineProcessorTypeEnum == LineProcessorTypeEnum.FakeLineProcessor)
                 {
                     FakeLineProcessor fakeLineProcessor = new FakeLineProcessor(inputMinus_lineProcessorTypeString);

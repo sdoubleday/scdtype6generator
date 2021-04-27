@@ -10,5 +10,6 @@ namespace SCDType6Generator
     {
         ReplacementPointLineProcessor_DimensionAttribute = 0
         ,FakeLineProcessor = 1
+        ,ReplacementPointLineProcessor_NaturalKey = 2
     }
 }

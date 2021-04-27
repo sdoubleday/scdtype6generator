@@ -68,6 +68,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FakeLineProcessor.cs" />
+    <Compile Include="ReplacementPointLineProcessor_NaturalKey.cs" />
     <Compile Include="ReplacementPointLineProcessor_DimensionAttribute.cs" />
     <Compile Include="SqlServerDataTypeWithLength.cs" />
     <Compile Include="SqlServerDataTypeWithPrecisionAndScale.cs" />
