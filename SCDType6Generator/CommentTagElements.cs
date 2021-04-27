@@ -8,7 +8,7 @@ namespace SCDType6Generator
 {
     public class CommentTagElements
     {
-        public ColumnListTypeEnum ColumnListType { get; set; }
+        public String Tag { get; set; }
         public String Pattern { get; set; }
         public String JoinString { get; set; }
     }

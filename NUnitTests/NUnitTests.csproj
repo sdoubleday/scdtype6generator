@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LineParserTests.cs" />
+    <Compile Include="LineProcessorTests.cs" />
     <Compile Include="ReplacementPointLineProcessor_DimensionAttributeTests.cs" />
     <Compile Include="LineProcessorBaseTests.cs" />
     <Compile Include="CommentTagProcessorTests.cs" />

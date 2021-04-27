@@ -49,6 +49,7 @@
     <Compile Include="ColumnDefault.cs" />
     <Compile Include="ColumnList.cs" />
     <Compile Include="ColumnListManager.cs" />
+    <Compile Include="LineProcessor.cs" />
     <Compile Include="LineProcessorTypeEnum.cs" />
     <Compile Include="CommentTypeEnum.cs" />
     <Compile Include="ColumnListTypeEnum.cs" />
