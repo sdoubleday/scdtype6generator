@@ -45,35 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Column.cs" />
-    <Compile Include="ColumnDefault.cs" />
-    <Compile Include="ColumnList.cs" />
-    <Compile Include="ColumnListManager.cs" />
     <Compile Include="LineProcessor.cs" />
-    <Compile Include="LineProcessorTypeEnum.cs" />
-    <Compile Include="CommentTypeEnum.cs" />
-    <Compile Include="ColumnListTypeEnum.cs" />
     <Compile Include="CommentTagElements.cs" />
-    <Compile Include="CommentTagProcessor.cs" />
-    <Compile Include="DataTypeNotRecognizedException.cs" />
     <Compile Include="ExpectedNumberOfElementsNotFoundException.cs" />
-    <Compile Include="IColumn.cs" />
-    <Compile Include="IColumnDefault.cs" />
-    <Compile Include="LineParser.cs" />
-    <Compile Include="LineProcessorBase.cs" />
-    <Compile Include="ExpectedSqlCommentNotFoundException.cs" />
-    <Compile Include="NullabilityParameterException.cs" />
-    <Compile Include="DataTypeNotSupportedException.cs" />
-    <Compile Include="IDataType.cs" />
-    <Compile Include="Nullability.cs" />
+    <Compile Include="LineProcessorConfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FakeLineProcessor.cs" />
-    <Compile Include="ReplacementPointLineProcessor_NaturalKey.cs" />
-    <Compile Include="ReplacementPointLineProcessor_DimensionAttribute.cs" />
-    <Compile Include="SqlServerDataTypeWithLength.cs" />
-    <Compile Include="SqlServerDataTypeWithPrecisionAndScale.cs" />
-    <Compile Include="SqlServerDataType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

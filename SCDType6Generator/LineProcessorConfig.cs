@@ -8,8 +8,17 @@ namespace SCDType6Generator
 {
     public class LineProcessorConfig
     {
+        public LineProcessorConfig() { }
+        public LineProcessorConfig(string targetTag, List<string> perLineSubstitutions)
+        {
+            this.targetTag = targetTag;
+            this.perLineSubstitutions = perLineSubstitutions;
+        }
+
         public String targetTag { get; set; }
         public List<String> perLineSubstitutions { get; set; }
+
+
 
     }
 }

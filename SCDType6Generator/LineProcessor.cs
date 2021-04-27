@@ -126,7 +126,8 @@ namespace SCDType6Generator
                         string intermediate = this.GetInputWithoutComment();
                         intermediate = intermediate.Replace(this.commentTagElements.Pattern, substitution);
 
-                        stringBuilder.Append(this.FormatJoinString(this.commentTagElements.JoinString, isFirst));
+                        //Looks like this wound up being superfluous. IF so, plan to remove it from the template as well.
+                        //stringBuilder.Append(this.FormatJoinString(this.commentTagElements.JoinString, isFirst));
                         stringBuilder.AppendLine(intermediate);
 
                         isFirst = false;
