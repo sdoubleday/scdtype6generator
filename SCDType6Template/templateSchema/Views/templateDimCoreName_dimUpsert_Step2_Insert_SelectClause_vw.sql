@@ -2,10 +2,10 @@
 AS
 SELECT
  ROW_NUMBER() OVER (ORDER BY GetMaxSK.[MaxSK]) + GetMaxSK.[MaxSK] AS [SK_templateDimCoreName]
-,prep.[NK_SourceSystemID1] AS [NK_SourceSystemID1]			/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
+,prep.[NK_SourceSystemID1] AS [NK_SourceSystemID1]			/*NaturalKey_ReplacementPoint|NK_SourceSystemID1*/
 ,prep.[NK_SourceSystemID2] AS [NK_SourceSystemID2]			/*Sample*/
-,prep.[SampleColumnOne] AS [SampleColumnOne_Cur]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne|,*/
-,prep.[SampleColumnOne] AS [SampleColumnOne_Hist]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne|,*/
+,prep.[SampleColumnOne] AS [SampleColumnOne_Cur]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne*/
+,prep.[SampleColumnOne] AS [SampleColumnOne_Hist]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne*/
 ,prep.[SampleColumnTwo] AS [SampleColumnTwo_Cur]			/*Sample*/
 ,prep.[SampleColumnTwo] AS [SampleColumnTwo_Hist]			/*Sample*/
 ,1 AS [Ctl_CurrentFlag]

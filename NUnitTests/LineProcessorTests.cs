@@ -118,7 +118,7 @@ namespace SCDType6Generator.Tests
         public void ValidateSplitList_NothingIfValid()
         {
             //Arrange
-            String Input = "/*a|bbb|ccc*/";
+            String Input = "/*a|bbbccc*/";
             LineProcessor LineProcessor = new LineProcessor(Input);
             //Act
 
@@ -216,7 +216,7 @@ namespace SCDType6Generator.Tests
         {
             //Arrange
             Boolean Expected = false;
-            String Input = "A String /*Sql|Com|ment*/ asdf";
+            String Input = "A String /*Sql|Comment*/ asdf";
             LineProcessor LineProcessor = new LineProcessor(Input);
             //Act
             Boolean Actual = LineProcessor.DetermineControlFlow_JustReturnLine();
@@ -243,9 +243,9 @@ namespace SCDType6Generator.Tests
         public void GetLine_ReplaceWithMultipleLines()
         {
             //Arrange
-            String Input = "a.SampleString = b.SampleString /*SampleTag|SampleString|AND*/";
+            String Input = "AND a.SampleString = b.SampleString /*SampleTag|SampleString*/";
             String Expected =
-                "a.Test1 = b.Test1" +
+                "AND a.Test1 = b.Test1" +
                 "\r\nAND a.Test2 = b.Test2" +
                 "\r\nAND a.Test3 = b.Test3" +
                 "\r\n";
@@ -263,7 +263,7 @@ namespace SCDType6Generator.Tests
         public void GetLine_IgnoreIfDifferentTag()
         {
             //Arrange
-            String Input = "a.SampleString = b.SampleString /*SampleTag|SampleString|AND*/";
+            String Input = "a.SampleString = b.SampleString /*SampleTag|SampleString*/";
             String Expected = Input;
             String Tag = "NonSampleTag";
             List<String> perLineSubstitutions = new List<String> { "Test1", "Test2", "Test3" };

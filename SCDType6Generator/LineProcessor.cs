@@ -66,7 +66,7 @@ namespace SCDType6Generator
         
         public virtual int GetExpectedElementCount()
         {
-            int returnable = 3;
+            int returnable = 2;
             return returnable;
         }
 
@@ -87,7 +87,6 @@ namespace SCDType6Generator
             List<String> list = this.SplitCommentToList();
             elements.Tag = list[0];
             elements.Pattern = list[1];
-            elements.JoinString = list[2];
             this.commentTagElements = elements;
         }
 
