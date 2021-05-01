@@ -57,7 +57,7 @@ namespace ReadDacPacNormalDotNet
 
         public static void ProcessTSqlObjectIntoDimensionScriptFiles(string SCDType6TemplateDirectory, string OutputDirectory, string DimensionSchema, TSqlObject table, ModelRelationshipClass relationshipTypeColumns, ModelRelationshipClass relationshipTypeSchema)
         {
-            string stagingSchemaName = GetSchemaName( table.GetReferenced(relationshipTypeSchema, DacQueryScopes.UserDefined).First() );
+            string stagingSchemaName = GetSchemaName( table );
             string templateDimCoreName = GetObjectName(table).Replace("_dimSrc_stg", "");
             List<String> listOfColumns = new List<String>();
             foreach (var col in table.GetReferenced(relationshipTypeColumns, DacQueryScopes.UserDefined))
@@ -115,7 +115,7 @@ namespace ReadDacPacNormalDotNet
                     while (!reader.EndOfStream)
                     {
                         string line = reader.ReadLine();
-                        line = line.Replace("templateDimCoreName", templateDimCoreName).Replace("templateSchema", DimensionSchema).Replace("stagingSchema", StagingSchema);
+                        line = line.Replace("templateDimCoreName", templateDimCoreName).Replace("templateSchema", DimensionSchema).Replace("StagingSchema", StagingSchema);
                         if (!line.Contains("/*Sample*/")) {
                             LineProcessor lineProcessorNK = new LineProcessor(line, lineProcessorConfigNK);
                             line = lineProcessorNK.GetLine();
@@ -147,7 +147,11 @@ namespace ReadDacPacNormalDotNet
 
         public static string GetSchemaName(TSqlObject obj)
         {
-            return obj.Name.ToString().Split('.')[0].Replace("[", "").Replace("]", "");
+            Console.WriteLine(obj.Name.ToString());
+            
+            string returnable = obj.Name.ToString().Split('.')[0].Replace("[", "").Replace("]", "");
+            Console.WriteLine(returnable);
+            return returnable;
             //This parses the [schema].[object] format that we get back
         }
 
