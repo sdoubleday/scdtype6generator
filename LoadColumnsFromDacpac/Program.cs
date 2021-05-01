@@ -95,7 +95,7 @@ namespace ReadDacPacNormalDotNet
                 ,"Stored Procedures\\templateDimCoreName_predim_Step2_prep_usp.sql"
                 ,"Stored Procedures\\templateDimCoreName_predim_Step3_prep_updateSCDStatus_usp.sql"
                 ,"Stored Procedures\\templateDimCoreName_predim_Step4_prep_DeleteIgnorable.sql"
-                ,"Tables\\Dim_templateDimCoreName.sql"
+                ,"Tables\\templateDimCoreName_Dim.sql"
                 //,"Tables\\templateDimCoreName_dimSrc_stg.sql"
                 ,"Tables\\templateDimCoreName_predim_copycurrent.sql"
                 ,"Tables\\templateDimCoreName_predim_prep.sql"

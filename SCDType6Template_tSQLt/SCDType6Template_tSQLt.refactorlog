@@ -7,4 +7,11 @@
     <Property Name="ParentElementType" Value="SqlSchema" />
     <Property Name="NewName" Value="[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="8c8fa368-661e-49db-845c-090c03901a46" ChangeDateTime="05/01/2021 18:06:25">
+    <Property Name="ElementName" Value="[TestHelpers].[DataBuilder_templateSchema_Dim_templateDimCoreName]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[TestHelpers]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[DataBuilder_templateSchema_templateDimCoreName_Dim]" />
+  </Operation>
 </Operations>

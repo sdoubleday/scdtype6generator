@@ -5,10 +5,10 @@ BEGIN
 	IF OBJECT_ID('[templateSchema__templateDimCoreName_dimUpsert_Step1_Update_usp].ACTUAL') IS NOT NULL DROP TABLE [templateSchema__templateDimCoreName_dimUpsert_Step1_Update_usp].ACTUAL;
 	IF OBJECT_ID('[templateSchema__templateDimCoreName_dimUpsert_Step1_Update_usp].EXPECTED') IS NOT NULL DROP TABLE [templateSchema__templateDimCoreName_dimUpsert_Step1_Update_usp].EXPECTED;
 
-	EXECUTE tSQLt.FakeTable @TableName = '[templateSchema].[Dim_templateDimCoreName]';
+	EXECUTE tSQLt.FakeTable @TableName = '[templateSchema].[templateDimCoreName_Dim]';
 	EXECUTE tSQLt.FakeTable @TableName = '[templateSchema].[templateDimCoreName_predim_prep]';
 
-	EXECUTE [TestHelpers].[DataBuilder_templateSchema_Dim_templateDimCoreName] @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 11, @Ctl_CurrentFlag = 1, @Ctl_EffectiveDate = '1900-01-01', @Ctl_EndDate_Excl = '9999-12-31';
+	EXECUTE [TestHelpers].[DataBuilder_templateSchema_templateDimCoreName_Dim] @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 11, @Ctl_CurrentFlag = 1, @Ctl_EffectiveDate = '1900-01-01', @Ctl_EndDate_Excl = '9999-12-31';
 
 	EXECUTE [TestHelpers].[DataBuilder_templateSchema_templateDimCoreName_predim_prep] @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 11, @Ctl_EffectiveDate = '2000-01-01';
 
@@ -20,7 +20,7 @@ BEGIN
 	,[Ctl_EffectiveDate]
 	,[Ctl_EndDate_Excl]
 	INTO [templateSchema__templateDimCoreName_dimUpsert_Step1_Update_usp].ACTUAL
-	FROM [templateSchema].[Dim_templateDimCoreName];
+	FROM [templateSchema].[templateDimCoreName_Dim];
 
 	--ASSERT
 	CREATE TABLE [templateSchema__templateDimCoreName_dimUpsert_Step1_Update_usp].EXPECTED (

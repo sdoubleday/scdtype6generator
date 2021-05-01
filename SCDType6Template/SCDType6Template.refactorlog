@@ -76,4 +76,11 @@
     <Property Name="NewSchema" Value="StagingSchema" />
     <Property Name="IsNewSchemaExternal" Value="False" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="50755d8c-d5f4-429b-9be1-e701cef812d7" ChangeDateTime="05/01/2021 18:05:36">
+    <Property Name="ElementName" Value="[templateSchema].[Dim_templateDimCoreName]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[templateSchema]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[templateDimCoreName_Dim]" />
+  </Operation>
 </Operations>

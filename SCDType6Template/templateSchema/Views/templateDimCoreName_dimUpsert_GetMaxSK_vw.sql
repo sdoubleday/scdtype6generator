@@ -6,4 +6,4 @@ SELECT
 		WHEN MAX([SK_templateDimCoreName]) IS NULL THEN 1
 		ELSE MAX([SK_templateDimCoreName])
 	END AS [MaxSK]
-FROM [templateSchema].[Dim_templateDimCoreName];
+FROM [templateSchema].[templateDimCoreName_Dim];

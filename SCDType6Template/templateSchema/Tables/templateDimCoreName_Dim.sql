@@ -1,4 +1,4 @@
-﻿CREATE TABLE [templateSchema].[Dim_templateDimCoreName]
+﻿CREATE TABLE [templateSchema].[templateDimCoreName_Dim]
 (
 	 [SK_templateDimCoreName] INT NOT NULL
 	,

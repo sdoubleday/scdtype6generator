@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [templateSchema].[templateDimCoreName_dimUpsert_Step2_Insert_usp]
 AS
 
-INSERT INTO [templateSchema].[Dim_templateDimCoreName]
+INSERT INTO [templateSchema].[templateDimCoreName_Dim]
 (
  [SK_templateDimCoreName]
 ,

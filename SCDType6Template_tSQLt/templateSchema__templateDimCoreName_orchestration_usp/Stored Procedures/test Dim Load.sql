@@ -51,7 +51,7 @@ BEGIN
 	,[Ctl_EffectiveDate]
 	,[Ctl_EndDate_Excl]
 	INTO [templateSchema__templateDimCoreName_orchestration_usp].ACTUAL
-	FROM [templateSchema].[Dim_templateDimCoreName];
+	FROM [templateSchema].[templateDimCoreName_Dim];
 
 	--ASSERT
 	CREATE TABLE [templateSchema__templateDimCoreName_orchestration_usp].EXPECTED (

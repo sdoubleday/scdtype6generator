@@ -14,7 +14,7 @@ AS
 		,
 		 [SampleColumnOne_Cur]		/*DimensionAttribute_ReplacementPoint|SampleColumnOne|,*/
 		,[SampleColumnTwo_Cur]		/*Sample*/
-	FROM [templateSchema].[Dim_templateDimCoreName]
+	FROM [templateSchema].[templateDimCoreName_Dim]
 	WHERE [Ctl_CurrentFlag] = 1;
 
 
