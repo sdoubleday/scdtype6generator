@@ -10,6 +10,7 @@ AS
 	
 	FROM [templateSchema].[Dim_templateDimCoreName] dim
 	INNER JOIN [templateSchema].[templateDimCoreName_predim_prep] prep
-	ON dim.[NK_SourceSystemID1] = prep.[NK_SourceSystemID1]		/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|AND*/
+	ON
+	dim.[NK_SourceSystemID1] = prep.[NK_SourceSystemID1]		/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|AND*/
 	AND dim.[NK_SourceSystemID2] = prep.[NK_SourceSystemID2]	/*Sample*/
 ;
