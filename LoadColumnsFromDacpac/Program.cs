@@ -43,26 +43,11 @@ namespace ReadDacPacNormalDotNet
 
             foreach (var table in tables)
             {
-                string templateDimCoreName = GetObjectName(table).Replace("_dimSrc_stg", "");
-                List<String> listOfColumns = new List<String>();
-                foreach (var col in table.GetReferenced(Table.Columns, DacQueryScopes.UserDefined))
-                {
-                    String column = GetColumnName(col);
-                    listOfColumns.Add(column);
-                }
-                GenerateDimension(listOfColumns, templateDimCoreName, SCDType6TemplateDirectory, OutputDirectory, DimensionSchema);
+                ProcessTSqlObjectIntoDimensionScriptFiles(SCDType6TemplateDirectory, OutputDirectory, DimensionSchema, table, Table.Columns);
             }
-            //I think the var views and var tables are TSqlObject collections, and MAYBE I can generalize these two.
             foreach (var view in views)
             {
-                string templateDimCoreName = GetObjectName(view).Replace("_dimSrc_stg", "");
-                List<String> listOfColumns = new List<String>();
-                foreach (var col in view.GetReferenced(View.Columns, DacQueryScopes.UserDefined))
-                {
-                    string column = GetColumnName(col);
-                    listOfColumns.Add(column);
-                }
-                GenerateDimension(listOfColumns, templateDimCoreName, SCDType6TemplateDirectory, OutputDirectory, DimensionSchema);
+                ProcessTSqlObjectIntoDimensionScriptFiles(SCDType6TemplateDirectory, OutputDirectory, DimensionSchema, view, View.Columns);
             }
 
             Console.WriteLine("Press any key to close!");
@@ -70,7 +55,19 @@ namespace ReadDacPacNormalDotNet
 
         }
 
-        private static void GenerateDimension(List<string> listOfColumns, String templateDimCoreName, String SCDType6TemplateDirectory, String OutputDirectory, String DimensionSchema)
+        public static void ProcessTSqlObjectIntoDimensionScriptFiles(string SCDType6TemplateDirectory, string OutputDirectory, string DimensionSchema, TSqlObject table, ModelRelationshipClass relationshipType)
+        {
+            string templateDimCoreName = GetObjectName(table).Replace("_dimSrc_stg", "");
+            List<String> listOfColumns = new List<String>();
+            foreach (var col in table.GetReferenced(relationshipType, DacQueryScopes.UserDefined))
+            {
+                String column = GetColumnName(col);
+                listOfColumns.Add(column);
+            }
+            GenerateDimension(listOfColumns, templateDimCoreName, SCDType6TemplateDirectory, OutputDirectory, DimensionSchema);
+        }
+
+        public static void GenerateDimension(List<string> listOfColumns, String templateDimCoreName, String SCDType6TemplateDirectory, String OutputDirectory, String DimensionSchema)
         {
             List<String> listOfNks = listOfColumns.Where(mystring => mystring.StartsWith("NK_")).ToList<String>();
             LineProcessorConfig lineProcessorConfigNK = new LineProcessorConfig("NaturalKey_ReplacementPoint", listOfNks);
