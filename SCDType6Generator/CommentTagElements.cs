@@ -10,5 +10,6 @@ namespace SCDType6Generator
     {
         public String Tag { get; set; }
         public String Pattern { get; set; }
+        public String JoinString { get; set; }
     }
 }

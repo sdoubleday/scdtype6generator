@@ -4,10 +4,10 @@ AS
 INSERT INTO [templateSchema].[Dim_templateDimCoreName]
 (
  [SK_templateDimCoreName]
-,[NK_SourceSystemID1]			/*NaturalKey_ReplacementPoint|NK_SourceSystemID1*/
+,[NK_SourceSystemID1]			/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
 ,[NK_SourceSystemID2]			/*Sample*/
-,[SampleColumnOne_Cur]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne*/
-,[SampleColumnOne_Hist]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne*/
+,[SampleColumnOne_Cur]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne|,*/
+,[SampleColumnOne_Hist]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne|,*/
 ,[SampleColumnTwo_Cur]			/*Sample*/
 ,[SampleColumnTwo_Hist]			/*Sample*/
 ,[Ctl_CurrentFlag]
@@ -16,10 +16,10 @@ INSERT INTO [templateSchema].[Dim_templateDimCoreName]
 )
 SELECT
  [SK_templateDimCoreName]
-,[NK_SourceSystemID1]			/*NaturalKey_ReplacementPoint|NK_SourceSystemID1*/
+,[NK_SourceSystemID1]			/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
 ,[NK_SourceSystemID2]			/*Sample*/
-,[SampleColumnOne_Cur]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne*/
-,[SampleColumnOne_Hist]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne*/
+,[SampleColumnOne_Cur]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne|,*/
+,[SampleColumnOne_Hist]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne|,*/
 ,[SampleColumnTwo_Cur]			/*Sample*/
 ,[SampleColumnTwo_Hist]			/*Sample*/
 ,[Ctl_CurrentFlag]
