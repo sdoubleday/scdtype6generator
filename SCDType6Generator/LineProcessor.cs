@@ -127,7 +127,7 @@ namespace SCDType6Generator
                         intermediate = intermediate.Replace(this.commentTagElements.Pattern, substitution);
 
                         //Looks like this wound up being superfluous. IF so, plan to remove it from the template as well.
-                        //stringBuilder.Append(this.FormatJoinString(this.commentTagElements.JoinString, isFirst));
+                        stringBuilder.Append(this.FormatJoinString(this.commentTagElements.JoinString, isFirst));
                         stringBuilder.AppendLine(intermediate);
 
                         isFirst = false;
