@@ -70,4 +70,10 @@
     <Property Name="ParentElementType" Value="SqlSchema" />
     <Property Name="NewName" Value="[templateDimCoreName_predim_Step2_prep_columnTransformations_vw]" />
   </Operation>
+  <Operation Name="Move Schema" Key="79c53a07-5c75-40e1-a6c8-47e6bb0d0ca0" ChangeDateTime="05/01/2021 15:50:03">
+    <Property Name="ElementName" Value="[templateSchema].[templateDimCoreName_dimSrc_stg]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="NewSchema" Value="StagingSchema" />
+    <Property Name="IsNewSchemaExternal" Value="False" />
+  </Operation>
 </Operations>

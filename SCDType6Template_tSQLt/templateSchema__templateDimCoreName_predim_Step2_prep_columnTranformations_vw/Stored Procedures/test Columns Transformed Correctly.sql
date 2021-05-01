@@ -5,10 +5,10 @@ BEGIN
 	IF OBJECT_ID('[templateSchema__templateDimCoreName_predim_Step2_prep_columnTransformations_vw].ACTUAL') IS NOT NULL DROP TABLE [templateSchema__templateDimCoreName_predim_Step2_prep_columnTransformations_vw].ACTUAL;
 	IF OBJECT_ID('[templateSchema__templateDimCoreName_predim_Step2_prep_columnTransformations_vw].EXPECTED') IS NOT NULL DROP TABLE [templateSchema__templateDimCoreName_predim_Step2_prep_columnTransformations_vw].EXPECTED;
 
-	EXECUTE tSQLt.FakeTable @TableName = '[templateSchema].[templateDimCoreName_dimSrc_stg]';
+	EXECUTE tSQLt.FakeTable @TableName = '[StagingSchema].[templateDimCoreName_dimSrc_stg]';
 	EXECUTE tSQLt.FakeTable @TableName = '[templateSchema].[Dim_templateDimCoreName]';
-	EXECUTE TestHelpers.DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 1, @SampleColumnOne = 'SampleColumnOne', @SampleColumnTwo = NULL, @Ctl_EffectiveDate = '2000-12-31';
-	EXECUTE TestHelpers.DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 2, @SampleColumnOne = NULL, @SampleColumnTwo = 9, @Ctl_EffectiveDate = '2000-12-31';
+	EXECUTE TestHelpers.[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg] @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 1, @SampleColumnOne = 'SampleColumnOne', @SampleColumnTwo = NULL, @Ctl_EffectiveDate = '2000-12-31';
+	EXECUTE TestHelpers.[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg] @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 2, @SampleColumnOne = NULL, @SampleColumnTwo = 9, @Ctl_EffectiveDate = '2000-12-31';
 
 	/*Remember, the column transformation logic depends on SKs being populated*/
 	EXECUTE TestHelpers.DataBuilder_templateSchema_Dim_templateDimCoreName @SK_templateDimCoreName = 1, @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 2, @Ctl_CurrentFlag = 1;

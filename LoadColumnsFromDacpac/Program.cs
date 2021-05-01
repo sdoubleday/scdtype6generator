@@ -43,11 +43,11 @@ namespace ReadDacPacNormalDotNet
 
             foreach (var table in tables)
             {
-                ProcessTSqlObjectIntoDimensionScriptFiles(SCDType6TemplateDirectory, OutputDirectory, DimensionSchema, table, Table.Columns);
+                ProcessTSqlObjectIntoDimensionScriptFiles(SCDType6TemplateDirectory, OutputDirectory, DimensionSchema, table, Table.Columns, Table.Schema);
             }
             foreach (var view in views)
             {
-                ProcessTSqlObjectIntoDimensionScriptFiles(SCDType6TemplateDirectory, OutputDirectory, DimensionSchema, view, View.Columns);
+                ProcessTSqlObjectIntoDimensionScriptFiles(SCDType6TemplateDirectory, OutputDirectory, DimensionSchema, view, View.Columns, View.Schema);
             }
 
             Console.WriteLine("Press any key to close!");
@@ -55,19 +55,20 @@ namespace ReadDacPacNormalDotNet
 
         }
 
-        public static void ProcessTSqlObjectIntoDimensionScriptFiles(string SCDType6TemplateDirectory, string OutputDirectory, string DimensionSchema, TSqlObject table, ModelRelationshipClass relationshipType)
+        public static void ProcessTSqlObjectIntoDimensionScriptFiles(string SCDType6TemplateDirectory, string OutputDirectory, string DimensionSchema, TSqlObject table, ModelRelationshipClass relationshipTypeColumns, ModelRelationshipClass relationshipTypeSchema)
         {
+            string stagingSchemaName = GetSchemaName( table.GetReferenced(relationshipTypeSchema, DacQueryScopes.UserDefined).First() );
             string templateDimCoreName = GetObjectName(table).Replace("_dimSrc_stg", "");
             List<String> listOfColumns = new List<String>();
-            foreach (var col in table.GetReferenced(relationshipType, DacQueryScopes.UserDefined))
+            foreach (var col in table.GetReferenced(relationshipTypeColumns, DacQueryScopes.UserDefined))
             {
                 String column = GetColumnName(col);
                 listOfColumns.Add(column);
             }
-            GenerateDimension(listOfColumns, templateDimCoreName, SCDType6TemplateDirectory, OutputDirectory, DimensionSchema);
+            GenerateDimension(listOfColumns, templateDimCoreName, SCDType6TemplateDirectory, OutputDirectory, DimensionSchema, stagingSchemaName);
         }
 
-        public static void GenerateDimension(List<string> listOfColumns, String templateDimCoreName, String SCDType6TemplateDirectory, String OutputDirectory, String DimensionSchema)
+        public static void GenerateDimension(List<string> listOfColumns, String templateDimCoreName, String SCDType6TemplateDirectory, String OutputDirectory, String DimensionSchema, String StagingSchema)
         {
             List<String> listOfNks = listOfColumns.Where(mystring => mystring.StartsWith("NK_")).ToList<String>();
             LineProcessorConfig lineProcessorConfigNK = new LineProcessorConfig("NaturalKey_ReplacementPoint", listOfNks);
@@ -114,7 +115,7 @@ namespace ReadDacPacNormalDotNet
                     while (!reader.EndOfStream)
                     {
                         string line = reader.ReadLine();
-                        line = line.Replace("templateDimCoreName", templateDimCoreName).Replace("templateSchema", DimensionSchema);
+                        line = line.Replace("templateDimCoreName", templateDimCoreName).Replace("templateSchema", DimensionSchema).Replace("stagingSchema", StagingSchema);
                         if (!line.Contains("/*Sample*/")) {
                             LineProcessor lineProcessorNK = new LineProcessor(line, lineProcessorConfigNK);
                             line = lineProcessorNK.GetLine();
@@ -141,6 +142,12 @@ namespace ReadDacPacNormalDotNet
         public static string GetObjectName(TSqlObject obj)
         {
             return obj.Name.ToString().Split('.')[1].Replace("[", "").Replace("]", "");
+            //This parses the [schema].[object] format that we get back
+        }
+
+        public static string GetSchemaName(TSqlObject obj)
+        {
+            return obj.Name.ToString().Split('.')[0].Replace("[", "").Replace("]", "");
             //This parses the [schema].[object] format that we get back
         }
 

@@ -12,11 +12,11 @@ BEGIN
 	EXECUTE TestHelpers.DataBuilder_templateSchema_Dim_templateDimCoreName @SK_templateDimCoreName = 3, @NK_SourceSystemID1 = 2, @NK_SourceSystemID2 = 2, @SampleColumnOne_Cur = '2', @SampleColumnTwo_Cur = '2', @Ctl_CurrentFlag = 1;
 
 	/*Unchanged*/
-	EXECUTE TestHelpers.DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg @NK_SourceSystemID1 = 2, @NK_SourceSystemID2 = 2, @SampleColumnOne = '2', @SampleColumnTwo = '2', @Ctl_EffectiveDate = '2000-01-01';
+	EXECUTE TestHelpers.[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg] @NK_SourceSystemID1 = 2, @NK_SourceSystemID2 = 2, @SampleColumnOne = '2', @SampleColumnTwo = '2', @Ctl_EffectiveDate = '2000-01-01';
 	/*New*/
-	EXECUTE TestHelpers.DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg @NK_SourceSystemID1 = 3, @NK_SourceSystemID2 = 3, @SampleColumnOne = 'Fred', @SampleColumnTwo = '2', @Ctl_EffectiveDate = '2000-01-01';
+	EXECUTE TestHelpers.[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg] @NK_SourceSystemID1 = 3, @NK_SourceSystemID2 = 3, @SampleColumnOne = 'Fred', @SampleColumnTwo = '2', @Ctl_EffectiveDate = '2000-01-01';
 	/*Updated*/
-	EXECUTE TestHelpers.DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 1, @SampleColumnOne = 'Fred', @SampleColumnTwo = '1', @Ctl_EffectiveDate = '2000-01-01';
+	EXECUTE TestHelpers.[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg] @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 1, @SampleColumnOne = 'Fred', @SampleColumnTwo = '1', @Ctl_EffectiveDate = '2000-01-01';
 
 
 	--ACT

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="13f2575e-c85c-485b-89de-2e2375ff9eca" ChangeDateTime="05/01/2021 15:51:57">
+    <Property Name="ElementName" Value="[TestHelpers].[DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[TestHelpers]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg]" />
+  </Operation>
+</Operations>

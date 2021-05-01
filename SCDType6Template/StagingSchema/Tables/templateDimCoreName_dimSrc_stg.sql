@@ -1,4 +1,4 @@
-﻿CREATE TABLE [templateSchema].[templateDimCoreName_dimSrc_stg]
+﻿CREATE TABLE [StagingSchema].[templateDimCoreName_dimSrc_stg]
 (
 /*BEGIN Columns from end user*/
 /*Needs one or more NK_ columns to form the composite natural key. NKs cannot be NULL.*/

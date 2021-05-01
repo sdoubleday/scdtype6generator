@@ -17,25 +17,25 @@ BEGIN
 	DECLARE @Date1 DATETIME2 = '1999-12-31';
 	DECLARE @Date2 DATETIME2 = '2000-01-01';
 	DECLARE @Date3 DATETIME2 = '2000-01-02';
-	EXECUTE TestHelpers.DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 11, @SampleColumnOne = 'Fred', @SampleColumnTwo = '1', @Ctl_EffectiveDate = @Date1;
-	EXECUTE TestHelpers.DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg @NK_SourceSystemID1 = 2, @NK_SourceSystemID2 = 22, @SampleColumnOne = '2', @SampleColumnTwo = '2', @Ctl_EffectiveDate = @Date1;
+	EXECUTE TestHelpers.[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg] @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 11, @SampleColumnOne = 'Fred', @SampleColumnTwo = '1', @Ctl_EffectiveDate = @Date1;
+	EXECUTE TestHelpers.[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg] @NK_SourceSystemID1 = 2, @NK_SourceSystemID2 = 22, @SampleColumnOne = '2', @SampleColumnTwo = '2', @Ctl_EffectiveDate = @Date1;
 
 	EXECUTE [templateSchema].[templateDimCoreName_orchestration_usp];
 	
 	EXECUTE [templateSchema].[templateDimCoreName_dimSrc_clearTables_usp]
 	/*Update*/
-	EXECUTE TestHelpers.DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 11, @SampleColumnOne = 'FredPrime', @SampleColumnTwo = '1', @Ctl_EffectiveDate = @Date2;
+	EXECUTE TestHelpers.[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg] @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 11, @SampleColumnOne = 'FredPrime', @SampleColumnTwo = '1', @Ctl_EffectiveDate = @Date2;
 	/*Unchanged*/
-	EXECUTE TestHelpers.DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg @NK_SourceSystemID1 = 2, @NK_SourceSystemID2 = 22, @SampleColumnOne = '2', @SampleColumnTwo = '2', @Ctl_EffectiveDate = @Date2;
+	EXECUTE TestHelpers.[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg] @NK_SourceSystemID1 = 2, @NK_SourceSystemID2 = 22, @SampleColumnOne = '2', @SampleColumnTwo = '2', @Ctl_EffectiveDate = @Date2;
 	/*New*/
-	EXECUTE TestHelpers.DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg @NK_SourceSystemID1 = 3, @NK_SourceSystemID2 = 33, @SampleColumnOne = 'Fred', @SampleColumnTwo = '2', @Ctl_EffectiveDate = @Date2;
+	EXECUTE TestHelpers.[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg] @NK_SourceSystemID1 = 3, @NK_SourceSystemID2 = 33, @SampleColumnOne = 'Fred', @SampleColumnTwo = '2', @Ctl_EffectiveDate = @Date2;
 
 	EXECUTE [templateSchema].[templateDimCoreName_orchestration_usp];
 
 	EXECUTE [templateSchema].[templateDimCoreName_dimSrc_clearTables_usp];
 	/*Updates*/
-	EXECUTE TestHelpers.DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 11, @SampleColumnOne = 'FredPrime', @SampleColumnTwo = '10', @Ctl_EffectiveDate = @Date3;
-	EXECUTE TestHelpers.DataBuilder_templateSchema_templateDimCoreName_dimSrc_stg @NK_SourceSystemID1 = 3, @NK_SourceSystemID2 = 33, @SampleColumnOne = 'Fred', @SampleColumnTwo = '20', @Ctl_EffectiveDate = @Date3;
+	EXECUTE TestHelpers.[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg] @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 11, @SampleColumnOne = 'FredPrime', @SampleColumnTwo = '10', @Ctl_EffectiveDate = @Date3;
+	EXECUTE TestHelpers.[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg] @NK_SourceSystemID1 = 3, @NK_SourceSystemID2 = 33, @SampleColumnOne = 'Fred', @SampleColumnTwo = '20', @Ctl_EffectiveDate = @Date3;
 
 	--ACT
 	EXECUTE [templateSchema].[templateDimCoreName_orchestration_usp];

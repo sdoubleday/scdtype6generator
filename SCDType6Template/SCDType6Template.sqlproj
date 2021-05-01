@@ -61,10 +61,11 @@
     <Folder Include="templateSchema\Tables" />
     <Folder Include="templateSchema\Stored Procedures" />
     <Folder Include="templateSchema\Views" />
+    <Folder Include="StagingSchema" />
+    <Folder Include="StagingSchema\Tables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\templateSchema.sql" />
-    <Build Include="templateSchema\Tables\templateDimCoreName_dimSrc_stg.sql" />
     <Build Include="templateSchema\Tables\Dim_templateDimCoreName.sql" />
     <Build Include="templateSchema\Tables\templateDimCoreName_predim_copycurrent.sql" />
     <Build Include="templateSchema\Tables\templateDimCoreName_predim_prep.sql" />
@@ -82,6 +83,8 @@
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_predim_orchestration_usp.sql" />
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_orchestration_usp.sql" />
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_dimSrc_clearTables_usp.sql" />
+    <Build Include="Security\StagingSchema.sql" />
+    <Build Include="StagingSchema\Tables\templateDimCoreName_dimSrc_stg.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SCDType6Template.refactorlog" />
