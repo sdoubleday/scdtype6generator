@@ -1,4 +1,4 @@
-﻿CREATE TABLE [templateSchema].[templateDimCoreName_Dim]
+﻿CREATE TABLE [dimensionSchema].[templateDimCoreName_Dim]
 (
 	 [SK_templateDimCoreName] INT NOT NULL
 	,
@@ -13,15 +13,15 @@
 	,[Ctl_CurrentFlag] BIT NOT NULL
 	,[Ctl_EffectiveDate] DATETIME2(7) NOT NULL
 	,[Ctl_EndDate_Excl] DATETIME2(7) NOT NULL
-	,CONSTRAINT [pk_templateSchema_templateDimCoreName] PRIMARY KEY CLUSTERED ([SK_templateDimCoreName])
-	,INDEX [ncind_templateSchema_templateDimCoreName_CurrentNKLookup] NONCLUSTERED (
+	,CONSTRAINT [pk_dimensionSchema_templateDimCoreName_Dim] PRIMARY KEY CLUSTERED ([SK_templateDimCoreName])
+	,INDEX [ncind_dimensionSchema_templateDimCoreName_Dim_CurrentNKLookup] NONCLUSTERED (
 		 [Ctl_CurrentFlag]
 		,
 		 [NK_SourceSystemID1]		/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
 		,[NK_SourceSystemID2]		/*Sample*/
 		,[SK_templateDimCoreName])
-	,INDEX [ncind_templateSchema_templateDimCoreName_CurrentSKLookup] NONCLUSTERED ([Ctl_CurrentFlag],[SK_templateDimCoreName])
-	,INDEX [ncind_templateSchema_templateDimCoreName_NKLookup] NONCLUSTERED (
+	,INDEX [ncind_dimensionSchema_templateDimCoreName_Dim_CurrentSKLookup] NONCLUSTERED ([Ctl_CurrentFlag],[SK_templateDimCoreName])
+	,INDEX [ncind_dimensionSchema_templateDimCoreName_Dim_NKLookup] NONCLUSTERED (
 		 [NK_SourceSystemID1]		/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
 		,[NK_SourceSystemID2]		/*Sample*/
 		)

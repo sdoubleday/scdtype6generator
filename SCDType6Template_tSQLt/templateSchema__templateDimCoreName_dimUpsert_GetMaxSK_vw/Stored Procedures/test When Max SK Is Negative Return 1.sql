@@ -5,9 +5,9 @@ BEGIN
 	IF OBJECT_ID('[templateSchema__templateDimCoreName_dimUpsert_GetMaxSK_vw].ACTUAL') IS NOT NULL DROP TABLE [templateSchema__templateDimCoreName_dimUpsert_GetMaxSK_vw].ACTUAL;
 	IF OBJECT_ID('[templateSchema__templateDimCoreName_dimUpsert_GetMaxSK_vw].EXPECTED') IS NOT NULL DROP TABLE [templateSchema__templateDimCoreName_dimUpsert_GetMaxSK_vw].EXPECTED;
 
-	EXECUTE tSQLt.FakeTable @TableName = '[templateSchema].[templateDimCoreName_Dim]';
+	EXECUTE tSQLt.FakeTable @TableName = '[dimensionSchema].[templateDimCoreName_Dim]';
 
-	EXECUTE TestHelpers.[DataBuilder_templateSchema_templateDimCoreName_Dim] @SK_templateDimCoreName = -1;
+	EXECUTE TestHelpers.[DataBuilder_dimensionSchema_templateDimCoreName_Dim] @SK_templateDimCoreName = -1;
 
 	--ACT
 	SELECT 

@@ -15,7 +15,7 @@ END AS [Ctl_EffectiveDate]
 	ELSE 'PENDING'
 END AS [SCD_Status]
 FROM [StagingSchema].[templateDimCoreName_dimSrc_stg] stg
-LEFT OUTER JOIN [templateSchema].[templateDimCoreName_Dim] dim
+LEFT OUTER JOIN [dimensionSchema].[templateDimCoreName_Dim] dim
 ON dim.[Ctl_CurrentFlag] = 1
 AND
  dim.[NK_SourceSystemID1] = stg.[NK_SourceSystemID1]		/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|AND*/

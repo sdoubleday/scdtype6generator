@@ -5,11 +5,11 @@ BEGIN
 	IF OBJECT_ID('[templateSchema__templateDimCoreName_predim_orchestration_usp].ACTUAL') IS NOT NULL DROP TABLE [templateSchema__templateDimCoreName_predim_orchestration_usp].ACTUAL;
 	IF OBJECT_ID('[templateSchema__templateDimCoreName_predim_orchestration_usp].EXPECTED') IS NOT NULL DROP TABLE [templateSchema__templateDimCoreName_predim_orchestration_usp].EXPECTED;
 
-	EXECUTE tSQLt.FakeTable @TableName = '[templateSchema].[templateDimCoreName_Dim]';
+	EXECUTE tSQLt.FakeTable @TableName = '[dimensionSchema].[templateDimCoreName_Dim]';
 
-	EXECUTE TestHelpers.[DataBuilder_templateSchema_templateDimCoreName_Dim] @SK_templateDimCoreName = 1, @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 1, @SampleColumnOne_Cur = '2', @SampleColumnTwo_Cur = '1', @Ctl_CurrentFlag = 0;
-	EXECUTE TestHelpers.[DataBuilder_templateSchema_templateDimCoreName_Dim] @SK_templateDimCoreName = 2, @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 1, @SampleColumnOne_Cur = '1', @SampleColumnTwo_Cur = '1', @Ctl_CurrentFlag = 1;
-	EXECUTE TestHelpers.[DataBuilder_templateSchema_templateDimCoreName_Dim] @SK_templateDimCoreName = 3, @NK_SourceSystemID1 = 2, @NK_SourceSystemID2 = 2, @SampleColumnOne_Cur = '2', @SampleColumnTwo_Cur = '2', @Ctl_CurrentFlag = 1;
+	EXECUTE TestHelpers.[DataBuilder_dimensionSchema_templateDimCoreName_Dim] @SK_templateDimCoreName = 1, @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 1, @SampleColumnOne_Cur = '2', @SampleColumnTwo_Cur = '1', @Ctl_CurrentFlag = 0;
+	EXECUTE TestHelpers.[DataBuilder_dimensionSchema_templateDimCoreName_Dim] @SK_templateDimCoreName = 2, @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 1, @SampleColumnOne_Cur = '1', @SampleColumnTwo_Cur = '1', @Ctl_CurrentFlag = 1;
+	EXECUTE TestHelpers.[DataBuilder_dimensionSchema_templateDimCoreName_Dim] @SK_templateDimCoreName = 3, @NK_SourceSystemID1 = 2, @NK_SourceSystemID2 = 2, @SampleColumnOne_Cur = '2', @SampleColumnTwo_Cur = '2', @Ctl_CurrentFlag = 1;
 
 	/*Unchanged*/
 	EXECUTE TestHelpers.[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg] @NK_SourceSystemID1 = 2, @NK_SourceSystemID2 = 2, @SampleColumnOne = '2', @SampleColumnTwo = '2', @Ctl_EffectiveDate = '2000-01-01';

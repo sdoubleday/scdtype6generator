@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [TestHelpers].[DataBuilder_templateSchema_templateDimCoreName_Dim]
+﻿CREATE PROCEDURE [TestHelpers].[DataBuilder_dimensionSchema_templateDimCoreName_Dim]
  @SK_templateDimCoreName int = NULL
 ,@NK_SourceSystemID1 int = NULL
 ,@NK_SourceSystemID2 int = NULL
@@ -11,13 +11,13 @@
 ,@Ctl_EndDate_Excl datetime2 = NULL
 AS 
 
-IF OBJECT_ID('tempdb..[#DataBuilder_templateSchema_templateDimCoreName_Dim]') IS NOT NULL
+IF OBJECT_ID('tempdb..[#DataBuilder_dimensionSchema_templateDimCoreName_Dim]') IS NOT NULL
 BEGIN
-	DROP TABLE [#DataBuilder_templateSchema_templateDimCoreName_Dim];
+	DROP TABLE [#DataBuilder_dimensionSchema_templateDimCoreName_Dim];
 END
-SELECT TOP 0 * INTO [#DataBuilder_templateSchema_templateDimCoreName_Dim] FROM [templateSchema].[templateDimCoreName_Dim];
+SELECT TOP 0 * INTO [#DataBuilder_dimensionSchema_templateDimCoreName_Dim] FROM [dimensionSchema].[templateDimCoreName_Dim];
 
-INSERT INTO [#DataBuilder_templateSchema_templateDimCoreName_Dim](
+INSERT INTO [#DataBuilder_dimensionSchema_templateDimCoreName_Dim](
  [SK_templateDimCoreName]
 ,[NK_SourceSystemID1]
 ,[NK_SourceSystemID2]
@@ -40,7 +40,7 @@ INSERT INTO [#DataBuilder_templateSchema_templateDimCoreName_Dim](
 ,@Ctl_EffectiveDate
 ,@Ctl_EndDate_Excl
 ;
-DECLARE @sql NVARCHAR(MAX) = N'INSERT INTO [templateSchema].[templateDimCoreName_Dim] SELECT * FROM [#DataBuilder_templateSchema_templateDimCoreName_Dim];';
+DECLARE @sql NVARCHAR(MAX) = N'INSERT INTO [dimensionSchema].[templateDimCoreName_Dim] SELECT * FROM [#DataBuilder_dimensionSchema_templateDimCoreName_Dim];';
 EXECUTE sp_executesql @sql;
 RETURN 0
 

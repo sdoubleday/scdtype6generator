@@ -11,9 +11,9 @@ BEGIN
 	EXECUTE TestHelpers.[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg] @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 2, @SampleColumnOne = NULL, @SampleColumnTwo = 9, @Ctl_EffectiveDate = '2000-12-31';
 
 	/*Remember, the column transformation logic depends on SKs being populated*/
-	EXECUTE TestHelpers.[DataBuilder_templateSchema_templateDimCoreName_Dim] @SK_templateDimCoreName = 1, @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 2, @Ctl_CurrentFlag = 1;
-	EXECUTE TestHelpers.[DataBuilder_templateSchema_templateDimCoreName_Dim] @SK_templateDimCoreName = 2, @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 2, @Ctl_CurrentFlag = 0;
-	EXECUTE TestHelpers.[DataBuilder_templateSchema_templateDimCoreName_Dim] @SK_templateDimCoreName = 3, @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 2, @Ctl_CurrentFlag = 0;
+	EXECUTE TestHelpers.[DataBuilder_dimensionSchema_templateDimCoreName_Dim] @SK_templateDimCoreName = 1, @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 2, @Ctl_CurrentFlag = 1;
+	EXECUTE TestHelpers.[DataBuilder_dimensionSchema_templateDimCoreName_Dim] @SK_templateDimCoreName = 2, @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 2, @Ctl_CurrentFlag = 0;
+	EXECUTE TestHelpers.[DataBuilder_dimensionSchema_templateDimCoreName_Dim] @SK_templateDimCoreName = 3, @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 2, @Ctl_CurrentFlag = 0;
 
 	--ACT
 	SELECT 

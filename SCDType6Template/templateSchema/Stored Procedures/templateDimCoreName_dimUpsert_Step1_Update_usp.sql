@@ -8,7 +8,7 @@ AS
 	,dim.[Ctl_EndDate_Excl] = CASE WHEN dim.[Ctl_CurrentFlag] = 1 THEN prep.[Ctl_EffectiveDate] ELSE dim.[Ctl_EndDate_Excl] END
 	,dim.[Ctl_CurrentFlag] = CASE WHEN dim.[Ctl_CurrentFlag] = 1 THEN 0 ELSE dim.[Ctl_CurrentFlag] END
 	
-	FROM [templateSchema].[templateDimCoreName_Dim] dim
+	FROM [dimensionSchema].[templateDimCoreName_Dim] dim
 	INNER JOIN [templateSchema].[templateDimCoreName_predim_prep] prep
 	ON
 	dim.[NK_SourceSystemID1] = prep.[NK_SourceSystemID1]		/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|AND*/

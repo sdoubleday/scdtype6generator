@@ -83,4 +83,10 @@
     <Property Name="ParentElementType" Value="SqlSchema" />
     <Property Name="NewName" Value="[templateDimCoreName_Dim]" />
   </Operation>
+  <Operation Name="Move Schema" Key="e1df9a2b-4ac7-4c44-8e87-094315db870c" ChangeDateTime="05/01/2021 18:13:32">
+    <Property Name="ElementName" Value="[templateSchema].[templateDimCoreName_Dim]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="NewSchema" Value="dimensionSchema" />
+    <Property Name="IsNewSchemaExternal" Value="False" />
+  </Operation>
 </Operations>

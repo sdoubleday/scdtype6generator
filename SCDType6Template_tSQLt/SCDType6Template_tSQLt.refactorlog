@@ -14,4 +14,11 @@
     <Property Name="ParentElementType" Value="SqlSchema" />
     <Property Name="NewName" Value="[DataBuilder_templateSchema_templateDimCoreName_Dim]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="5231ba33-2546-45d4-9e19-4994823beb2f" ChangeDateTime="05/01/2021 18:16:12">
+    <Property Name="ElementName" Value="[TestHelpers].[DataBuilder_templateSchema_templateDimCoreName_Dim]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[TestHelpers]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[DataBuilder_dimensionSchema_templateDimCoreName_Dim]" />
+  </Operation>
 </Operations>
