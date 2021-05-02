@@ -65,6 +65,7 @@
     <Folder Include="StagingSchema\Tables" />
     <Folder Include="dimensionSchema" />
     <Folder Include="dimensionSchema\Tables" />
+    <Folder Include="dimensionSchema\Functions" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\templateSchema.sql" />
@@ -90,6 +91,7 @@
     <Build Include="dimensionSchema\Tables\templateDimCoreName_Dim.sql" />
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_Predim_ControlFlow_IsStgATable_usp.sql" />
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_dimSetup_Idempotent_MissingMember_usp.sql" />
+    <Build Include="dimensionSchema\Functions\templateDimCoreName_DimSKLookup_usvf.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SCDType6Template.refactorlog" />

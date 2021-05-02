@@ -25,4 +25,10 @@
 		 [NK_SourceSystemID1]		/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
 		,[NK_SourceSystemID2]		/*Sample*/
 		)
+	,INDEX [ncind_dimensionSchema_templateDimCoreName_Dim_SKPLookup] NONCLUSTERED (
+		 [NK_SourceSystemID1]		/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
+		,[NK_SourceSystemID2]		/*Sample*/
+		,[Ctl_EffectiveDate]
+		,[Ctl_EndDate_Excl]
+		,[SK_templateDimCoreName])
 )

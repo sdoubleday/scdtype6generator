@@ -116,6 +116,9 @@ namespace ReadDacPacNormalDotNet
 
             string dimFile = "Tables\\templateDimCoreName_Dim.sql";
             TransformFileInFlight(templateDimCoreName, SCDType6DimensionDirectory, OutputDirectory, DimensionSchema, templateSchema, StagingSchema, lineProcessorConfigNK, lineProcessorConfigDim, dimFile);
+            string dimSKLookupFile = "Functions\\templateDimCoreName_DimSKLookup_usvf.sql";
+            TransformFileInFlight(templateDimCoreName, SCDType6DimensionDirectory, OutputDirectory, DimensionSchema, templateSchema, StagingSchema, lineProcessorConfigNK, lineProcessorConfigDim, dimSKLookupFile);
+            
 
 
             Console.WriteLine(templateDimCoreName);
