@@ -89,4 +89,11 @@
     <Property Name="NewSchema" Value="dimensionSchema" />
     <Property Name="IsNewSchemaExternal" Value="False" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="976d717a-ece6-409a-a2c5-86523fb16f8b" ChangeDateTime="05/02/2021 15:00:27">
+    <Property Name="ElementName" Value="[templateSchema].[templateDimCoreName_Predim_ControlFlow_IsStgATable]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[templateSchema]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[templateDimCoreName_Predim_ControlFlow_IsStgATable_usp]" />
+  </Operation>
 </Operations>
