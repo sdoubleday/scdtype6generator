@@ -88,6 +88,7 @@ namespace ReadDacPacNormalDotNet
 
             List<String> templateFiles = new List<string>{
                  "Stored Procedures\\templateDimCoreName_dimSrc_clearTables_usp.sql"
+                ,"Stored Procedures\\templateDimCoreName_dimSetup_Idempotent_MissingMember_usp.sql"
                 ,"Stored Procedures\\templateDimCoreName_dimUpsert_Step1_Update_usp.sql"
                 ,"Stored Procedures\\templateDimCoreName_dimUpsert_Step2_Insert_usp.sql"
                 ,"Stored Procedures\\templateDimCoreName_orchestration_usp.sql"

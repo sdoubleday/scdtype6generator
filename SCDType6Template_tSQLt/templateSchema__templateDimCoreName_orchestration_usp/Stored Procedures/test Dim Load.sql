@@ -146,6 +146,16 @@ BEGIN
 		,1		--[Ctl_CurrentFlag]
 		,'2000-01-02'		--[Ctl_EffectiveDate]
 		,'9999-12-31'		--[Ctl_EndDate_Excl]
+	),(
+		 -1		--[NK_SourceSystemID1]
+		,-1		--[NK_SourceSystemID2]
+		,'Context Not Specified'		--[SampleColumnOne_Cur]
+		,'Context Not Specified'		--[SampleColumnOne_Hist]
+		,'Context Not Specified'		--[SampleColumnTwo_Cur]
+		,'Context Not Specified'		--[SampleColumnTwo_Hist]
+		,1		--[Ctl_CurrentFlag]
+		,'1900-01-01'		--[Ctl_EffectiveDate]
+		,'9999-12-31'		--[Ctl_EndDate_Excl]
 	) ) AS a (
 		 [NK_SourceSystemID1]
 		,[NK_SourceSystemID2]

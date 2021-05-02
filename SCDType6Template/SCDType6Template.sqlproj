@@ -89,6 +89,7 @@
     <Build Include="Security\dimensionSchema.sql" />
     <Build Include="dimensionSchema\Tables\templateDimCoreName_Dim.sql" />
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_Predim_ControlFlow_IsStgATable_usp.sql" />
+    <Build Include="templateSchema\Stored Procedures\templateDimCoreName_dimSetup_Idempotent_MissingMember_usp.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SCDType6Template.refactorlog" />

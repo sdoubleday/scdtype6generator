@@ -143,6 +143,8 @@
     <Folder Include="templateSchema__templateDimCoreName_orchestration_usp\Stored Procedures" />
     <Folder Include="templateSchema__templateDimCoreName_Predim_ControlFlow_IsStgATable\" />
     <Folder Include="templateSchema__templateDimCoreName_Predim_ControlFlow_IsStgATable\Stored Procedures" />
+    <Folder Include="templateSchema__templateDimCoreName_dimSetup_Idempotent_MissingMember_usp\" />
+    <Folder Include="templateSchema__templateDimCoreName_dimSetup_Idempotent_MissingMember_usp\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="tSQLt\Tables\Private_NullCellTable.sql">
@@ -795,6 +797,10 @@
     <Build Include="templateSchema__templateDimCoreName_Predim_ControlFlow_IsStgATable\Stored Procedures\test Returns 0 if stg is not a user defined table.sql" />
     <Build Include="templateSchema__templateDimCoreName_predim_orchestration_usp\Stored Procedures\test clearTables fires if stg is table.sql" />
     <Build Include="templateSchema__templateDimCoreName_predim_orchestration_usp\Stored Procedures\test clearTables does NOT fire if stg is not a table.sql" />
+    <Build Include="Security\templateSchema__templateDimCoreName_dimSetup_Idempotent_MissingMember_usp.sql" />
+    <Build Include="templateSchema__templateDimCoreName_dimSetup_Idempotent_MissingMember_usp\Stored Procedures\test Inserts One Row.sql" />
+    <Build Include="templateSchema__templateDimCoreName_dimSetup_Idempotent_MissingMember_usp\Stored Procedures\test Inserts Only One Row.sql" />
+    <Build Include="templateSchema__templateDimCoreName_dimSetup_Idempotent_MissingMember_usp\Stored Procedures\test Does Not Update.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\tSQLtCLR.dll" />
