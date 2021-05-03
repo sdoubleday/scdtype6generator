@@ -1,8 +1,8 @@
 ﻿CREATE VIEW [templateSchema].[templateDimCoreName_predim_Step2_prep_columnTransformations_vw]
 AS
 SELECT 
- stg.[NK_SourceSystemID1]																	/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
-,stg.[NK_SourceSystemID2]																	/*Sample*/
+ CAST(stg.[NK_SourceSystemID1] AS NVARCHAR(500)) AS [NK_SourceSystemID1]					/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
+,CAST(stg.[NK_SourceSystemID2] AS NVARCHAR(500)) AS [NK_SourceSystemID2]					/*Sample*/
 ,
  COALESCE(CAST(stg.[SampleColumnOne] AS VARCHAR(500)),'*UNKNOWN') AS [SampleColumnOne]		/*DimensionAttribute_ReplacementPoint|SampleColumnOne|,*/
 ,COALESCE(CAST(stg.[SampleColumnTwo] AS VARCHAR(500)),'*UNKNOWN') AS [SampleColumnTwo]		/*Sample*/

@@ -31,8 +31,8 @@ BEGIN
 	--ASSERT
 	CREATE TABLE [templateSchema__templateDimCoreName_dimSetup_Idempotent_MissingMember_usp].EXPECTED (
 		 [SK_templateDimCoreName] INT NOT NULL
-		,[NK_SourceSystemID1] INT NOT NULL
-		,[NK_SourceSystemID2] INT NOT NULL
+		,[NK_SourceSystemID1] NVARCHAR(500) NOT NULL
+		,[NK_SourceSystemID2] NVARCHAR(500) NOT NULL
 		,[SampleColumnOne_Cur] VARCHAR(500) NOT NULL
 		,[SampleColumnOne_Hist] VARCHAR(500) NOT NULL
 	);

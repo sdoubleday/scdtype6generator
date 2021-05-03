@@ -46,8 +46,8 @@ BEGIN
 
 	--ASSERT
 	CREATE TABLE [templateSchema__templateDimCoreName_orchestration_usp].EXPECTED (
-		 [NK_SourceSystemID1] INT NOT NULL /*Natural Key*/
-		,[NK_SourceSystemID2] INT NOT NULL /*Natural Key*/
+		 [NK_SourceSystemID1] NVARCHAR(500) NOT NULL /*Natural Key*/
+		,[NK_SourceSystemID2] NVARCHAR(500) NOT NULL /*Natural Key*/
 		,[SampleColumnOne_Cur] VARCHAR(500) NOT NULL
 		,[SampleColumnOne_Hist] VARCHAR(500) NOT NULL
 		,[SampleColumnTwo_Cur] VARCHAR(500) NOT NULL

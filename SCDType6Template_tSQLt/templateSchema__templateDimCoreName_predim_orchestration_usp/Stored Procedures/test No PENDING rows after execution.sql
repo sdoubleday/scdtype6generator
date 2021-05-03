@@ -31,8 +31,8 @@ BEGIN
 	
 	--ASSERT
 	CREATE TABLE [templateSchema__templateDimCoreName_predim_orchestration_usp].EXPECTED (
-		 [NK_SourceSystemID1] INT
-		,[NK_SourceSystemID2] INT
+		 [NK_SourceSystemID1] NVARCHAR(500)
+		,[NK_SourceSystemID2] NVARCHAR(500)
 		,[SCD_Status] VARCHAR(30)
 	);
 	INSERT INTO [templateSchema__templateDimCoreName_predim_orchestration_usp].EXPECTED (

@@ -29,8 +29,8 @@ BEGIN
 	--ASSERT
 	CREATE TABLE [templateSchema__templateDimCoreName_predim_Step2_prep_columnTransformations_vw].EXPECTED (
 		 [SCD_Status] VARCHAR(30)
-		,[NK_SourceSystemID1] int
-		,[NK_SourceSystemID2] int
+		,[NK_SourceSystemID1] NVARCHAR(500)
+		,[NK_SourceSystemID2] NVARCHAR(500)
 		,[SampleColumnOne] VARCHAR(500)
 		,[SampleColumnTwo] VARCHAR(500)
 		,[Ctl_EffectiveDate] DATETIME2(7)
