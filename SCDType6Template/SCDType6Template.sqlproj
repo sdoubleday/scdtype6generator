@@ -84,12 +84,10 @@
     <Build Include="templateSchema\Views\templateDimCoreName_dimUpsert_Step2_Insert_SelectClause_vw.sql" />
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_predim_orchestration_usp.sql" />
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_orchestration_usp.sql" />
-    <Build Include="templateSchema\Stored Procedures\templateDimCoreName_dimSrc_clearTables_usp.sql" />
     <Build Include="Security\StagingSchema.sql" />
     <Build Include="StagingSchema\Tables\templateDimCoreName_dimSrc_stg.sql" />
     <Build Include="Security\dimensionSchema.sql" />
     <Build Include="dimensionSchema\Tables\templateDimCoreName_Dim.sql" />
-    <Build Include="templateSchema\Stored Procedures\templateDimCoreName_Predim_ControlFlow_IsStgATable_usp.sql" />
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_dimSetup_Idempotent_MissingMember_usp.sql" />
     <Build Include="dimensionSchema\Functions\templateDimCoreName_DimSKLookup_usvf.sql" />
   </ItemGroup>
