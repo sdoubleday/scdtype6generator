@@ -129,7 +129,7 @@ namespace ReadDacPacNormalDotNet
         public static void TransformFileInFlight(string templateDimCoreName, string SCDType6TemplateDirectory, string OutputDirectory, string DimensionSchema, string templateSchema, string StagingSchema, LineProcessorConfig lineProcessorConfigNK, LineProcessorConfig lineProcessorConfigDim, string file)
         {
             String source = SCDType6TemplateDirectory + file;
-            String destination = OutputDirectory + file.Replace("templateDimCoreName", templateDimCoreName);
+            String destination = OutputDirectory + file.Split('\\')[1].Replace("templateDimCoreName", templateDimCoreName);
             using (StreamReader reader = new StreamReader(source))
             using (StreamWriter writer = new StreamWriter(destination, false, Encoding.UTF8))
             {
