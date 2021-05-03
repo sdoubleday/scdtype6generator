@@ -5,15 +5,6 @@ BEGIN
 	IF OBJECT_ID('[templateSchema__templateDimCoreName_orchestration_usp].ACTUAL') IS NOT NULL DROP TABLE [templateSchema__templateDimCoreName_orchestration_usp].ACTUAL;
 	IF OBJECT_ID('[templateSchema__templateDimCoreName_orchestration_usp].EXPECTED') IS NOT NULL DROP TABLE [templateSchema__templateDimCoreName_orchestration_usp].EXPECTED;
 
-	/*Do you need to fake tables and insert rows?
-	EXECUTE tSQLt.FakeTable @TableName = '[templateSchema].TableName';
-	*/
-	/*Do you need to spyprocedure?
-	EXECUTE tSQLt.SpyProcedure @ProcedureName = '[templateSchema].ProcedureName'
-	--,@CommandToExecute = 'SELECT 1'
-	SELECT _id_, MyParameterName1, MyParameterName2 FROM [templateSchema].ProcedureName_SpyProcedureLog
-	SELECT COUNT(1) FROM [templateSchema].ProcedureName_SpyProcedureLog
-	*/
 	DECLARE @Date1 DATETIME2 = '1999-12-31';
 	DECLARE @Date2 DATETIME2 = '2000-01-01';
 	DECLARE @Date3 DATETIME2 = '2000-01-02';
@@ -22,7 +13,7 @@ BEGIN
 
 	EXECUTE [templateSchema].[templateDimCoreName_orchestration_usp];
 	
-	EXECUTE [templateSchema].[templateDimCoreName_dimSrc_clearTables_usp]
+	DELETE [StagingSchema].[templateDimCoreName_dimSrc_stg];
 	/*Update*/
 	EXECUTE TestHelpers.[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg] @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 11, @SampleColumnOne = 'FredPrime', @SampleColumnTwo = '1', @Ctl_EffectiveDate = @Date2;
 	/*Unchanged*/
@@ -32,7 +23,7 @@ BEGIN
 
 	EXECUTE [templateSchema].[templateDimCoreName_orchestration_usp];
 
-	EXECUTE [templateSchema].[templateDimCoreName_dimSrc_clearTables_usp];
+	DELETE [StagingSchema].[templateDimCoreName_dimSrc_stg];
 	/*Updates*/
 	EXECUTE TestHelpers.[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg] @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 11, @SampleColumnOne = 'FredPrime', @SampleColumnTwo = '10', @Ctl_EffectiveDate = @Date3;
 	EXECUTE TestHelpers.[DataBuilder_StagingSchema_templateDimCoreName_dimSrc_stg] @NK_SourceSystemID1 = 3, @NK_SourceSystemID2 = 33, @SampleColumnOne = 'Fred', @SampleColumnTwo = '20', @Ctl_EffectiveDate = @Date3;

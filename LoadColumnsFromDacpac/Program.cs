@@ -87,12 +87,10 @@ namespace ReadDacPacNormalDotNet
             //
 
             List<String> templateFiles = new List<string>{
-                 "Stored Procedures\\templateDimCoreName_dimSrc_clearTables_usp.sql"
-                ,"Stored Procedures\\templateDimCoreName_dimSetup_Idempotent_MissingMember_usp.sql"
+                 "Stored Procedures\\templateDimCoreName_dimSetup_Idempotent_MissingMember_usp.sql"
                 ,"Stored Procedures\\templateDimCoreName_dimUpsert_Step1_Update_usp.sql"
                 ,"Stored Procedures\\templateDimCoreName_dimUpsert_Step2_Insert_usp.sql"
                 ,"Stored Procedures\\templateDimCoreName_orchestration_usp.sql"
-                ,"Stored Procedures\\templateDimCoreName_predim_ControlFlow_IsStgATable_usp.sql"
                 ,"Stored Procedures\\templateDimCoreName_predim_orchestration_usp.sql"
                 ,"Stored Procedures\\templateDimCoreName_predim_setup_clearTables_usp.sql"
                 ,"Stored Procedures\\templateDimCoreName_predim_Step1_copycurrent_usp.sql"
