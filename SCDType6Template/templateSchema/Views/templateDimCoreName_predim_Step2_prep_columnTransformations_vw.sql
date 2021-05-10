@@ -18,6 +18,6 @@ FROM [StagingSchema].[templateDimCoreName_dimSrc_stg] stg
 LEFT OUTER JOIN [dimensionSchema].[templateDimCoreName_Dim] dim
 ON dim.[Ctl_CurrentFlag] = 1
 AND
- dim.[NK_SourceSystemID1] = stg.[NK_SourceSystemID1]		/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|AND*/
-AND dim.[NK_SourceSystemID2] = stg.[NK_SourceSystemID2]		/*Sample*/
+ dim.[NK_SourceSystemID1] = CAST(stg.[NK_SourceSystemID1] AS NVARCHAR(500))		/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|AND*/
+AND dim.[NK_SourceSystemID2] = CAST(stg.[NK_SourceSystemID2] AS NVARCHAR(500))		/*Sample*/
 ;
