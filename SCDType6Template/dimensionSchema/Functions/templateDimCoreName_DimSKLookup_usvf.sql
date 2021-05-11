@@ -1,7 +1,7 @@
 ﻿CREATE FUNCTION [dimensionSchema].[templateDimCoreName_DimSKLookup_usvf]
 (
-	 @NK_SourceSystemID1 INT					/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
-	,@NK_SourceSystemID2 INT					/*Sample*/
+	 @NK_SourceSystemID1 NVARCHAR(500)					/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
+	,@NK_SourceSystemID2 NVARCHAR(500)					/*Sample*/
 	,@Ctl_EffectiveDate DATETIME2(7)
 	,@MissingMemberSK INT = -1
 )
