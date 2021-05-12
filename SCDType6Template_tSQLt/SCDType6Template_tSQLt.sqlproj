@@ -145,6 +145,7 @@
     <Folder Include="templateSchema__templateDimCoreName_dimSetup_Idempotent_MissingMember_usp\Stored Procedures" />
     <Folder Include="dimensionSchema__templateDimCoreName_DimSKLookup_usvf\" />
     <Folder Include="dimensionSchema__templateDimCoreName_DimSKLookup_usvf\Stored Procedures" />
+    <Folder Include="templateSchema__templateDimCoreName_predim_Step5_Check_OneRowPerKey_usp\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="tSQLt\Tables\Private_NullCellTable.sql">
@@ -800,6 +801,7 @@
     <Build Include="dimensionSchema__templateDimCoreName_DimSKLookup_usvf\Stored Procedures\test NULL NKs Get Missing SK.sql" />
     <Build Include="dimensionSchema__templateDimCoreName_DimSKLookup_usvf\Stored Procedures\test Unmatched NKs Get Missing SK.sql" />
     <Build Include="dimensionSchema__templateDimCoreName_DimSKLookup_usvf\Stored Procedures\test Matched NKs Get SK and Date Boundaries Are Respected.sql" />
+    <Build Include="templateSchema__templateDimCoreName_predim_Step5_Check_OneRowPerKey_usp\templateSchema__templateDimCoreName_predim_Step5_Check_OneRowPerKey_usp.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\tSQLtCLR.dll" />
