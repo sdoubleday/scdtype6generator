@@ -5,3 +5,4 @@ EXECUTE [templateSchema].[templateDimCoreName_predim_Step1_copycurrent_usp];
 EXECUTE [templateSchema].[templateDimCoreName_predim_Step2_prep_usp];
 EXECUTE [templateSchema].[templateDimCoreName_predim_Step3_prep_updateSCDStatus_usp];
 EXECUTE [templateSchema].[templateDimCoreName_predim_Step4_prep_DeleteIgnorable];
+EXECUTE [templateSchema].[templateDimCoreName_predim_Step5_Check_OneRowPerKey_usp];
