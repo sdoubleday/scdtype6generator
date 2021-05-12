@@ -14,7 +14,7 @@ BEGIN
 	EXECUTE tSQLt.ExpectNoException;
 
 	--ASSERT
-	EXECUTE [templateSchema].[templateSchema__templateDimCoreName_predim_Step5_Check_OneRowPerKey_usp];
+	EXECUTE [templateSchema].[templateDimCoreName_predim_Step5_Check_OneRowPerKey_usp];
 
 END
 

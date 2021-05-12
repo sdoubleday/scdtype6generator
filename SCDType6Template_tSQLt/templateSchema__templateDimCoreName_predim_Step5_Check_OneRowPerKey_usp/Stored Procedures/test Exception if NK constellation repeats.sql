@@ -15,7 +15,7 @@ BEGIN
 	EXECUTE tSQLt.ExpectException @ExpectedMessage = N'Multiple rows for one or more sets of Natural Keys. Only one row allowed per Natural Key set.'
 
 	--ASSERT
-	EXECUTE [templateSchema].[templateSchema__templateDimCoreName_predim_Step5_Check_OneRowPerKey_usp];
+	EXECUTE [templateSchema].[templateDimCoreName_predim_Step5_Check_OneRowPerKey_usp];
 
 END
 
