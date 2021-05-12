@@ -90,6 +90,7 @@
     <Build Include="dimensionSchema\Tables\templateDimCoreName_Dim.sql" />
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_dimSetup_Idempotent_MissingMember_usp.sql" />
     <Build Include="dimensionSchema\Functions\templateDimCoreName_DimSKLookup_usvf.sql" />
+    <Build Include="templateSchema\Stored Procedures\templateDimCoreName_predim_Step5_Check_OneRowPerKey_usp.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SCDType6Template.refactorlog" />
