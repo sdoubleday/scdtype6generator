@@ -14,7 +14,7 @@ DECLARE @SK INT = NULL;
 	@SK = [SK_templateDimCoreName]
 	FROM [dimensionSchema].[templateDimCoreName_Dim] d
 	WHERE
-	d.[NK_SourceSystemID1] = @NK_SourceSystemID1		/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
+	d.[NK_SourceSystemID1] = @NK_SourceSystemID1		/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|AND*/
 	AND d.[NK_SourceSystemID2] = @NK_SourceSystemID2		/*Sample*/
 	AND d.[Ctl_EffectiveDate] <= @Ctl_EffectiveDate
 	AND d.[Ctl_EndDate_Excl] > @Ctl_EffectiveDate
