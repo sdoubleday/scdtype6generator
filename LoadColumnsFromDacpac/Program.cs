@@ -104,14 +104,14 @@ namespace ReadDacPacNormalDotNet
 
             foreach(String file in templateFiles)
             {
-                TransformFileInFlight(templateDimCoreName, parsedArgs, StagingSchema, lineProcessorConfigNK, lineProcessorConfigDim, file);
+                TransformFileInFlight(templateDimCoreName, parsedArgs.SCDType6TemplateDirectory, parsedArgs.OutputDirectory, parsedArgs.DimensionSchema, parsedArgs.templateSchema, StagingSchema, lineProcessorConfigNK, lineProcessorConfigDim, file);
 
             }
 
             string dimFile = "Tables\\templateDimCoreName_Dim.sql";
-            TransformFileInFlight(templateDimCoreName, parsedArgs, StagingSchema, lineProcessorConfigNK, lineProcessorConfigDim, dimFile);
+            TransformFileInFlight(templateDimCoreName, parsedArgs.SCDType6DimensionDirectory, parsedArgs.OutputDirectory, parsedArgs.DimensionSchema, parsedArgs.templateSchema, StagingSchema, lineProcessorConfigNK, lineProcessorConfigDim, dimFile);
             string dimSKLookupFile = "Functions\\templateDimCoreName_DimSKLookup_usvf.sql";
-            TransformFileInFlight(templateDimCoreName, parsedArgs, StagingSchema, lineProcessorConfigNK, lineProcessorConfigDim, dimSKLookupFile);
+            TransformFileInFlight(templateDimCoreName, parsedArgs.SCDType6DimensionDirectory, parsedArgs.OutputDirectory, parsedArgs.DimensionSchema, parsedArgs.templateSchema, StagingSchema, lineProcessorConfigNK, lineProcessorConfigDim, dimSKLookupFile);
             
 
 
@@ -120,10 +120,11 @@ namespace ReadDacPacNormalDotNet
             Console.WriteLine(String.Join("\r\n", lineProcessorConfigNK.perLineSubstitutions.ToArray()));
         }
 
-        public static void TransformFileInFlight(string templateDimCoreName, ParsedArgs parsedArgs, string StagingSchema, LineProcessorConfig lineProcessorConfigNK, LineProcessorConfig lineProcessorConfigDim, string file)
+        public static void TransformFileInFlight(string templateDimCoreName, string SCDType6TemplateDirectory, string OutputDirectory, string DimensionSchema, string templateSchema, string StagingSchema, LineProcessorConfig lineProcessorConfigNK, LineProcessorConfig lineProcessorConfigDim, string file)
+//      public static void TransformFileInFlight(string templateDimCoreName, ParsedArgs parsedArgs, string StagingSchema, LineProcessorConfig lineProcessorConfigNK, LineProcessorConfig lineProcessorConfigDim, string file)
         {
-            String source = parsedArgs.SCDType6TemplateDirectory + file;
-            String destination = parsedArgs.OutputDirectory + file.Split('\\')[1].Replace("templateDimCoreName", templateDimCoreName);
+            String source = SCDType6TemplateDirectory + file;
+            String destination = OutputDirectory + file.Split('\\')[1].Replace("templateDimCoreName", templateDimCoreName);
             using (StreamReader reader = new StreamReader(source))
             using (StreamWriter writer = new StreamWriter(destination, false, Encoding.UTF8))
             {
@@ -131,8 +132,8 @@ namespace ReadDacPacNormalDotNet
                 {
                     string line = reader.ReadLine();
                     line = line.Replace("templateDimCoreName", templateDimCoreName);
-                    line = line.Replace("templateSchema", parsedArgs.templateSchema);
-                    line = line.Replace("dimensionSchema", parsedArgs.DimensionSchema);
+                    line = line.Replace("templateSchema", templateSchema);
+                    line = line.Replace("dimensionSchema", DimensionSchema);
                     line = line.Replace("StagingSchema", StagingSchema);
                     if (!line.Contains("/*Sample*/"))
                     {
