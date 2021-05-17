@@ -30,14 +30,9 @@ namespace ReadDacPacNormalDotNet
     {
         static void Main(string[] args)
         {
-            string DacPacFileName = args[0];
-            string SCDType6TemplateDirectory = AppDomain.CurrentDomain.BaseDirectory + "\\..\\..\\..\\SCDType6Template\\templateSchema\\";
-            string SCDType6DimensionDirectory = AppDomain.CurrentDomain.BaseDirectory + "\\..\\..\\..\\SCDType6Template\\dimensionSchema\\";
-            string OutputDirectory = args[1];
-            string DimensionSchema = args[2];
-            string templateSchema = args[3];
+            ParsedArgs parsedArgs = new ParsedArgs(args);
 
-            Microsoft.SqlServer.Dac.Model.TSqlModel sqlModel = new Microsoft.SqlServer.Dac.Model.TSqlModel(DacPacFileName);
+            Microsoft.SqlServer.Dac.Model.TSqlModel sqlModel = new Microsoft.SqlServer.Dac.Model.TSqlModel(parsedArgs.DacPacFileName);
 
             //Where takes a predicate thing. No, I haven't figured out how to do that without lambda stuff yet. But this is tolerably readable for main control flow, I think.
             var tables = sqlModel.GetObjects(DacQueryScopes.Default, Table.TypeClass).ToList().Where(table => table.Name.ToString().EndsWith("_dimSrc_stg]") );
@@ -45,11 +40,11 @@ namespace ReadDacPacNormalDotNet
 
             foreach (var table in tables)
             {
-                ProcessTSqlObjectIntoDimensionScriptFiles(SCDType6TemplateDirectory, SCDType6DimensionDirectory, OutputDirectory, DimensionSchema, templateSchema, table, Table.Columns, Table.Schema);
+                ProcessTSqlObjectIntoDimensionScriptFiles(parsedArgs, table, Table.Columns, Table.Schema);
             }
             foreach (var view in views)
             {
-                ProcessTSqlObjectIntoDimensionScriptFiles(SCDType6TemplateDirectory, SCDType6DimensionDirectory, OutputDirectory, DimensionSchema, templateSchema, view, View.Columns, View.Schema);
+                ProcessTSqlObjectIntoDimensionScriptFiles(parsedArgs, view, View.Columns, View.Schema);
             }
 
             Console.WriteLine("Press any key to close!");
@@ -57,7 +52,7 @@ namespace ReadDacPacNormalDotNet
 
         }
 
-        public static void ProcessTSqlObjectIntoDimensionScriptFiles(string SCDType6TemplateDirectory, string SCDType6DimensionDirectory, string OutputDirectory, string DimensionSchema, string templateSchema, TSqlObject table, ModelRelationshipClass relationshipTypeColumns, ModelRelationshipClass relationshipTypeSchema)
+        public static void ProcessTSqlObjectIntoDimensionScriptFiles(ParsedArgs parsedArgs, TSqlObject table, ModelRelationshipClass relationshipTypeColumns, ModelRelationshipClass relationshipTypeSchema)
         {
             string stagingSchemaName = GetSchemaName( table );
             string templateDimCoreName = GetObjectName(table).Replace("_dimSrc_stg", "");
@@ -67,10 +62,10 @@ namespace ReadDacPacNormalDotNet
                 String column = GetColumnName(col);
                 listOfColumns.Add(column);
             }
-            GenerateDimension(listOfColumns, templateDimCoreName, SCDType6TemplateDirectory, SCDType6DimensionDirectory, OutputDirectory, DimensionSchema, templateSchema, stagingSchemaName);
+            GenerateDimension(listOfColumns, templateDimCoreName, parsedArgs, stagingSchemaName);
         }
 
-        public static void GenerateDimension(List<string> listOfColumns, String templateDimCoreName, String SCDType6TemplateDirectory, String SCDType6DimensionDirectory, String OutputDirectory, String DimensionSchema, String templateSchema, String StagingSchema)
+        public static void GenerateDimension(List<string> listOfColumns, String templateDimCoreName, ParsedArgs parsedArgs, String StagingSchema)
         {
             List<String> listOfNks = listOfColumns.Where(mystring => mystring.StartsWith("NK_")).ToList<String>();
             LineProcessorConfig lineProcessorConfigNK = new LineProcessorConfig("NaturalKey_ReplacementPoint", listOfNks);
@@ -109,14 +104,14 @@ namespace ReadDacPacNormalDotNet
 
             foreach(String file in templateFiles)
             {
-                TransformFileInFlight(templateDimCoreName, SCDType6TemplateDirectory, OutputDirectory, DimensionSchema, templateSchema, StagingSchema, lineProcessorConfigNK, lineProcessorConfigDim, file);
+                TransformFileInFlight(templateDimCoreName, parsedArgs, StagingSchema, lineProcessorConfigNK, lineProcessorConfigDim, file);
 
             }
 
             string dimFile = "Tables\\templateDimCoreName_Dim.sql";
-            TransformFileInFlight(templateDimCoreName, SCDType6DimensionDirectory, OutputDirectory, DimensionSchema, templateSchema, StagingSchema, lineProcessorConfigNK, lineProcessorConfigDim, dimFile);
+            TransformFileInFlight(templateDimCoreName, parsedArgs, StagingSchema, lineProcessorConfigNK, lineProcessorConfigDim, dimFile);
             string dimSKLookupFile = "Functions\\templateDimCoreName_DimSKLookup_usvf.sql";
-            TransformFileInFlight(templateDimCoreName, SCDType6DimensionDirectory, OutputDirectory, DimensionSchema, templateSchema, StagingSchema, lineProcessorConfigNK, lineProcessorConfigDim, dimSKLookupFile);
+            TransformFileInFlight(templateDimCoreName, parsedArgs, StagingSchema, lineProcessorConfigNK, lineProcessorConfigDim, dimSKLookupFile);
             
 
 
@@ -125,17 +120,17 @@ namespace ReadDacPacNormalDotNet
             Console.WriteLine(String.Join("\r\n", lineProcessorConfigNK.perLineSubstitutions.ToArray()));
         }
 
-        public static void TransformFileInFlight(string templateDimCoreName, string SCDType6TemplateDirectory, string OutputDirectory, string DimensionSchema, string templateSchema, string StagingSchema, LineProcessorConfig lineProcessorConfigNK, LineProcessorConfig lineProcessorConfigDim, string file)
+        public static void TransformFileInFlight(string templateDimCoreName, ParsedArgs parsedArgs, string StagingSchema, LineProcessorConfig lineProcessorConfigNK, LineProcessorConfig lineProcessorConfigDim, string file)
         {
-            String source = SCDType6TemplateDirectory + file;
-            String destination = OutputDirectory + file.Split('\\')[1].Replace("templateDimCoreName", templateDimCoreName);
+            String source = parsedArgs.SCDType6TemplateDirectory + file;
+            String destination = parsedArgs.OutputDirectory + file.Split('\\')[1].Replace("templateDimCoreName", templateDimCoreName);
             using (StreamReader reader = new StreamReader(source))
             using (StreamWriter writer = new StreamWriter(destination, false, Encoding.UTF8))
             {
                 while (!reader.EndOfStream)
                 {
                     string line = reader.ReadLine();
-                    line = line.Replace("templateDimCoreName", templateDimCoreName).Replace("templateSchema", templateSchema).Replace("dimensionSchema", DimensionSchema).Replace("StagingSchema", StagingSchema);
+                    line = line.Replace("templateDimCoreName", templateDimCoreName).Replace("templateSchema", parsedArgs.templateSchema).Replace("dimensionSchema", parsedArgs.DimensionSchema).Replace("StagingSchema", StagingSchema);
                     if (!line.Contains("/*Sample*/"))
                     {
                         LineProcessor lineProcessorNK = new LineProcessor(line, lineProcessorConfigNK);
