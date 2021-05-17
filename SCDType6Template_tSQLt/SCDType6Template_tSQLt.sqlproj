@@ -805,6 +805,7 @@
     <Build Include="Security\templateSchema__templateDimCoreName_predim_Step5_Check_OneRowPerKey_usp.sql" />
     <Build Include="templateSchema__templateDimCoreName_predim_Step5_Check_OneRowPerKey_usp\Stored Procedures\test Exception if NK constellation repeats.sql" />
     <Build Include="templateSchema__templateDimCoreName_predim_Step5_Check_OneRowPerKey_usp\Stored Procedures\test Silent if no NK constellation repeats.sql" />
+    <Build Include="templateSchema__templateDimCoreName_dimSetup_Idempotent_MissingMember_usp\Stored Procedures\test @Force = 1 Does Update.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\tSQLtCLR.dll" />
