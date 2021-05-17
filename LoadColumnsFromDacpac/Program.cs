@@ -130,7 +130,10 @@ namespace ReadDacPacNormalDotNet
                 while (!reader.EndOfStream)
                 {
                     string line = reader.ReadLine();
-                    line = line.Replace("templateDimCoreName", templateDimCoreName).Replace("templateSchema", parsedArgs.templateSchema).Replace("dimensionSchema", parsedArgs.DimensionSchema).Replace("StagingSchema", StagingSchema);
+                    line = line.Replace("templateDimCoreName", templateDimCoreName);
+                    line = line.Replace("templateSchema", parsedArgs.templateSchema);
+                    line = line.Replace("dimensionSchema", parsedArgs.DimensionSchema);
+                    line = line.Replace("StagingSchema", StagingSchema);
                     if (!line.Contains("/*Sample*/"))
                     {
                         LineProcessor lineProcessorNK = new LineProcessor(line, lineProcessorConfigNK);
