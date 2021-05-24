@@ -13,6 +13,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SCDType6Template", "SCDType
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SCDType6Template_tSQLt", "SCDType6Template_tSQLt\SCDType6Template_tSQLt.sqlproj", "{5128EFDB-2507-4520-8B55-94621C68665C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateSCDType6Files", "GenerateSCDType6Files\GenerateSCDType6Files.csproj", "{40618913-1DCD-4A2D-A325-53D5265887A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{5128EFDB-2507-4520-8B55-94621C68665C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5128EFDB-2507-4520-8B55-94621C68665C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5128EFDB-2507-4520-8B55-94621C68665C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{40618913-1DCD-4A2D-A325-53D5265887A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40618913-1DCD-4A2D-A325-53D5265887A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40618913-1DCD-4A2D-A325-53D5265887A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40618913-1DCD-4A2D-A325-53D5265887A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
