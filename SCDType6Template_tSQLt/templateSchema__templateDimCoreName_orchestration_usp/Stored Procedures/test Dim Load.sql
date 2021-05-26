@@ -38,6 +38,7 @@ BEGIN
 	,[SampleColumnOne_Hist]
 	,[SampleColumnTwo_Cur]
 	,[SampleColumnTwo_Hist]
+	,[templateDimCoreName_IsMissing]
 	,[Ctl_CurrentFlag]
 	,[Ctl_EffectiveDate]
 	,[Ctl_EndDate_Excl]
@@ -52,6 +53,7 @@ BEGIN
 		,[SampleColumnOne_Hist] VARCHAR(500) NOT NULL
 		,[SampleColumnTwo_Cur] VARCHAR(500) NOT NULL
 		,[SampleColumnTwo_Hist] VARCHAR(500) NOT NULL
+		,[templateDimCoreName_IsMissing] BIT NOT NULL
 		,[Ctl_CurrentFlag] BIT NOT NULL
 		,[Ctl_EffectiveDate] DATETIME2(7) NOT NULL
 		,[Ctl_EndDate_Excl] DATETIME2(7) NOT NULL
@@ -63,6 +65,7 @@ BEGIN
 		,[SampleColumnOne_Hist]
 		,[SampleColumnTwo_Cur]
 		,[SampleColumnTwo_Hist]
+		,[templateDimCoreName_IsMissing]
 		,[Ctl_CurrentFlag]
 		,[Ctl_EffectiveDate]
 		,[Ctl_EndDate_Excl]
@@ -74,6 +77,7 @@ BEGIN
 		,[SampleColumnOne_Hist]
 		,[SampleColumnTwo_Cur]
 		,[SampleColumnTwo_Hist]
+		,[templateDimCoreName_IsMissing]
 		,[Ctl_CurrentFlag]
 		,[Ctl_EffectiveDate]
 		,[Ctl_EndDate_Excl]
@@ -84,6 +88,7 @@ BEGIN
 		,'Fred'		--[SampleColumnOne_Hist]
 		,'10'		--[SampleColumnTwo_Cur]
 		,'1'		--[SampleColumnTwo_Hist]
+		,0		--[templateDimCoreName_IsMissing]
 		,0		--[Ctl_CurrentFlag]
 		,'1900-01-01'		--[Ctl_EffectiveDate]
 		,'2000-01-01'		--[Ctl_EndDate_Excl]
@@ -94,6 +99,7 @@ BEGIN
 		,'FredPrime'		--[SampleColumnOne_Hist]
 		,'10'		--[SampleColumnTwo_Cur]
 		,'1'		--[SampleColumnTwo_Hist]
+		,0		--[templateDimCoreName_IsMissing]
 		,0		--[Ctl_CurrentFlag]
 		,'2000-01-01'		--[Ctl_EffectiveDate]
 		,'2000-01-02'		--[Ctl_EndDate_Excl]
@@ -104,6 +110,7 @@ BEGIN
 		,'FredPrime'		--[SampleColumnOne_Hist]
 		,'10'		--[SampleColumnTwo_Cur]
 		,'10'		--[SampleColumnTwo_Hist]
+		,0		--[templateDimCoreName_IsMissing]
 		,1		--[Ctl_CurrentFlag]
 		,'2000-01-02'		--[Ctl_EffectiveDate]
 		,'9999-12-31'		--[Ctl_EndDate_Excl]
@@ -114,6 +121,7 @@ BEGIN
 		,'2'		--[SampleColumnOne_Hist]
 		,'2'		--[SampleColumnTwo_Cur]
 		,'2'		--[SampleColumnTwo_Hist]
+		,0		--[templateDimCoreName_IsMissing]
 		,1		--[Ctl_CurrentFlag]
 		,'1900-01-01'		--[Ctl_EffectiveDate]
 		,'9999-12-31'		--[Ctl_EndDate_Excl]
@@ -124,6 +132,7 @@ BEGIN
 		,'Fred'		--[SampleColumnOne_Hist]
 		,'20'		--[SampleColumnTwo_Cur]
 		,'2'		--[SampleColumnTwo_Hist]
+		,0		--[templateDimCoreName_IsMissing]
 		,0		--[Ctl_CurrentFlag]
 		,'1900-01-01'		--[Ctl_EffectiveDate]
 		,'2000-01-02'		--[Ctl_EndDate_Excl]
@@ -134,6 +143,7 @@ BEGIN
 		,'Fred'		--[SampleColumnOne_Hist]
 		,'20'		--[SampleColumnTwo_Cur]
 		,'20'		--[SampleColumnTwo_Hist]
+		,0		--[templateDimCoreName_IsMissing]
 		,1		--[Ctl_CurrentFlag]
 		,'2000-01-02'		--[Ctl_EffectiveDate]
 		,'9999-12-31'		--[Ctl_EndDate_Excl]
@@ -144,6 +154,7 @@ BEGIN
 		,'Context Not Specified'		--[SampleColumnOne_Hist]
 		,'Context Not Specified'		--[SampleColumnTwo_Cur]
 		,'Context Not Specified'		--[SampleColumnTwo_Hist]
+		,1		--[templateDimCoreName_IsMissing]
 		,1		--[Ctl_CurrentFlag]
 		,'1900-01-01'		--[Ctl_EffectiveDate]
 		,'9999-12-31'		--[Ctl_EndDate_Excl]
@@ -154,6 +165,7 @@ BEGIN
 		,[SampleColumnOne_Hist]
 		,[SampleColumnTwo_Cur]
 		,[SampleColumnTwo_Hist]
+		,[templateDimCoreName_IsMissing]
 		,[Ctl_CurrentFlag]
 		,[Ctl_EffectiveDate]
 		,[Ctl_EndDate_Excl]

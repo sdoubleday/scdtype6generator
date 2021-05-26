@@ -10,6 +10,7 @@
 	 [SampleColumnOne_Hist] VARCHAR(500) NOT NULL		/*DimensionAttribute_ReplacementPoint|SampleColumnOne|,*/
 	,[SampleColumnTwo_Cur] VARCHAR(500) NOT NULL		/*Sample*/
 	,[SampleColumnTwo_Hist] VARCHAR(500) NOT NULL		/*Sample*/
+	,[templateDimCoreName_IsMissing] BIT NOT NULL CONSTRAINT [df_dimensionSchema_templateDimCoreName_IsMissing] DEFAULT (0)
 	,[Ctl_CurrentFlag] BIT NOT NULL
 	,[Ctl_EffectiveDate] DATETIME2(7) NOT NULL
 	,[Ctl_EndDate_Excl] DATETIME2(7) NOT NULL

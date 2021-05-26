@@ -16,6 +16,7 @@ INSERT INTO [dimensionSchema].[templateDimCoreName_Dim]
  [SampleColumnOne_Hist]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne|,*/
 ,[SampleColumnTwo_Cur]			/*Sample*/
 ,[SampleColumnTwo_Hist]			/*Sample*/
+,[templateDimCoreName_IsMissing]
 ,[Ctl_CurrentFlag]
 ,[Ctl_EffectiveDate]
 ,[Ctl_EndDate_Excl]
@@ -31,6 +32,7 @@ SELECT
  [SampleColumnOne_Hist]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne|,*/
 ,[SampleColumnTwo_Cur]			/*Sample*/
 ,[SampleColumnTwo_Hist]			/*Sample*/
+,[templateDimCoreName_IsMissing]
 ,[Ctl_CurrentFlag]
 ,[Ctl_EffectiveDate]
 ,[Ctl_EndDate_Excl]
@@ -47,6 +49,7 @@ VALUES (
 ,@MissingMemberString			/*Sample*/
 ,@MissingMemberString			/*Sample*/
 ,1
+,1
 ,CONVERT(DATETIME2,'1900-01-01',102)
 ,CONVERT(datetime2,'9999-12-31',102)
 )
@@ -62,6 +65,7 @@ VALUES (
  [SampleColumnOne_Hist]			/*DimensionAttribute_ReplacementPoint|SampleColumnOne|,*/
 ,[SampleColumnTwo_Cur]			/*Sample*/
 ,[SampleColumnTwo_Hist]			/*Sample*/
+,[templateDimCoreName_IsMissing]
 ,[Ctl_CurrentFlag]
 ,[Ctl_EffectiveDate]
 ,[Ctl_EndDate_Excl]
