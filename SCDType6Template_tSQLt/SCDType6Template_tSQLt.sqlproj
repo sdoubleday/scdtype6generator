@@ -807,6 +807,7 @@
     <Build Include="templateSchema__templateDimCoreName_predim_Step5_Check_OneRowPerKey_usp\Stored Procedures\test Silent if no NK constellation repeats.sql" />
     <Build Include="templateSchema__templateDimCoreName_dimSetup_Idempotent_MissingMember_usp\Stored Procedures\test @Force = 1 Does Update.sql" />
     <Build Include="templateSchema__templateDimCoreName_dimSetup_Idempotent_MissingMember_usp\Stored Procedures\test IsMissing column set to 1.sql" />
+    <Build Include="templateSchema__templateDimCoreName_dimSetup_Idempotent_MissingMember_usp\Stored Procedures\test IsMissing column reset to 1 every time.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\tSQLtCLR.dll" />
