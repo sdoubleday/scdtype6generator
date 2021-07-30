@@ -59,80 +59,29 @@ namespace GenerateSCDType6Files
             List<String> listOfCtl = listOfColumns.Where(mystring => mystring.StartsWith("Ctl_")).ToList<String>();
             //We should error out if table/view exists and listOfCtl <> List<String>{"Ctl_EffectiveDate"}
 
-
-            //Something like:
-            //method list all files in template directory to output directory, get string renaming them to swap out the templateDimCoreName in the file name.
-            //StreamReader the source file. Foreach line, create line processor for nk, get back line. Create line processor for dim (with that returned line), get back line.
-            //StreamWriter out the line to a file with the new name in output directory.
-            //
-
-            List<String> templateFiles = new List<string>{
-                 "Stored Procedures\\templateDimCoreName_dimSetup_Idempotent_MissingMember_usp.sql"
-                ,"Stored Procedures\\templateDimCoreName_dimUpsert_Step1_Update_usp.sql"
-                ,"Stored Procedures\\templateDimCoreName_dimUpsert_Step2_Insert_usp.sql"
-                ,"Stored Procedures\\templateDimCoreName_orchestration_usp.sql"
-                ,"Stored Procedures\\templateDimCoreName_predim_orchestration_usp.sql"
-                ,"Stored Procedures\\templateDimCoreName_predim_setup_clearTables_usp.sql"
-                ,"Stored Procedures\\templateDimCoreName_predim_Step1_copycurrent_usp.sql"
-                ,"Stored Procedures\\templateDimCoreName_predim_Step2_prep_usp.sql"
-                ,"Stored Procedures\\templateDimCoreName_predim_Step3_prep_updateSCDStatus_usp.sql"
-                ,"Stored Procedures\\templateDimCoreName_predim_Step4_prep_DeleteIgnorable.sql"
-                ,"Stored Procedures\\templateDimCoreName_predim_Step5_Check_OneRowPerKey_usp.sql"
-                //,"Tables\\templateDimCoreName_dimSrc_stg.sql"
-                ,"Tables\\templateDimCoreName_predim_copycurrent.sql"
-                ,"Tables\\templateDimCoreName_predim_prep.sql"
-                ,"Views\\templateDimCoreName_dimUpsert_GetMaxSK_vw.sql"
-                ,"Views\\templateDimCoreName_dimUpsert_Step2_Insert_SelectClause_vw.sql"
-                ,"Views\\templateDimCoreName_FindUpdates_vw.sql"
-                ,"Views\\templateDimCoreName_predim_Step2_prep_columnTransformations_vw.sql"
-                };
-
-            foreach (String file in templateFiles)
-            {
-                TransformFileInFlight(templateDimCoreName, parsedArgs.SCDType6TemplateDirectory, parsedArgs.OutputDirectory, parsedArgs.DimensionSchema, parsedArgs.templateSchema, StagingSchema, lineProcessorConfigNK, lineProcessorConfigDim, file);
-
-            }
-
-            string dimFile = "Tables\\templateDimCoreName_Dim.sql";
-            TransformFileInFlight(templateDimCoreName, parsedArgs.SCDType6DimensionDirectory, parsedArgs.OutputDirectory, parsedArgs.DimensionSchema, parsedArgs.templateSchema, StagingSchema, lineProcessorConfigNK, lineProcessorConfigDim, dimFile);
-            string dimSKLookupFile = "Functions\\templateDimCoreName_DimSKLookup_usvf.sql";
-            TransformFileInFlight(templateDimCoreName, parsedArgs.SCDType6DimensionDirectory, parsedArgs.OutputDirectory, parsedArgs.DimensionSchema, parsedArgs.templateSchema, StagingSchema, lineProcessorConfigNK, lineProcessorConfigDim, dimSKLookupFile);
+            StringReplacementPair stringReplacementPair_1 = new StringReplacementPair("templateDimCoreName", templateDimCoreName);
+            StringReplacementPair stringReplacementPair_2 = new StringReplacementPair("templateSchema", parsedArgs.templateSchema);
+            StringReplacementPair stringReplacementPair_3 = new StringReplacementPair("dimensionSchema", parsedArgs.DimensionSchema);
+            StringReplacementPair stringReplacementPair_4 = new StringReplacementPair("StagingSchema", StagingSchema);
 
 
+            List<StringReplacementPair> replacementPairs = new List<StringReplacementPair> {
+                     stringReplacementPair_1
+                    ,stringReplacementPair_2
+                    ,stringReplacementPair_3
+                    ,stringReplacementPair_4
+            } ;
+            List<LineProcessorConfig> lineProcessorConfigs = new List<LineProcessorConfig> { lineProcessorConfigNK, lineProcessorConfigDim };
 
-            Console.WriteLine(templateDimCoreName);
-            Console.WriteLine(String.Join("\r\n", lineProcessorConfigDim.perLineSubstitutions.ToArray()));
-            Console.WriteLine(String.Join("\r\n", lineProcessorConfigNK.perLineSubstitutions.ToArray()));
-        }
+            FileListerReplacerPairer fileListerReplacerPairer = new FileListerReplacerPairer(parsedArgs.SCDType6TemplateDirectory, parsedArgs.OutputDirectory,replacementPairs);
+            FileListerReplacerPairer fileListerReplacerPairer_dimSchema = new FileListerReplacerPairer(parsedArgs.SCDType6DimensionDirectory, parsedArgs.OutputDirectory, replacementPairs);
 
-        public static void TransformFileInFlight(string templateDimCoreName, string SCDType6TemplateDirectory, string OutputDirectory, string DimensionSchema, string templateSchema, string StagingSchema, LineProcessorConfig lineProcessorConfigNK, LineProcessorConfig lineProcessorConfigDim, string file)
-        //      public static void TransformFileInFlight(string templateDimCoreName, ParsedArgs parsedArgs, string StagingSchema, LineProcessorConfig lineProcessorConfigNK, LineProcessorConfig lineProcessorConfigDim, string file)
-        {
-            String source = SCDType6TemplateDirectory + file;
-            String destination = OutputDirectory + file.Split('\\')[1].Replace("templateDimCoreName", templateDimCoreName);
-            using (StreamReader reader = new StreamReader(source))
-            using (StreamWriter writer = new StreamWriter(destination, false, Encoding.UTF8))
-            {
-                while (!reader.EndOfStream)
-                {
-                    string line = reader.ReadLine();
-                    line = line.Replace("templateDimCoreName", templateDimCoreName);
-                    line = line.Replace("templateSchema", templateSchema);
-                    line = line.Replace("dimensionSchema", DimensionSchema);
-                    line = line.Replace("StagingSchema", StagingSchema);
-                    if (!line.Contains("/*Sample*/"))
-                    {
-                        LineProcessor lineProcessorNK = new LineProcessor(line, lineProcessorConfigNK);
-                        line = lineProcessorNK.GetLine();
-                        LineProcessor lineProcessorDim = new LineProcessor(line, lineProcessorConfigDim);
-                        line = lineProcessorDim.GetLine();
+            List<FilePathPair> filePathPairs = new List<FilePathPair>();
+            filePathPairs.AddRange(fileListerReplacerPairer.sourceAndDestinationFilePaths);
+            filePathPairs.AddRange(fileListerReplacerPairer_dimSchema.sourceAndDestinationFilePaths);
 
-                        writer.WriteLine(line);
-                    }
-
-                }
-
-            }
+            FileInFlightTransformer fileInFlightTransformer = new FileInFlightTransformer(filePathPairs, replacementPairs, lineProcessorConfigs);
+            fileInFlightTransformer.ReadTransformWrite();
         }
 
         public static string GetObjectName(TSqlObject obj)

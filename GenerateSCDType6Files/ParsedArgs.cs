@@ -18,8 +18,8 @@ namespace GenerateSCDType6Files
         public ParsedArgs(string[] args)
         { 
             this.DacPacFileName = args[0];
-            this.SCDType6TemplateDirectory = AppDomain.CurrentDomain.BaseDirectory + "\\..\\..\\..\\SCDType6Template\\templateSchema\\";
-            this.SCDType6DimensionDirectory = AppDomain.CurrentDomain.BaseDirectory + "\\..\\..\\..\\SCDType6Template\\dimensionSchema\\";
+            this.SCDType6TemplateDirectory = AppDomain.CurrentDomain.BaseDirectory + "\\templateSchema";
+            this.SCDType6DimensionDirectory = AppDomain.CurrentDomain.BaseDirectory + "\\dimensionSchema";
             this.OutputDirectory = args[1];
             this.DimensionSchema = args[2];
             this.templateSchema = args[3];
