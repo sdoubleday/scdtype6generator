@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ContentWithTargetPath Include="..\SCDType6Template\**">
+    <ContentWithTargetPath Include="..\SCDType6Template\**\*.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>%(RecursiveDir)\%(Filename)%(Extension)</TargetPath>
     </ContentWithTargetPath>
