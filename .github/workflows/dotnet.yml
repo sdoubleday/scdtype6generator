@@ -32,7 +32,7 @@ jobs:
           release_name="GenerateSCDType6Files-$tag-${{ matrix.target }}"
 
           # Build everything
-          dotnet publish src/GenerateSCDType6Files/GenerateSCDType6Files.csproj --framework net5.0 --runtime "${{ matrix.target }}" -c Release -o "$release_name"
+          dotnet publish ./GenerateSCDType6Files/GenerateSCDType6Files.csproj --framework net5.0 --runtime "${{ matrix.target }}" -c Release -o "$release_name"
 
           # Pack files
           if [ "${{ matrix.target }}" == "win-x64" ]; then
