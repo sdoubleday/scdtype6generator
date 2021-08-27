@@ -15,7 +15,19 @@ IF OBJECT_ID('tempdb..[#DataBuilder_dimensionSchema_templateDimCoreName_Dim]') I
 BEGIN
 	DROP TABLE [#DataBuilder_dimensionSchema_templateDimCoreName_Dim];
 END
-SELECT TOP 0 * INTO [#DataBuilder_dimensionSchema_templateDimCoreName_Dim] FROM [dimensionSchema].[templateDimCoreName_Dim];
+SELECT TOP 0
+ [SK_templateDimCoreName]
+,[NK_SourceSystemID1]
+,[NK_SourceSystemID2]
+,[SampleColumnOne_Cur]
+,[SampleColumnOne_Hist]
+,[SampleColumnTwo_Cur]
+,[SampleColumnTwo_Hist]
+,[templateDimCoreName_IsMissing]
+,[Ctl_CurrentFlag]
+,[Ctl_EffectiveDate]
+,[Ctl_EndDate_Excl]
+INTO [#DataBuilder_dimensionSchema_templateDimCoreName_Dim] FROM [dimensionSchema].[templateDimCoreName_Dim];
 
 INSERT INTO [#DataBuilder_dimensionSchema_templateDimCoreName_Dim](
  [SK_templateDimCoreName]
@@ -40,7 +52,19 @@ INSERT INTO [#DataBuilder_dimensionSchema_templateDimCoreName_Dim](
 ,@Ctl_EffectiveDate
 ,@Ctl_EndDate_Excl
 ;
-DECLARE @sql NVARCHAR(MAX) = N'INSERT INTO [dimensionSchema].[templateDimCoreName_Dim] SELECT * FROM [#DataBuilder_dimensionSchema_templateDimCoreName_Dim];';
+DECLARE @sql NVARCHAR(MAX) = N'INSERT INTO [dimensionSchema].[templateDimCoreName_Dim] SELECT
+ [SK_templateDimCoreName]
+,[NK_SourceSystemID1]
+,[NK_SourceSystemID2]
+,[SampleColumnOne_Cur]
+,[SampleColumnOne_Hist]
+,[SampleColumnTwo_Cur]
+,[SampleColumnTwo_Hist]
+,[templateDimCoreName_IsMissing]
+,[Ctl_CurrentFlag]
+,[Ctl_EffectiveDate]
+,[Ctl_EndDate_Excl]
+FROM [#DataBuilder_dimensionSchema_templateDimCoreName_Dim];';
 EXECUTE sp_executesql @sql;
 RETURN 0
 
