@@ -14,6 +14,7 @@
 	,[Ctl_CurrentFlag] BIT NOT NULL
 	,[Ctl_EffectiveDate] DATETIME2(7) NOT NULL
 	,[Ctl_EndDate_Excl] DATETIME2(7) NOT NULL
+	,[Ctl_rowversion] ROWVERSION NOT NULL
 	,CONSTRAINT [pk_dimensionSchema_templateDimCoreName_Dim] PRIMARY KEY CLUSTERED ([SK_templateDimCoreName])
 	,INDEX [ncind_dimensionSchema_templateDimCoreName_Dim_CurrentNKLookup] NONCLUSTERED (
 		 [Ctl_CurrentFlag]
