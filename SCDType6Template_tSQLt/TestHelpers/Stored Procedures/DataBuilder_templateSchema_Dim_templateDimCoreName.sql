@@ -52,7 +52,21 @@ INSERT INTO [#DataBuilder_dimensionSchema_templateDimCoreName_Dim](
 ,@Ctl_EffectiveDate
 ,@Ctl_EndDate_Excl
 ;
-DECLARE @sql NVARCHAR(MAX) = N'INSERT INTO [dimensionSchema].[templateDimCoreName_Dim] SELECT
+DECLARE @sql NVARCHAR(MAX) = N'INSERT INTO [dimensionSchema].[templateDimCoreName_Dim]
+(
+ [SK_templateDimCoreName]
+,[NK_SourceSystemID1]
+,[NK_SourceSystemID2]
+,[SampleColumnOne_Cur]
+,[SampleColumnOne_Hist]
+,[SampleColumnTwo_Cur]
+,[SampleColumnTwo_Hist]
+,[templateDimCoreName_IsMissing]
+,[Ctl_CurrentFlag]
+,[Ctl_EffectiveDate]
+,[Ctl_EndDate_Excl]
+)
+SELECT
  [SK_templateDimCoreName]
 ,[NK_SourceSystemID1]
 ,[NK_SourceSystemID2]
