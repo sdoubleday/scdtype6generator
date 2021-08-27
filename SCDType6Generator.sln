@@ -3,17 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCDType6Generator", "SCDType6Generator\SCDType6Generator.csproj", "{597D66F1-68C5-4BDB-9E09-872F988552B8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTests", "NUnitTests\NUnitTests.csproj", "{0C3A97DA-EB5B-4A95-8B4C-5F6A99EDCDCA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadColumnsFromDacpac", "LoadColumnsFromDacpac\LoadColumnsFromDacpac.csproj", "{DEB8624A-E87D-4F1D-9078-975203A321D0}"
-EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SCDType6Template", "SCDType6Template\SCDType6Template.sqlproj", "{452E01F5-BF4E-48E5-8E27-5E194F429505}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SCDType6Template_tSQLt", "SCDType6Template_tSQLt\SCDType6Template_tSQLt.sqlproj", "{5128EFDB-2507-4520-8B55-94621C68665C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateSCDType6Files", "GenerateSCDType6Files\GenerateSCDType6Files.csproj", "{40618913-1DCD-4A2D-A325-53D5265887A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenerateSCDType6Files", "GenerateSCDType6Files\GenerateSCDType6Files.csproj", "{40618913-1DCD-4A2D-A325-53D5265887A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,18 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{597D66F1-68C5-4BDB-9E09-872F988552B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{597D66F1-68C5-4BDB-9E09-872F988552B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{597D66F1-68C5-4BDB-9E09-872F988552B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{597D66F1-68C5-4BDB-9E09-872F988552B8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C3A97DA-EB5B-4A95-8B4C-5F6A99EDCDCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C3A97DA-EB5B-4A95-8B4C-5F6A99EDCDCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C3A97DA-EB5B-4A95-8B4C-5F6A99EDCDCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C3A97DA-EB5B-4A95-8B4C-5F6A99EDCDCA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DEB8624A-E87D-4F1D-9078-975203A321D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DEB8624A-E87D-4F1D-9078-975203A321D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DEB8624A-E87D-4F1D-9078-975203A321D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DEB8624A-E87D-4F1D-9078-975203A321D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{452E01F5-BF4E-48E5-8E27-5E194F429505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{452E01F5-BF4E-48E5-8E27-5E194F429505}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{452E01F5-BF4E-48E5-8E27-5E194F429505}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
