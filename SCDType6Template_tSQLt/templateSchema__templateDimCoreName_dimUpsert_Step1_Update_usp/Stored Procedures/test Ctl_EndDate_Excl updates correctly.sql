@@ -8,9 +8,9 @@ BEGIN
 	EXECUTE tSQLt.FakeTable @TableName = '[dimensionSchema].[templateDimCoreName_Dim]';
 	EXECUTE tSQLt.FakeTable @TableName = '[templateSchema].[templateDimCoreName_predim_prep]';
 
-	EXECUTE [TestHelpers].[DataBuilder_dimensionSchema_templateDimCoreName_Dim] @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 11, @Ctl_CurrentFlag = 1, @Ctl_EffectiveDate = '1900-01-01', @Ctl_EndDate_Excl = '9999-12-31';
+	EXECUTE [TestHelpers].[DataBuilder_dimensionSchema_templateDimCoreName_Dim] @SNK_templateDimCoreName = 1, @Ctl_CurrentFlag = 1, @Ctl_EffectiveDate = '1900-01-01', @Ctl_EndDate_Excl = '9999-12-31';
 
-	EXECUTE [TestHelpers].[DataBuilder_templateSchema_templateDimCoreName_predim_prep] @NK_SourceSystemID1 = 1, @NK_SourceSystemID2 = 11, @Ctl_EffectiveDate = '2000-01-01';
+	EXECUTE [TestHelpers].[DataBuilder_templateSchema_templateDimCoreName_predim_prep] @SNK_templateDimCoreName = 1, @Ctl_EffectiveDate = '2000-01-01';
 
 	--ACT
 	EXECUTE [templateSchema].[templateDimCoreName_dimUpsert_Step1_Update_usp];

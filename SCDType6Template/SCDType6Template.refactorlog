@@ -96,4 +96,24 @@
     <Property Name="ParentElementType" Value="SqlSchema" />
     <Property Name="NewName" Value="[templateDimCoreName_Predim_ControlFlow_IsStgATable_usp]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="f451bc10-6ad0-46ff-91d1-8b129fe8d8fe" ChangeDateTime="09/10/2021 15:07:19">
+    <Property Name="ElementName" Value="[templateSchema].[templateDimCoreName_dimUpsert_GetMaxSNK_vw]" />
+    <Property Name="ElementType" Value="SqlView" />
+    <Property Name="ParentElementName" Value="[templateSchema]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[templateDimCoreName_predim_GetMaxSNK_vw]" />
+  </Operation>
+  <Operation Name="Move Schema" Key="47eb5496-2d50-43e7-ba90-7d5dbe2448da" ChangeDateTime="09/10/2021 17:13:07">
+    <Property Name="ElementName" Value="[templateSchema].[templateDimCoreName_predim_copycurrent]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="NewSchema" Value="dimensionSchema" />
+    <Property Name="IsNewSchemaExternal" Value="False" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4f4ba25f-2cee-40d2-9167-766e2b5d5c68" ChangeDateTime="09/10/2021 17:14:16">
+    <Property Name="ElementName" Value="[dimensionSchema].[templateDimCoreName_predim_copycurrent]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[dimensionSchema]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[templateDimCoreName_T1_dim]" />
+  </Operation>
 </Operations>

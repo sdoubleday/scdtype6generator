@@ -1,6 +1,7 @@
 ﻿CREATE TABLE [dimensionSchema].[templateDimCoreName_Dim]
 (
 	 [SK_templateDimCoreName] INT NOT NULL
+	,[SNK_templateDimCoreName] INT NOT NULL
 	,
 	 [NK_SourceSystemID1] NVARCHAR(500) NOT NULL					/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
 	,[NK_SourceSystemID2] NVARCHAR(500) NOT NULL					/*Sample*/
@@ -21,7 +22,8 @@
 		,
 		 [NK_SourceSystemID1]		/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
 		,[NK_SourceSystemID2]		/*Sample*/
-		,[SK_templateDimCoreName])
+		,[SK_templateDimCoreName]
+		,[SNK_templateDimCoreName])
 	,INDEX [ncind_dimensionSchema_templateDimCoreName_Dim_CurrentSKLookup] NONCLUSTERED ([Ctl_CurrentFlag],[SK_templateDimCoreName])
 	,INDEX [ncind_dimensionSchema_templateDimCoreName_Dim_NKLookup] NONCLUSTERED (
 		 [NK_SourceSystemID1]		/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/

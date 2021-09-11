@@ -14,6 +14,7 @@ END AS [Ctl_EffectiveDate]
 	THEN 'NEW'
 	ELSE 'PENDING'
 END AS [SCD_Status]
+,dim.[SNK_templateDimCoreName] AS [dim__SNK_templateDimCoreName]
 FROM [StagingSchema].[templateDimCoreName_dimSrc_stg] stg
 LEFT OUTER JOIN [dimensionSchema].[templateDimCoreName_Dim] dim
 ON dim.[Ctl_CurrentFlag] = 1

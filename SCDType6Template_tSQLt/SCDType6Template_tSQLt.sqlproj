@@ -787,7 +787,6 @@
     <Build Include="Security\templateSchema__templateDimCoreName_dimUpsert_Step2_Insert_SelectClause_vw.sql" />
     <Build Include="templateSchema__templateDimCoreName_dimUpsert_Step2_Insert_SelectClause_vw\Stored Procedures\test SK Increments Correctly.sql" />
     <Build Include="TestHelpers\Stored Procedures\DataBuilder_templateSchema_templateDimCoreName_predim_prep.sql" />
-    <Build Include="TestHelpers\Stored Procedures\DataBuilder_templateSchema_Dim_templateDimCoreName.sql" />
     <Build Include="Security\templateSchema__templateDimCoreName_predim_orchestration_usp.sql" />
     <Build Include="templateSchema__templateDimCoreName_predim_orchestration_usp\Stored Procedures\test No PENDING rows after execution.sql" />
     <Build Include="Security\templateSchema__templateDimCoreName_dimUpsert_Step1_Update_usp.sql" />
@@ -808,6 +807,11 @@
     <Build Include="templateSchema__templateDimCoreName_dimSetup_Idempotent_MissingMember_usp\Stored Procedures\test @Force = 1 Does Update.sql" />
     <Build Include="templateSchema__templateDimCoreName_dimSetup_Idempotent_MissingMember_usp\Stored Procedures\test IsMissing column set to 1.sql" />
     <Build Include="templateSchema__templateDimCoreName_dimSetup_Idempotent_MissingMember_usp\Stored Procedures\test IsMissing column reset to 1 every time.sql" />
+    <Build Include="TestHelpers\Stored Procedures\DataBuilder_dimensionSchema_templateDimCoreName_Dim.sql" />
+    <Build Include="templateSchema__templateDimCoreName_orchestration_usp\Stored Procedures\test Dim T1 Load.sql" />
+    <Build Include="TestHelpers\Stored Procedures\DataBuilder_dimensionSchema_templateDimCoreName_T1_dim.sql" />
+    <Build Include="templateSchema__templateDimCoreName_orchestration_usp\Stored Procedures\test Dim T1 Load Part 1.sql" />
+    <Build Include="templateSchema__templateDimCoreName_orchestration_usp\Stored Procedures\test Dim T1 Load Part 2.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\tSQLtCLR.dll" />

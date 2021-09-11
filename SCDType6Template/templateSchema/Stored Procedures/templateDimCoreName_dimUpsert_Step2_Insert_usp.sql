@@ -4,6 +4,7 @@ AS
 INSERT INTO [dimensionSchema].[templateDimCoreName_Dim]
 (
  [SK_templateDimCoreName]
+,[SNK_templateDimCoreName]
 ,
  [NK_SourceSystemID1]			/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
 ,[NK_SourceSystemID2]			/*Sample*/
@@ -19,6 +20,7 @@ INSERT INTO [dimensionSchema].[templateDimCoreName_Dim]
 )
 SELECT
  [SK_templateDimCoreName]
+,[SNK_templateDimCoreName]
 ,
  [NK_SourceSystemID1]			/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
 ,[NK_SourceSystemID2]			/*Sample*/

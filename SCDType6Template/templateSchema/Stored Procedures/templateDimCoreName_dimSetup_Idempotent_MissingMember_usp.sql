@@ -1,12 +1,14 @@
 ﻿CREATE PROCEDURE [templateSchema].[templateDimCoreName_dimSetup_Idempotent_MissingMember_usp]
 	@MissingMemberString VARCHAR(500) = 'Context Not Specified'
 	,@MissingMemberSK INT = -1
+	,@MissingMemberSNK INT = -1
 	,@MissingMemberNK INT = -1
 	,@Force BIT = 0
 AS
 INSERT INTO [dimensionSchema].[templateDimCoreName_Dim]
 (
  [SK_templateDimCoreName]
+,[SNK_templateDimCoreName]
 ,
  [NK_SourceSystemID1]			/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
 ,[NK_SourceSystemID2]			/*Sample*/
@@ -22,6 +24,7 @@ INSERT INTO [dimensionSchema].[templateDimCoreName_Dim]
 )
 SELECT
  [SK_templateDimCoreName]
+,[SNK_templateDimCoreName]
 ,
  [NK_SourceSystemID1]			/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
 ,[NK_SourceSystemID2]			/*Sample*/
@@ -37,6 +40,7 @@ SELECT
 FROM (
 VALUES (
  @MissingMemberSK
+,@MissingMemberSNK
 ,
  @MissingMemberNK			/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
 ,@MissingMemberNK			/*Sample*/
@@ -53,6 +57,7 @@ VALUES (
 
 ) as a (
  [SK_templateDimCoreName]
+,[SNK_templateDimCoreName]
 ,
  [NK_SourceSystemID1]			/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
 ,[NK_SourceSystemID2]			/*Sample*/
@@ -88,4 +93,11 @@ BEGIN
 
 	WHERE [SK_templateDimCoreName] = @MissingMemberSK
 END
+;
+
+EXECUTE [templateSchema].[templateDimCoreName_dimSetup_T1_Idempotent_MissingMember_usp]
+	@MissingMemberString = @MissingMemberString
+	,@MissingMemberSNK = @MissingMemberSNK
+	,@MissingMemberNK = @MissingMemberNK
+	,@Force = @Force
 ;

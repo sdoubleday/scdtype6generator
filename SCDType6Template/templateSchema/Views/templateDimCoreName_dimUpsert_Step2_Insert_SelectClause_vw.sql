@@ -2,6 +2,7 @@
 AS
 SELECT
  ROW_NUMBER() OVER (ORDER BY GetMaxSK.[MaxSK]) + GetMaxSK.[MaxSK] AS [SK_templateDimCoreName]
+,prep.[SNK_templateDimCoreName]
 ,
  prep.[NK_SourceSystemID1] AS [NK_SourceSystemID1]			/*NaturalKey_ReplacementPoint|NK_SourceSystemID1|,*/
 ,prep.[NK_SourceSystemID2] AS [NK_SourceSystemID2]			/*Sample*/
