@@ -70,7 +70,6 @@
   <ItemGroup>
     <Build Include="Security\templateSchema.sql" />
     <Build Include="templateSchema\Tables\templateDimCoreName_predim_prep.sql" />
-    <Build Include="templateSchema\Stored Procedures\templateDimCoreName_predim_Step1_copycurrent_usp.sql" />
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_predim_Step2_prep_usp.sql" />
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_predim_Step3_prep_updateSCDStatus_usp.sql" />
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_dimUpsert_Step1_Update_usp.sql" />
