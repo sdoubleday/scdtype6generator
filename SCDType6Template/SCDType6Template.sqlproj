@@ -95,6 +95,7 @@
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_dimUpsert_T1_Step1_Update_usp.sql" />
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_dimUpsert_T1_Step2_Insert_usp.sql" />
     <Build Include="templateSchema\Stored Procedures\templateDimCoreName_dimSetup_T1_Idempotent_MissingMember_usp.sql" />
+    <Build Include="templateSchema\Stored Procedures\templateDimCoreName_dimSetup_PostUpgradeInitialization_0dot1_CreateSNKValuesAndPopulateT1_usp.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SCDType6Template.refactorlog" />
